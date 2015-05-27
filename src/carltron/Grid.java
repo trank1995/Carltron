@@ -14,7 +14,6 @@ public class Grid {
     }
 
     private int getWidth(){
-
     return WIDTH;
     }
 
@@ -22,12 +21,12 @@ public class Grid {
     return HEIGHT;
     }
 
-    private void setWidth(){
-
+    private void setWidth(int givenWidth){
+    WIDTH = givenWidth;
     }
 
-    private void setHeight(){
-
+    private void setHeight(int givenHeight){
+    HEIGHT = givenHeight;
     }
 
 }
