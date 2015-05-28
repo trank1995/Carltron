@@ -152,7 +152,8 @@ public class GameManager implements EventHandler<KeyEvent> {
             this.player2.setVeloctiyX(0);
         // turbo 2nd player?
         } else if (code == KeyCode.ENTER) {
-            // velocityX to be 2x and Y to be 2y.
+            // velocityX to be 2x and Y to be 2y. This works as one of the two
+            // will be 0, and 2*0 is still 0.
             this.player2.setVelocityY(this.player2.getVelocityY() * 2);
             this.player2.setVelocityX(this.player2.getVelocityX() * 2);
         // jump 2nd player?
@@ -181,7 +182,8 @@ public class GameManager implements EventHandler<KeyEvent> {
             this.player1.setVeloctiyX(0);
         // turbo 1st player?
         } else if (code == KeyCode.Q) {
-            // velocityX to be 2x and Y to be 2y.
+            // velocityX to be 2x and Y to be 2y. This works as one of the two
+            // will be 0, and 2*0 is still 0.
             this.player1.setVelocityY(this.player1.getVelocityY() * 2);
             this.player1.setVelocityX(this.player1.getVelocityX() * 2);
         // jump 1st player?
