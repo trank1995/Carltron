@@ -72,7 +72,38 @@ public class GameManager implements EventHandler<KeyEvent> {
     }
 
     public void updateAnimation() {
-        // do something
+        // find new position of player1
+        // find new position of player2
+
+
+        // player1 went of the grid (top)
+
+        // player1 went of the grid (bottom)
+
+        // player1 went of the grid (left)
+
+        // player1 went of the grid (right)
+
+        // player2 went of the grid (top)
+
+        // player2 went of the grid (bottom)
+
+        // player2 went of the grid (left)
+
+        // player2 went of the grid (right)
+
+
+        // check if player1 crashed
+
+        // check if player2 crashed
+
+
+        // update the position of player1 (set velocity to normal from turbo)
+        // update the position of player2 (set velocity to normal from turbo)
+
+
+        this.player1.step();
+        this.player2.step();
     }
 
     @Override
@@ -107,13 +138,20 @@ public class GameManager implements EventHandler<KeyEvent> {
         // jump 1st player?
         } else if (code == KeyCode.E) {
             // do something
+        // protector 1st player?
+        } else if (cdoe == KeyCode.R) {
+            // do something
         // turbo 2nd player?
         } else if (code == KeyCode.ENTER) {
             // do something
         // jump 2nd player?
         } else if (code == KeyCode.SHIFT) {
             // do something
+        // protector 2nd player?
+        } else if (code == KeyCode.SLASH) {
+            // do something
         }
+
         // if no critical key is pressed, we do not need to do anything to the
         // velocity of the LightCycles.
     }
