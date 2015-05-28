@@ -127,12 +127,6 @@ public class GameManager implements EventHandler<KeyEvent> {
 
         KeyCode code = keyEvent.getCode();
 
-        double player1PositionX = this.player1.getLayoutX();
-        double player1PositionY = this.player1.getLayoutY();
-        double player2PositionX = this.player2.getLayoutX();
-        double player2PositionY = this.player2.getLayoutY();
-        double stepSize = 15.0;
-
         // player 2
         if (code == KeyCode.LEFT) {
             // velocityX to -1 and Y to 0.
