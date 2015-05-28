@@ -72,9 +72,20 @@ public class GameManager implements EventHandler<KeyEvent> {
     }
 
     public void updateAnimation() {
+        // find position of player1
+        double player1X = this.player1.getLayoutX();
+        double player1Y = this.player1.getLayoutY();
+
+        // find position of player2
+        double player2X = this.player2.getLayoutX();
+        double player2Y = this.player2.getLayoutY();
+
+
         // find new position of player1
         // find new position of player2
 
+
+        // do checks:
 
         // player1 went of the grid (top)
 
@@ -93,9 +104,12 @@ public class GameManager implements EventHandler<KeyEvent> {
         // player2 went of the grid (right)
 
 
-        // check if player1 crashed
+        // check if player1 crashed with path
 
-        // check if player2 crashed
+        // check if player2 crashed with path
+
+        // check if player1 and player2 crashed with eachother
+        // --> this is a draw (tie).
 
 
         // update the position of player1 (set velocity to normal from turbo)
@@ -108,6 +122,9 @@ public class GameManager implements EventHandler<KeyEvent> {
 
     @Override
     public void handle(KeyEvent keyEvent) {
+        // only gets called when a key is pressed, so here we really only want
+        // to update the velocity and direction in which the player is moving.
+
         KeyCode code = keyEvent.getCode();
 
         double player1PositionX = this.player1.getLayoutX();
@@ -116,44 +133,67 @@ public class GameManager implements EventHandler<KeyEvent> {
         double player2PositionY = this.player2.getLayoutY();
         double stepSize = 15.0;
 
+        // player 2
         if (code == KeyCode.LEFT) {
-            // do something
+            // velocityX to -1 and Y to 0.
+            this.player2.setVelocityY(0);
+            this.player2.setVeloctiyX(-1);
         } else if (code == KeyCode.RIGHT) {
-            // do something
+            // velocityX to 1 and Y to 0.
+            this.player2.setVelocityY(0);
+            this.player2.setVeloctiyX(1);
         } else if (code == KeyCode.UP) {
-            // do something
+            // velocityX to 0 and Y to 1.
+            this.player2.setVelocityY(1);
+            this.player2.setVeloctiyX(0);
         } else if (code == KeyCode.DOWN) {
-            // do something
-        } else if (code == KeyCode.A) {
-            // do something
-        } else if (code == KeyCode.D) {
-            // do something
-        } else if (code == KeyCode.W) {
-            // do something
-        } else if (code == KeyCode.S) {
-            // do something
-        // turbo 1st player?
-        } else if (code == KeyCode.Q) {
-            // do something
-        // jump 1st player?
-        } else if (code == KeyCode.E) {
-            // do something
-        // protector 1st player?
-        } else if (cdoe == KeyCode.R) {
-            // do something
+            // velocityX to 0 and Y to -1.
+            this.player2.setVelocityY(-1);
+            this.player2.setVeloctiyX(0);
         // turbo 2nd player?
         } else if (code == KeyCode.ENTER) {
-            // do something
+            // velocityX to be 2x and Y to be 2y.
+            this.player2.setVelocityY(this.player2.getVelocityY() * 2);
+            this.player2.setVelocityX(this.player2.getVelocityX() * 2);
         // jump 2nd player?
         } else if (code == KeyCode.SHIFT) {
             // do something
         // protector 2nd player?
         } else if (code == KeyCode.SLASH) {
             // do something
+
+        // player 1
+        } else if (code == KeyCode.A) {
+            // velocityX to -1 and Y to 0.
+            this.player1.setVelocityY(0);
+            this.player1.setVeloctiyX(-1);
+        } else if (code == KeyCode.D) {
+            // velocityX to 1 and Y to 0.
+            this.player1.setVelocityY(0);
+            this.player1.setVeloctiyX(1);
+        } else if (code == KeyCode.W) {
+            // velocityX to 0 and Y to 1.
+            this.player1.setVelocityY(1);
+            this.player1.setVeloctiyX(0);
+        } else if (code == KeyCode.S) {
+            // velocityX to 0 and Y to -1.
+            this.player1.setVelocityY(-1);
+            this.player1.setVeloctiyX(0);
+        // turbo 1st player?
+        } else if (code == KeyCode.Q) {
+            // velocityX to be 2x and Y to be 2y.
+            this.player1.setVelocityY(this.player1.getVelocityY() * 2);
+            this.player1.setVelocityX(this.player1.getVelocityX() * 2);
+        // jump 1st player?
+        } else if (code == KeyCode.E) {
+            // do something
+        // protector 1st player?
+        } else if (cdoe == KeyCode.R) {
+            // do something
         }
 
         // if no critical key is pressed, we do not need to do anything to the
-        // velocity of the LightCycles.
+        // velocity and dircetion of the LightCycles.
     }
 
     public void onPauseButton(ActionEvent actionEvent) {
