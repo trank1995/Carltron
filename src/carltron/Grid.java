@@ -4,29 +4,29 @@ package carltron;
  * Created by shangd on 5/27/15.
  */
 public class Grid {
-    private int WIDTH;
-    private int HEIGHT;
+    private int width;
+    private int height;
 
     public Grid(){
-        WIDTH = 500;
-        HEIGHT = 500;
+        this.width = 500;
+        this.height = 500;
 
     }
 
     private int getWidth(){
-    return WIDTH;
+        return width;
     }
 
     private int getHeight(){
-    return HEIGHT;
+        return height;
     }
 
     private void setWidth(int givenWidth){
-    WIDTH = givenWidth;
+        this.width = givenWidth;
     }
 
     private void setHeight(int givenHeight){
-    HEIGHT = givenHeight;
+        this.height = givenHeight;
     }
 
 }
