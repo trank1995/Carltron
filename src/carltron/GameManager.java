@@ -4,6 +4,20 @@ public class GameManager implements EventHandler<KeyEvent> {
     final private double FRAMES_PER_SECOND = 20.0;
 
     @FXML private Button pauseButton;
+    @FXML private Rectangle player1;
+    @FXML private Rectangle player2;
+    @FXML private AnchorPane gameBoard;
+    @FXML private Label player1TurboLabel;
+    @FXML private Label player2TurboLabel;
+    @FXML private Label player1JumpLabel;
+    @FXML private Label player2JumpLabel;
+
+    private int player1_turbo;
+    private int player2_turbo;
+    private int player1_jump;
+    private int player2_jump;
+    private boolean paused;
+    private Timer timer;
 
     public GameManager() {
         this.paused = false;
@@ -38,7 +52,12 @@ public class GameManager implements EventHandler<KeyEvent> {
     @Override
     public void handle(KeyEvent keyEvent) {
         KeyCode code = keyEvent.getCode();
-        // do something
+
+        double player1PositionX = this.player1.getLayoutX();
+        double player1PositionY = this.player1.getLayoutY();
+        double player2PositionX = this.player2.getLayoutX();
+        double player2PositionY = this.player2.getLayoutY();
+        double stepSize = 15.0;
 
         if (code == KeyCode.LEFT) {
             // do something
