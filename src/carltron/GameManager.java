@@ -27,16 +27,26 @@ public class GameManager implements EventHandler<KeyEvent> {
     @FXML private Label player2TurboLabel;
     @FXML private Label player1JumpLabel;
     @FXML private Label player2JumpLabel;
+    @FXML private Label player1ProtectorLabel;
+    @FXML private Label player2ProtectorLabel;
 
     private int player1_turbo;
     private int player2_turbo;
     private int player1_jump;
     private int player2_jump;
+    private int player1_protector;
+    private int player2_protector;
     private boolean paused;
     private Timer timer;
 
     public GameManager() {
         this.paused = false;
+        this.player1_turbo = 3;
+        this.player2_turbo = 3;
+        this.player1_jump = 3;
+        this.player2_jump = 3;
+        this.player1_protector = 0;
+        this.player2_protector = 0;
     }
 
     public void initialize() {
@@ -104,6 +114,8 @@ public class GameManager implements EventHandler<KeyEvent> {
         } else if (code == KeyCode.SHIFT) {
             // do something
         }
+        // if no critical key is pressed, we do not need to do anything to the
+        // velocity of the LightCycles.
     }
 
     public void onPauseButton(ActionEvent actionEvent) {
