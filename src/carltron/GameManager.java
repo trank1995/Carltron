@@ -126,6 +126,7 @@ public class GameManager implements EventHandler<KeyEvent> {
         // to update the velocity and direction in which the player is moving.
 
         KeyCode code = keyEvent.getCode();
+        int turbo_dist = 2;
 
         // player 2
         if (code == KeyCode.LEFT) {
@@ -148,8 +149,8 @@ public class GameManager implements EventHandler<KeyEvent> {
         } else if (code == KeyCode.ENTER) {
             // velocityX to be 2x and Y to be 2y. This works as one of the two
             // will be 0, and 2*0 is still 0.
-            this.player2.setVelocityY(this.player2.getVelocityY() * 2);
-            this.player2.setVelocityX(this.player2.getVelocityX() * 2);
+            this.player2.setVelocityY(this.player2.getVelocityY() * turbo_dist);
+            this.player2.setVelocityX(this.player2.getVelocityX() * turbo_dist);
         // jump 2nd player?
         } else if (code == KeyCode.SHIFT) {
             // do something
@@ -178,8 +179,8 @@ public class GameManager implements EventHandler<KeyEvent> {
         } else if (code == KeyCode.Q) {
             // velocityX to be 2x and Y to be 2y. This works as one of the two
             // will be 0, and 2*0 is still 0.
-            this.player1.setVelocityY(this.player1.getVelocityY() * 2);
-            this.player1.setVelocityX(this.player1.getVelocityX() * 2);
+            this.player1.setVelocityY(this.player1.getVelocityY() * turbo_dist);
+            this.player1.setVelocityX(this.player1.getVelocityX() * turbo_dist);
         // jump 1st player?
         } else if (code == KeyCode.E) {
             // do something
