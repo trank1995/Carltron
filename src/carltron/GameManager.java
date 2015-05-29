@@ -27,8 +27,8 @@ public class GameManager implements EventHandler<KeyEvent> {
     @FXML private Label player2TurboLabel;
     @FXML private Label player1JumpLabel;
     @FXML private Label player2JumpLabel;
-    @FXML private Label player1ProtectorLabel;
-    @FXML private Label player2ProtectorLabel;
+    @FXML private Label player1LifeLabel;
+    @FXML private Label player2lifeLabel;
 
     private int player1_turbo;
     private int player2_turbo;
@@ -99,8 +99,7 @@ public class GameManager implements EventHandler<KeyEvent> {
         // do checks:
 
         // player1 went of the grid (top)
-        if (player1Y_new > this.grid.getHeight
-                ()) {
+        if (player1Y_new > this.grid.getHeight()) {
             // crash
         }
         // player1 went of the grid (bottom)
@@ -212,9 +211,6 @@ public class GameManager implements EventHandler<KeyEvent> {
         // jump 2nd player?
         } else if (code == KeyCode.SHIFT) {
             // do something
-        // protector 2nd player?
-        } else if (code == KeyCode.SLASH) {
-            // do something
 
         // player 1
         } else if (code == KeyCode.A) {
@@ -249,9 +245,6 @@ public class GameManager implements EventHandler<KeyEvent> {
             this.player1.setVelocityX(this.player1.getVelocityX() * turbo_dist);
         // jump 1st player?
         } else if (code == KeyCode.E) {
-            // do something
-        // protector 1st player?
-        } else if (code == KeyCode.R) {
             // do something
         }
 
