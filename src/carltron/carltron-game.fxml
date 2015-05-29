@@ -102,8 +102,10 @@
                               <Image url="@images/grid.jpg" />
                            </image>
                         </ImageView>
-                        <Rectangle fx:id="player2" fill="RED" height="15.0" layoutX="460.0" layoutY="215.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
-                        <Rectangle fx:id="player1" fill="BLUE" height="15.0" layoutX="120.0" layoutY="215.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                        <LightCycle fx:id="player2" fill="RED" height="15.0"
+                           layoutX="460.0" layoutY="215.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                        <LightCycle fx:id="player1" fill="BLUE" height="15.0"
+                           layoutX="120.0" layoutY="215.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
                      </children>
                   </AnchorPane>
                </children>
