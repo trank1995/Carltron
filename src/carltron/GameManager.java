@@ -180,21 +180,29 @@ public class GameManager implements EventHandler<KeyEvent> {
 
         // player 2
         if (code == KeyCode.LEFT) {
-            // velocityX to -1 and Y to 0.
-            this.player2.setVelocityY(0);
-            this.player2.setVeloctiyX(-1);
+            if (this.player2.getVelocityX() != 1) {
+                // velocityX to -1 and Y to 0.
+                this.player2.setVelocityY(0);
+                this.player2.setVeloctiyX(-1);
+            }
         } else if (code == KeyCode.RIGHT) {
-            // velocityX to 1 and Y to 0.
-            this.player2.setVelocityY(0);
-            this.player2.setVeloctiyX(1);
+            if (this.player2.getVelocityX() != -1) {
+                // velocityX to 1 and Y to 0.
+                this.player2.setVelocityY(0);
+                this.player2.setVeloctiyX(1);
+            }
         } else if (code == KeyCode.UP) {
-            // velocityX to 0 and Y to 1.
-            this.player2.setVelocityY(1);
-            this.player2.setVeloctiyX(0);
+            if (this.player2.getVelocityY() != -1) {
+                // velocityX to 0 and Y to 1.
+                this.player2.setVelocityY(1);
+                this.player2.setVeloctiyX(0);
+            }
         } else if (code == KeyCode.DOWN) {
-            // velocityX to 0 and Y to -1.
-            this.player2.setVelocityY(-1);
-            this.player2.setVeloctiyX(0);
+            if (this.player2.getVelocityY() != 1) {
+                // velocityX to 0 and Y to -1.
+                this.player2.setVelocityY(-1);
+                this.player2.setVeloctiyX(0);
+            }
         // turbo 2nd player?
         } else if (code == KeyCode.ENTER) {
             // velocityX to be 2x and Y to be 2y. This works as one of the two
@@ -210,21 +218,29 @@ public class GameManager implements EventHandler<KeyEvent> {
 
         // player 1
         } else if (code == KeyCode.A) {
-            // velocityX to -1 and Y to 0.
-            this.player1.setVelocityY(0);
-            this.player1.setVeloctiyX(-1);
+            if (this.player1.getVelocityX() != 1) {
+                // velocityX to -1 and Y to 0.
+                this.player1.setVelocityY(0);
+                this.player1.setVeloctiyX(-1);
+            }
         } else if (code == KeyCode.D) {
-            // velocityX to 1 and Y to 0.
-            this.player1.setVelocityY(0);
-            this.player1.setVeloctiyX(1);
+            if (this.player1.getVelocityX() != -1) {
+                // velocityX to 1 and Y to 0.
+                this.player1.setVelocityY(0);
+                this.player1.setVeloctiyX(1);
+            }
         } else if (code == KeyCode.W) {
-            // velocityX to 0 and Y to 1.
-            this.player1.setVelocityY(1);
-            this.player1.setVeloctiyX(0);
+            if (this.player1.getVelocityY() != -1) {
+                // velocityX to 0 and Y to 1.
+                this.player1.setVelocityY(1);
+                this.player1.setVeloctiyX(0);
+            }
         } else if (code == KeyCode.S) {
-            // velocityX to 0 and Y to -1.
-            this.player1.setVelocityY(-1);
-            this.player1.setVeloctiyX(0);
+            if (this.player1.getVelocityY() != 1) {
+                // velocityX to 0 and Y to -1.
+                this.player1.setVelocityY(-1);
+                this.player1.setVeloctiyX(0);
+            }
         // turbo 1st player?
         } else if (code == KeyCode.Q) {
             // velocityX to be 2x and Y to be 2y. This works as one of the two
@@ -235,7 +251,7 @@ public class GameManager implements EventHandler<KeyEvent> {
         } else if (code == KeyCode.E) {
             // do something
         // protector 1st player?
-        } else if (cdoe == KeyCode.R) {
+        } else if (code == KeyCode.R) {
             // do something
         }
 
