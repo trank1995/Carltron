@@ -40,7 +40,9 @@ public class LightCycle extends Rectangle {
     }
 
     public void decrementLife() {
-        if (this.life > 0) { this.life--; }
+        if (this.life > 0) {
+            this.life--;
+        }
     }
 
     public void step() {
