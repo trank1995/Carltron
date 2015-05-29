@@ -14,7 +14,7 @@ public class LightCycle extends Rectangle {
     private int life;
 
     public LightCycle(int life, Color color) {
-        super(20.0, 50.0);
+        super(25.0, 25.0);
         this.life = life;
         this.color = color;
         this.bonuses = new Bonus[3];
