@@ -30,7 +30,7 @@ public class Main extends Application {
         root.setOnKeyPressed(gameManager);
 
         primaryStage.setTitle("CarlTron");
-        primaryStage.setScene(new Scene(root, 300, 275));
+        primaryStage.setScene(new Scene(root, 700, 700));
         primaryStage.show();
     }
 
