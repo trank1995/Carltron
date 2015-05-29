@@ -13,6 +13,8 @@ public class LightCycle extends Rectangle {
     private Bonus[] bonuses;
     private int life;
 
+    public static final int DEFAULT_VELOCITY = 5;
+
     public LightCycle(int life, Color color) {
         super(25.0, 25.0);
         this.life = life;
@@ -53,16 +55,26 @@ public class LightCycle extends Rectangle {
         //setY(getY() + getVelocityY());
     }
 
+    public void turnDefault() {
+        if (getVelocityX() != 0) {
+            setVelocityX(DEFAULT_VELOCITY);
+        } else if (getVelocityY() != 0) {
+            setVelocityY(DEFAULT_VELOCITY);
+        }
+        // also need to adjust other variables such as "invincible",
+        // "leavesPath"
+    }
+
     public void consume(String type) {
         switch (type) {
             case "turbo":
-                consume(this.bonuses[0].consume());
+                this.bonuses[0].consume();
                 break;
             case "jump":
-                consume(this.bonuses[1].consume());
+                this.bonuses[1].consume();
                 break;
             case "protector":
-                consume(this.bonuses[2].consume());
+                this.bonuses[2].consume();
                 break;
             default: break;
         }
