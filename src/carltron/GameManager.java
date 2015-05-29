@@ -99,12 +99,12 @@ public class GameManager implements EventHandler<KeyEvent> {
         // do checks:
 
         // player1 went of the grid (top)
-        if (player1Y_new + this.player1.getHeight() > this.gameBoard.getHeight
+        if (player1Y_new > this.gameBoard.getHeight
                 ()) {
             x; // crash
         }
         // player1 went of the grid (bottom)
-        if (player1Y_new < 1) {
+        if (player1Y_new - this.player1.getHeight() < 1) {
             x; // crash
         }
         // player1 went of the grid (left)
@@ -116,12 +116,12 @@ public class GameManager implements EventHandler<KeyEvent> {
             x; // crash
         }
         // player2 went of the grid (top)
-        if (player2Y_new + this.player2.getHeight() > this.gameBoard.getHeight
+        if (player2Y_new > this.gameBoard.getHeight
                 ()) {
             x; // crash
         }
         // player2 went of the grid (bottom)
-        if (player2Y_new < 1) {
+        if (player2Y_new - this.player2.getHeight() < 1) {
             x; // crash
         }
         // player2 went of the grid (left)
