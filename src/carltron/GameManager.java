@@ -72,6 +72,8 @@ public class GameManager implements EventHandler<KeyEvent> {
     }
 
     public void updateAnimation() {
+        double stepSize = 15.0;
+
         // find position of player1
         double player1X = this.player1.getLayoutX();
         double player1Y = this.player1.getLayoutY();
@@ -82,26 +84,55 @@ public class GameManager implements EventHandler<KeyEvent> {
 
 
         // find new position of player1
+        double player1X_new = player1X + (stepSize * this.player1
+                .getVelocityX());
+        double player1Y_new = player1Y + (stepSize * this.player1
+                .getVelocityY());
+
         // find new position of player2
+        double player2X_new = player2X + (stepSize * this.player2
+                .getVelocityX());
+        double player2Y_new = player2Y + (stepSize * this.player2
+                .getVelocityY());
 
 
         // do checks:
 
         // player1 went of the grid (top)
-
+        if (player1Y_new + this.player1.getHeight() > this.gameBoard.getHeight
+                ()) {
+            x; // crash
+        }
         // player1 went of the grid (bottom)
-
+        if (player1Y_new < 1) {
+            x; // crash
+        }
         // player1 went of the grid (left)
-
+        if (player1X_new < 1) {
+            x; // crash
+        }
         // player1 went of the grid (right)
-
+        if (player1X_new + this.player1.getWidth() > this.gameBoard.getWidth()) {
+            x; // crash
+        }
         // player2 went of the grid (top)
-
+        if (player2Y_new + this.player2.getHeight() > this.gameBoard.getHeight
+                ()) {
+            x; // crash
+        }
         // player2 went of the grid (bottom)
-
+        if (player2Y_new < 1) {
+            x; // crash
+        }
         // player2 went of the grid (left)
-
+        if (player2X_new < 1) {
+            x; // crash
+        }
         // player2 went of the grid (right)
+        if (player2X_new + this.player2.getWidth() > this.gameBoard.getWidth
+                ())) {
+            x; // crash
+        }
 
 
         // check if player1 crashed with path
