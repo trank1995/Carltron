@@ -15,14 +15,14 @@ public class Turbo extends Bonus {
     }
 
     public boolean isInEffect() {
-        inEffect = (inEffect+1)%DURATION;
+        this.inEffect = (this.inEffect + 1) % DURATION;
         return (inEffect != 0);
     }
 
     @Override
     public void consume() {
         if (!isInEffect()) {
-            setAmount(this.amount-1);
+            this.amount = this.amount - 1);
         }
     }
 

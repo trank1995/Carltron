@@ -81,8 +81,8 @@
       <file leaf-file-name="Turbo.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/carltron/Turbo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.66239315">
-              <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.491453">
+              <caret line="23" column="28" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -136,6 +136,7 @@
         <option value="$PROJECT_DIR$/carltron/LightCycle.java" />
         <option value="$PROJECT_DIR$/carltron/carltron-game.fxml" />
         <option value="$PROJECT_DIR$/carltron/GameManager.java" />
+        <option value="$PROJECT_DIR$/carltron/Turbo.java" />
       </list>
     </option>
   </component>
@@ -527,12 +528,12 @@
       <created>1432829851702</created>
       <option name="number" value="Default" />
       <updated>1432829851702</updated>
-      <workItem from="1432829853163" duration="19905000" />
+      <workItem from="1432829853163" duration="19986000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19905000" />
+    <option name="totallyTimeSpent" value="19986000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="23" width="1440" height="822" extended-state="6" />
@@ -687,8 +688,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/carltron/Turbo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.66239315">
-          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.491453">
+          <caret line="23" column="28" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
           <folding />
         </state>
       </provider>
