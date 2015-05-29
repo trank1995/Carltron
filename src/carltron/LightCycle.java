@@ -27,19 +27,28 @@ public class LightCycle extends Rectangle {
         return this.velocityX;
     }
 
-    public void setVelocityX(int v) { this.velocityX = v; }
+    public void setVelocityX(int v) {
+        this.velocityX = v;
+    }
 
-    public int getVelocityY() { return this.velocityY; }
+    public int getVelocityY() {
+        return this.velocityY;
+    }
 
-    public void setVelocityY(int v) { this.velocityY = v; }
+    public void setVelocityY(int v) {
+        this.velocityY = v;
+    }
 
     public void decrementLife() {
         if (this.life > 0) { this.life--; }
     }
 
     public void step() {
-        setX(getX() + getVelocityX());
-        setY(getY() + getVelocityY());
+        this.setLayoutX(this.getLayoutX() + this.velocityX);
+        this.setLayoutY(this.getLayoutY() + this.velocityY);
+
+        //setX(getX() + getVelocityX());
+        //setY(getY() + getVelocityY());
     }
 
     public void consume(String type) {
