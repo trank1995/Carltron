@@ -34,8 +34,8 @@ public class GameManager implements EventHandler<KeyEvent> {
     private int player2_turbo;
     private int player1_jump;
     private int player2_jump;
-    private int player1_protector;
-    private int player2_protector;
+    private int player1_life;
+    private int player2_life;
     private boolean paused;
     private Timer timer;
 
@@ -45,8 +45,8 @@ public class GameManager implements EventHandler<KeyEvent> {
         this.player2_turbo = 3;
         this.player1_jump = 3;
         this.player2_jump = 3;
-        this.player1_protector = 0;
-        this.player2_protector = 0;
+        this.player1_life = 0;
+        this.player2_life = 0;
     }
 
     public void initialize() {
@@ -150,18 +150,23 @@ public class GameManager implements EventHandler<KeyEvent> {
         this.player1.step();
         this.player2.step();
 
+        // Need to update display of turbo/life/jump counts.
+
+
+        // DONT NEED THIS WHEN TURBO CLASS IS DONE
         int player1_velocityX = this.player1.getVelocityX() ;
         int player1_velocityY = this.player1.getVelocityY() ;
         int player2_velocityX = this.player2.getVelocityX() ;
         int player2_velocityY = this.player2.getVelocityY() ;
 
         // set turbo velocity back to normal again for both players.
+        // player1
         if (player1_velocityX == 2 || player1_velocityX == -2) {
             this.player1.setVelocityX((player1_velocityX / 2));
         } else if (player1_velocityY == 2 || player1_velocityY == -2) {
             this.player1.setVelocityY((player1_velocityY / 2));
         }
-
+        // player2
         if (player2_velocityX == 2 || player2_velocityX == -2) {
             this.player2.setVelocityX((player2_velocityX / 2));
         } else if (player2_velocityY == 2 || player2_velocityY == -2) {
@@ -250,6 +255,7 @@ public class GameManager implements EventHandler<KeyEvent> {
 
         // if no critical key is pressed, we do not need to do anything to the
         // velocity and dircetion of the LightCycles.
+        keyEvent.consume();
     }
 
     public void onPauseButton(ActionEvent actionEvent) {
