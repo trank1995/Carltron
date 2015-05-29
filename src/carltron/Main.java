@@ -23,7 +23,7 @@ public class Main extends Application {
         });
 
         FXMLLoader loader = new FXMLLoader(getClass().getReasource
-                ("carltron-menu.fxml"));
+                ("carltron-game.fxml"));
 
         Parent root = (Parent)loader.load();
         GameManager gameManager = loader.getController();

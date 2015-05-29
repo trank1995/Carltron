@@ -1,12 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.shape.*?>
-<?import javafx.scene.control.*?>
+<?import javafx.scene.control.Label?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import carltron.LightCycle?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Button?>
 
 <AnchorPane fx:controller="carltron.GameManager" xmlns:fx="http://javafx.com/fxml/">
    <children>
@@ -103,9 +104,9 @@
                            </image>
                         </ImageView>
                         <LightCycle fx:id="player2" fill="RED" height="15.0"
-                           layoutX="460.0" layoutY="215.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                           layoutX="460.0" layoutY="215.0" width="15.0" />
                         <LightCycle fx:id="player1" fill="BLUE" height="15.0"
-                           layoutX="120.0" layoutY="215.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                           layoutX="120.0" layoutY="215.0" width="15.0" />
                      </children>
                   </AnchorPane>
                </children>
