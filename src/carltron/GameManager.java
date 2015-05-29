@@ -101,37 +101,36 @@ public class GameManager implements EventHandler<KeyEvent> {
         // player1 went of the grid (top)
         if (player1Y_new > this.gameBoard.getHeight
                 ()) {
-            x; // crash
+            // crash
         }
         // player1 went of the grid (bottom)
         if (player1Y_new - this.player1.getHeight() < 1) {
-            x; // crash
+            // crash
         }
         // player1 went of the grid (left)
         if (player1X_new < 1) {
-            x; // crash
+            // crash
         }
         // player1 went of the grid (right)
         if (player1X_new + this.player1.getWidth() > this.gameBoard.getWidth()) {
-            x; // crash
+            // crash
         }
         // player2 went of the grid (top)
-        if (player2Y_new > this.gameBoard.getHeight
-                ()) {
-            x; // crash
+        if (player2Y_new > this.gameBoard.getHeight()) {
+            // crash
         }
         // player2 went of the grid (bottom)
         if (player2Y_new - this.player2.getHeight() < 1) {
-            x; // crash
+            // crash
         }
         // player2 went of the grid (left)
         if (player2X_new < 1) {
-            x; // crash
+            // crash
         }
         // player2 went of the grid (right)
         if (player2X_new + this.player2.getWidth() > this.gameBoard.getWidth
                 ())) {
-            x; // crash
+            // crash
         }
 
 
@@ -141,14 +140,34 @@ public class GameManager implements EventHandler<KeyEvent> {
 
         // check if player1 and player2 crashed with eachother
         // --> this is a draw (tie).
+        if (this.player1.getBoundsInParent().intersects(this.player2
+                .getBoundsInParent
+                ())) {
+            // crash
+        }
 
-
-        // update the position of player1 (set velocity to normal from turbo)
-        // update the position of player2 (set velocity to normal from turbo)
-
-
+        // update the position of player1 and player2, as they passed all the
+        // collision tests.
         this.player1.step();
         this.player2.step();
+
+        int player1_velocityX = this.player1.getVelocityX() ;
+        int player1_velocityY = this.player1.getVelocityY() ;
+        int player2_velocityX = this.player2.getVelocityX() ;
+        int player2_velocityY = this.player2.getVelocityY() ;
+
+        // set turbo velocity back to normal again for both players.
+        if (player1_velocityX == 2 || player1_velocityX == -2) {
+            this.player1.setVelocityX((player1_velocityX / 2));
+        } else if (player1_velocityY == 2 || player1_velocityY == -2) {
+            this.player1.setVelocityY((player1_velocityY / 2));
+        }
+
+        if (player2_velocityX == 2 || player2_velocityX == -2) {
+            this.player2.setVelocityX((player2_velocityX / 2));
+        } else if (player2_velocityY == 2 || player2_velocityY == -2) {
+            this.player2.setVelocityY((player2_velocityY / 2));
+        }
     }
 
     @Override
@@ -161,21 +180,29 @@ public class GameManager implements EventHandler<KeyEvent> {
 
         // player 2
         if (code == KeyCode.LEFT) {
-            // velocityX to -1 and Y to 0.
-            this.player2.setVelocityY(0);
-            this.player2.setVeloctiyX(-1);
+            if (this.player2.getVelocityX() != 1) {
+                // velocityX to -1 and Y to 0.
+                this.player2.setVelocityY(0);
+                this.player2.setVeloctiyX(-1);
+            }
         } else if (code == KeyCode.RIGHT) {
-            // velocityX to 1 and Y to 0.
-            this.player2.setVelocityY(0);
-            this.player2.setVeloctiyX(1);
+            if (this.player2.getVelocityX() != -1) {
+                // velocityX to 1 and Y to 0.
+                this.player2.setVelocityY(0);
+                this.player2.setVeloctiyX(1);
+            }
         } else if (code == KeyCode.UP) {
-            // velocityX to 0 and Y to 1.
-            this.player2.setVelocityY(1);
-            this.player2.setVeloctiyX(0);
+            if (this.player2.getVelocityY() != -1) {
+                // velocityX to 0 and Y to 1.
+                this.player2.setVelocityY(1);
+                this.player2.setVeloctiyX(0);
+            }
         } else if (code == KeyCode.DOWN) {
-            // velocityX to 0 and Y to -1.
-            this.player2.setVelocityY(-1);
-            this.player2.setVeloctiyX(0);
+            if (this.player2.getVelocityY() != 1) {
+                // velocityX to 0 and Y to -1.
+                this.player2.setVelocityY(-1);
+                this.player2.setVeloctiyX(0);
+            }
         // turbo 2nd player?
         } else if (code == KeyCode.ENTER) {
             // velocityX to be 2x and Y to be 2y. This works as one of the two
@@ -191,21 +218,29 @@ public class GameManager implements EventHandler<KeyEvent> {
 
         // player 1
         } else if (code == KeyCode.A) {
-            // velocityX to -1 and Y to 0.
-            this.player1.setVelocityY(0);
-            this.player1.setVeloctiyX(-1);
+            if (this.player1.getVelocityX() != 1) {
+                // velocityX to -1 and Y to 0.
+                this.player1.setVelocityY(0);
+                this.player1.setVeloctiyX(-1);
+            }
         } else if (code == KeyCode.D) {
-            // velocityX to 1 and Y to 0.
-            this.player1.setVelocityY(0);
-            this.player1.setVeloctiyX(1);
+            if (this.player1.getVelocityX() != -1) {
+                // velocityX to 1 and Y to 0.
+                this.player1.setVelocityY(0);
+                this.player1.setVeloctiyX(1);
+            }
         } else if (code == KeyCode.W) {
-            // velocityX to 0 and Y to 1.
-            this.player1.setVelocityY(1);
-            this.player1.setVeloctiyX(0);
+            if (this.player1.getVelocityY() != -1) {
+                // velocityX to 0 and Y to 1.
+                this.player1.setVelocityY(1);
+                this.player1.setVeloctiyX(0);
+            }
         } else if (code == KeyCode.S) {
-            // velocityX to 0 and Y to -1.
-            this.player1.setVelocityY(-1);
-            this.player1.setVeloctiyX(0);
+            if (this.player1.getVelocityY() != 1) {
+                // velocityX to 0 and Y to -1.
+                this.player1.setVelocityY(-1);
+                this.player1.setVeloctiyX(0);
+            }
         // turbo 1st player?
         } else if (code == KeyCode.Q) {
             // velocityX to be 2x and Y to be 2y. This works as one of the two
@@ -216,7 +251,7 @@ public class GameManager implements EventHandler<KeyEvent> {
         } else if (code == KeyCode.E) {
             // do something
         // protector 1st player?
-        } else if (cdoe == KeyCode.R) {
+        } else if (code == KeyCode.R) {
             // do something
         }
 
