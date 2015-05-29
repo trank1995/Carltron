@@ -3,16 +3,22 @@ package carltron;
 /**
  * Created by shangd on 5/27/15.
  */
-abstract public class Bonus {
+public abstract class Bonus {
+    protected int amount;
+    protected LightCycle owner;
 
-    public Bonus(){
-
+    public Bonus() {
+        this.amount = 0;
     }
 
-    private void Consume(){
-
+    public int getAmount() {
+        return this.amount;
     }
 
+    public void setAmount(int nAmount) {
+        this.amount = nAmount;
+    }
 
+    public abstract void consume();
 
 }
