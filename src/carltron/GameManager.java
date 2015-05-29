@@ -21,33 +21,33 @@ public class GameManager implements EventHandler<KeyEvent> {
     final private double FRAMES_PER_SECOND = 25.0;
 
     @FXML private Button pauseButton;
-    @FXML private Rectangle player1;
-    @FXML private Rectangle player2;
+    @FXML private LightCycle player1;
+    @FXML private LightCycle player2;
     @FXML private AnchorPane grid;
     @FXML private Label player1TurboLabel;
     @FXML private Label player2TurboLabel;
     @FXML private Label player1JumpLabel;
     @FXML private Label player2JumpLabel;
     @FXML private Label player1LifeLabel;
-    @FXML private Label player2lifeLabel;
+    @FXML private Label player2LifeLabel;
 
-    private int player1_turbo;
-    private int player2_turbo;
-    private int player1_jump;
-    private int player2_jump;
-    private int player1_life;
-    private int player2_life;
+//    private int player1_turbo;
+//    private int player2_turbo;
+//    private int player1_jump;
+//    private int player2_jump;
+//    private int player1_life;
+//    private int player2_life;
     private boolean paused;
     private Timer timer;
 
     public GameManager() {
         this.paused = false;
-        this.player1_turbo = 3;
-        this.player2_turbo = 3;
-        this.player1_jump = 3;
-        this.player2_jump = 3;
-        this.player1_life = 0;
-        this.player2_life = 0;
+//        this.player1_turbo = 3;
+//        this.player2_turbo = 3;
+//        this.player1_jump = 3;
+//        this.player2_jump = 3;
+//        this.player1_life = 0;
+//        this.player2_life = 0;
     }
 
     public void initialize() {
@@ -141,8 +141,7 @@ public class GameManager implements EventHandler<KeyEvent> {
         // check if player1 and player2 crashed with eachother
         // --> this is a draw (tie).
         if (this.player1.getBoundsInParent().intersects(this.player2
-                .getBoundsInParent
-                ())) {
+                .getBoundsInParent())) {
             // crash
         }
 
@@ -152,27 +151,40 @@ public class GameManager implements EventHandler<KeyEvent> {
         this.player2.step();
 
         // Need to update display of turbo/life/jump counts.
+        int turbo_amount_p1 = this.player1.getTurboAmount();
+        int life_amount_p1 = this.player1.getLifeAmount();
+        int jump_amount_p1 = this.player1.getJumpAmount;
+        int turbo_amount_p2 = this.player2.getTurboAmount();
+        int life_amount_p2 = this.player2.getLifeAmount();
+        int jump_amount_p2 = this.player2.getJumpAmount;
+
+        this.player1TurboLabel.setText(String.format("%i", turbo_amount_p1));
+        this.player1LifeLabel.setText(String.format("%i", life_amount_p1));
+        this.player1JumpLabel.setText(String.format("%i", jump_amount_p1));
+        this.player2TurboLabel.setText(String.format("%i", turbo_amount_p1));
+        this.player2LifeLabel.setText(String.format("%i", life_amount_p1));
+        this.player2JumpLabel.setText(String.format("%i", jump_amount_p1));
 
 
-        // DONT NEED THIS WHEN TURBO CLASS IS DONE
-        int player1_velocityX = this.player1.getVelocityX() ;
-        int player1_velocityY = this.player1.getVelocityY() ;
-        int player2_velocityX = this.player2.getVelocityX() ;
-        int player2_velocityY = this.player2.getVelocityY() ;
-
-        // set turbo velocity back to normal again for both players.
-        // player1
-        if (player1_velocityX == 2 || player1_velocityX == -2) {
-            this.player1.setVelocityX((player1_velocityX / 2));
-        } else if (player1_velocityY == 2 || player1_velocityY == -2) {
-            this.player1.setVelocityY((player1_velocityY / 2));
-        }
-        // player2
-        if (player2_velocityX == 2 || player2_velocityX == -2) {
-            this.player2.setVelocityX((player2_velocityX / 2));
-        } else if (player2_velocityY == 2 || player2_velocityY == -2) {
-            this.player2.setVelocityY((player2_velocityY / 2));
-        }
+//        // DONT NEED THIS WHEN TURBO CLASS IS DONE
+//        int player1_velocityX = this.player1.getVelocityX() ;
+//        int player1_velocityY = this.player1.getVelocityY() ;
+//        int player2_velocityX = this.player2.getVelocityX() ;
+//        int player2_velocityY = this.player2.getVelocityY() ;
+//
+//        // set turbo velocity back to normal again for both players.
+//        // player1
+//        if (player1_velocityX == 2 || player1_velocityX == -2) {
+//            this.player1.setVelocityX((player1_velocityX / 2));
+//        } else if (player1_velocityY == 2 || player1_velocityY == -2) {
+//            this.player1.setVelocityY((player1_velocityY / 2));
+//        }
+//        // player2
+//        if (player2_velocityX == 2 || player2_velocityX == -2) {
+//            this.player2.setVelocityX((player2_velocityX / 2));
+//        } else if (player2_velocityY == 2 || player2_velocityY == -2) {
+//            this.player2.setVelocityY((player2_velocityY / 2));
+//        }
     }
 
     @Override
@@ -210,13 +222,15 @@ public class GameManager implements EventHandler<KeyEvent> {
             }
         // turbo 2nd player?
         } else if (code == KeyCode.ENTER) {
-            // velocityX to be 2x and Y to be 2y. This works as one of the two
-            // will be 0, and 2*0 is still 0.
-            this.player2.setVelocityY(this.player2.getVelocityY() * turbo_dist);
-            this.player2.setVelocityX(this.player2.getVelocityX() * turbo_dist);
+//            // velocityX to be 2x and Y to be 2y. This works as one of the two
+//            // will be 0, and 2*0 is still 0.
+//            this.player2.setVelocityY(this.player2.getVelocityY() * turbo_dist);
+//            this.player2.setVelocityX(this.player2.getVelocityX() * turbo_dist);
+            this.player2.consume("turbo");
         // jump 2nd player?
         } else if (code == KeyCode.SHIFT) {
             // do something
+            this.player2.consume("jump");
 
         // player 1
         } else if (code == KeyCode.A) {
@@ -245,13 +259,15 @@ public class GameManager implements EventHandler<KeyEvent> {
             }
         // turbo 1st player?
         } else if (code == KeyCode.Q) {
-            // velocityX to be 2x and Y to be 2y. This works as one of the two
-            // will be 0, and 2*0 is still 0.
-            this.player1.setVelocityY(this.player1.getVelocityY() * turbo_dist);
-            this.player1.setVelocityX(this.player1.getVelocityX() * turbo_dist);
+//            // velocityX to be 2x and Y to be 2y. This works as one of the two
+//            // will be 0, and 2*0 is still 0.
+//            this.player1.setVelocityY(this.player1.getVelocityY() * turbo_dist);
+//            this.player1.setVelocityX(this.player1.getVelocityX() * turbo_dist);
+            this.player1.consume("turbo");
         // jump 1st player?
         } else if (code == KeyCode.E) {
             // do something
+            this.player1.consume("jump");
         }
 
         // if no critical key is pressed, we do not need to do anything to the
