@@ -17,7 +17,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class GameManager implements EventHandler<KeyEvent> {
-    final private double FRAMES_PER_SECOND = 20.0;
+    final private double FRAMES_PER_SECOND = 25.0;
 
     @FXML private Button pauseButton;
     @FXML private Rectangle player1;
@@ -104,11 +104,11 @@ public class GameManager implements EventHandler<KeyEvent> {
             // crash
         }
         // player1 went of the grid (bottom)
-        if (player1Y_new - this.player1.getHeight() < 1) {
+        if (player1Y_new - this.player1.getHeight() < 0) {
             // crash
         }
         // player1 went of the grid (left)
-        if (player1X_new < 1) {
+        if (player1X_new < 0) {
             // crash
         }
         // player1 went of the grid (right)
@@ -120,11 +120,11 @@ public class GameManager implements EventHandler<KeyEvent> {
             // crash
         }
         // player2 went of the grid (bottom)
-        if (player2Y_new - this.player2.getHeight() < 1) {
+        if (player2Y_new - this.player2.getHeight() < 0) {
             // crash
         }
         // player2 went of the grid (left)
-        if (player2X_new < 1) {
+        if (player2X_new < 0) {
             // crash
         }
         // player2 went of the grid (right)
