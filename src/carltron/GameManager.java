@@ -17,18 +17,18 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class GameManager implements EventHandler<KeyEvent> {
-    final private double FRAMES_PER_SECOND = 20.0;
+    final private double FRAMES_PER_SECOND = 25.0;
 
     @FXML private Button pauseButton;
     @FXML private Rectangle player1;
     @FXML private Rectangle player2;
-    @FXML private AnchorPane gameBoard;
+    @FXML private AnchorPane grid;
     @FXML private Label player1TurboLabel;
     @FXML private Label player2TurboLabel;
     @FXML private Label player1JumpLabel;
     @FXML private Label player2JumpLabel;
-    @FXML private Label player1ProtectorLabel;
-    @FXML private Label player2ProtectorLabel;
+    @FXML private Label player1LifeLabel;
+    @FXML private Label player2lifeLabel;
 
     private int player1_turbo;
     private int player2_turbo;
@@ -99,36 +99,35 @@ public class GameManager implements EventHandler<KeyEvent> {
         // do checks:
 
         // player1 went of the grid (top)
-        if (player1Y_new > this.gameBoard.getHeight
-                ()) {
+        if (player1Y_new > this.grid.getHeight()) {
             // crash
         }
         // player1 went of the grid (bottom)
-        if (player1Y_new - this.player1.getHeight() < 1) {
+        if (player1Y_new - this.player1.getHeight() < 0) {
             // crash
         }
         // player1 went of the grid (left)
-        if (player1X_new < 1) {
+        if (player1X_new < 0) {
             // crash
         }
         // player1 went of the grid (right)
-        if (player1X_new + this.player1.getWidth() > this.gameBoard.getWidth()) {
+        if (player1X_new + this.player1.getWidth() > this.grid.getWidth()) {
             // crash
         }
         // player2 went of the grid (top)
-        if (player2Y_new > this.gameBoard.getHeight()) {
+        if (player2Y_new > this.grid.getHeight()) {
             // crash
         }
         // player2 went of the grid (bottom)
-        if (player2Y_new - this.player2.getHeight() < 1) {
+        if (player2Y_new - this.player2.getHeight() < 0) {
             // crash
         }
         // player2 went of the grid (left)
-        if (player2X_new < 1) {
+        if (player2X_new < 0) {
             // crash
         }
         // player2 went of the grid (right)
-        if (player2X_new + this.player2.getWidth() > this.gameBoard.getWidth
+        if (player2X_new + this.player2.getWidth() > this.grid.getWidth
                 ())) {
             // crash
         }
@@ -212,9 +211,6 @@ public class GameManager implements EventHandler<KeyEvent> {
         // jump 2nd player?
         } else if (code == KeyCode.SHIFT) {
             // do something
-        // protector 2nd player?
-        } else if (code == KeyCode.SLASH) {
-            // do something
 
         // player 1
         } else if (code == KeyCode.A) {
@@ -249,9 +245,6 @@ public class GameManager implements EventHandler<KeyEvent> {
             this.player1.setVelocityX(this.player1.getVelocityX() * turbo_dist);
         // jump 1st player?
         } else if (code == KeyCode.E) {
-            // do something
-        // protector 1st player?
-        } else if (code == KeyCode.R) {
             // do something
         }
 
