@@ -22,7 +22,7 @@ public class GameManager implements EventHandler<KeyEvent> {
     @FXML private Button pauseButton;
     @FXML private Rectangle player1;
     @FXML private Rectangle player2;
-    @FXML private AnchorPane gameBoard;
+    @FXML private AnchorPane grid;
     @FXML private Label player1TurboLabel;
     @FXML private Label player2TurboLabel;
     @FXML private Label player1JumpLabel;
@@ -99,7 +99,7 @@ public class GameManager implements EventHandler<KeyEvent> {
         // do checks:
 
         // player1 went of the grid (top)
-        if (player1Y_new > this.gameBoard.getHeight
+        if (player1Y_new > this.grid.getHeight
                 ()) {
             // crash
         }
@@ -112,11 +112,11 @@ public class GameManager implements EventHandler<KeyEvent> {
             // crash
         }
         // player1 went of the grid (right)
-        if (player1X_new + this.player1.getWidth() > this.gameBoard.getWidth()) {
+        if (player1X_new + this.player1.getWidth() > this.grid.getWidth()) {
             // crash
         }
         // player2 went of the grid (top)
-        if (player2Y_new > this.gameBoard.getHeight()) {
+        if (player2Y_new > this.grid.getHeight()) {
             // crash
         }
         // player2 went of the grid (bottom)
@@ -128,7 +128,7 @@ public class GameManager implements EventHandler<KeyEvent> {
             // crash
         }
         // player2 went of the grid (right)
-        if (player2X_new + this.player2.getWidth() > this.gameBoard.getWidth
+        if (player2X_new + this.player2.getWidth() > this.grid.getWidth
                 ())) {
             // crash
         }
