@@ -1,8 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.layout.GridPane?>
-
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<GridPane fx:controller="carltron.GameManager"
-          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
+
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="carltron.GameManager">
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
+   <children>
+      <AnchorPane prefHeight="600.0" prefWidth="800.0">
+         <children>
+            <ImageView fitHeight="607.0" fitWidth="800.0" layoutY="-2.0">
+               <image>
+                  <Image url="@images/ruleBackground%20copy.jpg" />
+               </image>
+            </ImageView>
+            <Button layoutX="245.0" layoutY="377.0" mnemonicParsing="false" opacity="0.5" prefHeight="26.0" prefWidth="235.0" text="2 PLAYER" textFill="#3baaad" AnchorPane.bottomAnchor="197.0" AnchorPane.leftAnchor="245.0" AnchorPane.rightAnchor="320.0" AnchorPane.topAnchor="377.0" />
+            <Button id="Button" layoutX="245.0" layoutY="331.0" mnemonicParsing="false" opacity="0.5" prefHeight="26.0" prefWidth="235.0" stylesheets="@start.css" text="1 PLAYER" textFill="#3baaad" />
+            <ImageView fitHeight="104.0" fitWidth="484.0" layoutX="102.0" layoutY="80.0">
+               <image>
+                  <Image url="@images/title.jpeg" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </children>
 </GridPane>
