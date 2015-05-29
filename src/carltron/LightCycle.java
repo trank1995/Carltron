@@ -20,9 +20,13 @@ public class LightCycle extends Rectangle {
         this.life = life;
         this.color = color;
         this.bonuses = new Bonus[3];
-        this.bonuses[0] = new Turbo(3);
-        this.bonuses[1] = new Jump(3);
-        this.bonuses[2] = new Protector(0);
+        this.bonuses[0] = new Turbo(3, this);
+        this.bonuses[1] = new Jump(3, this);
+        this.bonuses[2] = new Protector(0, this);
+    }
+
+    public Color getColor() {
+        return this.color;
     }
 
     public int getVelocityX() {
@@ -31,6 +35,7 @@ public class LightCycle extends Rectangle {
 
     public void setVelocityX(int v) {
         this.velocityX = v;
+        this.velocityY = 0;
     }
 
     public int getVelocityY() {
@@ -39,18 +44,18 @@ public class LightCycle extends Rectangle {
 
     public void setVelocityY(int v) {
         this.velocityY = v;
+        this.velocityX = 0;
     }
 
     public void decrementLife() {
-        if (this.life > 0) { this.life--; }
+        if (this.life > 0) {
+            this.life--;
+        }
     }
 
     public void step() {
         this.setLayoutX(this.getLayoutX() + this.velocityX);
         this.setLayoutY(this.getLayoutY() + this.velocityY);
-
-        //setX(getX() + getVelocityX());
-        //setY(getY() + getVelocityY());
     }
 
     public void turnDefault() {
