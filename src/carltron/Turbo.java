@@ -4,25 +4,27 @@ package carltron;
  * Created by shangd on 5/27/15.
  */
 public class Turbo extends Bonus {
-    public final static int DURATION = 3;
-    private int inEffect;
+    public final static int BOOST_VELOCITY = 5;
 
     public Turbo(int amount, LightCycle owner) {
         super();
         this.amount = amount;
         this.owner = owner;
-        this.inEffect = 0;
-    }
-
-    public boolean isInEffect() {
-        this.inEffect = (this.inEffect + 1) % DURATION;
-        return (inEffect != 0);
     }
 
     @Override
     public void consume() {
-        if (!isInEffect()) {
-            this.amount = this.amount - 1);
+        if (this.amount == 0) return;
+
+        setAmount(this.amount-1);
+        if (this.owner.getVelocityX() < 0) {
+            this.owner.setVelocityX(this.owner.getVelocityX() - BOOST_VELOCITY);
+        } else if (this.owner.getVelocityX() > 0) {
+            this.owner.setVelocityX(this.owner.getVelocityX() + BOOST_VELOCITY);
+        } else if (this.owner.getVelocityY() < 0) {
+            this.owner.setVelocityY(this.owner.getVelocityY() - BOOST_VELOCITY);
+        } else if (this.owner.getVelocityY() > 0) {
+            this.owner.setVelocityY(this.owner.getVelocityY() + BOOST_VELOCITY);
         }
     }
 

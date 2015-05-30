@@ -9,11 +9,13 @@ import javafx.scene.shape.Rectangle;
 public class Grid {
     private int width;
     private int height;
-    private ArrayList<Rectangle> path = new ArrayList<Rectangle>();
+    private ArrayList<Rectangle> path = new ArrayList<>();
+
+    public static final int DEFAULT_GRID_SIZE = 500;
 
     public Grid(){
-        this.width = 500;
-        this.height = 500;
+        this.width = DEFAULT_GRID_SIZE;
+        this.height = DEFAULT_GRID_SIZE;
 
     }
 
@@ -38,11 +40,11 @@ public class Grid {
         return false;
     }
 
-    private int getWidth(){
+    public int getWidth(){
         return width;
     }
 
-    private int getHeight(){
+    public int getHeight(){
         return height;
     }
 

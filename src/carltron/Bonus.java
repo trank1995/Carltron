@@ -6,7 +6,6 @@ package carltron;
 public abstract class Bonus {
     protected int amount;
     protected LightCycle owner;
-    protected boolean inEffect = false;
 
     public Bonus() {
         this.amount = 0;
@@ -14,10 +13,6 @@ public abstract class Bonus {
 
     public int getAmount() {
         return this.amount;
-    }
-
-    public boolean isInEffect() {
-        return inEffect;
     }
 
     public void setAmount(int nAmount) {

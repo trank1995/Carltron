@@ -10,16 +10,36 @@ public class LightCycle extends Rectangle {
     private int velocityX;
     private int velocityY;
     private Color color;
+    private boolean leavesPath;
+    private boolean shield;
 
-    public static final int DEFAULT_VELOCITY = 5;
-    private final double STEP_SIZE = 10.0;
+    public static final int DEFAULT_VELOCITY = 1;
+    public static final double DEFAULT_STEP_SIZE = 10;
 
-    public LightCycle() {
-        //this.color = color;
+    public LightCycle(Color color) {
+        this.color = color;
+        this.leavesPath = true;
+        this.shield = false;
     }
 
     public Color getColor() {
         return this.color;
+    }
+
+    public boolean hasPath() {
+        return this.leavesPath;
+    }
+
+    public void setLeavesPath(boolean flag) {
+        this.leavesPath = flag;
+    }
+
+    public boolean hasShield() {
+        return this.shield;
+    }
+
+    public void setShield(boolean flag) {
+        this.shield = flag;
     }
 
     public int getVelocityX() {
@@ -41,17 +61,22 @@ public class LightCycle extends Rectangle {
     }
 
     public void step() {
-        this.setLayoutX(this.getLayoutX() + this.velocityX * STEP_SIZE);
-        this.setLayoutY(this.getLayoutY() + this.velocityY * STEP_SIZE);
+        this.setLayoutX(this.getLayoutX() + this.velocityX * DEFAULT_STEP_SIZE);
+        this.setLayoutY(this.getLayoutY() + this.velocityY * DEFAULT_STEP_SIZE);
     }
 
     public void turnDefault() {
-        if (getVelocityX() != 0) {
+        if (getVelocityX() < 0) {
+            setVelocityX(-DEFAULT_VELOCITY);
+        } else if (getVelocityX() > 0) {
             setVelocityX(DEFAULT_VELOCITY);
-        } else if (getVelocityY() != 0) {
+        } else if (getVelocityY() < 0) {
+            setVelocityY(-DEFAULT_VELOCITY);
+        } else if (getVelocityY() > 0) {
             setVelocityY(DEFAULT_VELOCITY);
         }
-        // also need to adjust other variables such as "invincible",
-        // "leavesPath"
+
+        this.leavesPath = true;
+        this.shield = false;
     }
 }

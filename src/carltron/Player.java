@@ -61,16 +61,19 @@ public class Player {
                     case "turbo":
                         if (this.counter.get(key) == TURBO_DURATION) {
                             this.vehicle.turnDefault();
+                            this.counter.put(key, 0);
                         }
                         break;
                     case "jump":
                         if (this.counter.get(key) == JUMP_DURATION) {
                             this.vehicle.turnDefault();
+                            this.counter.put(key, 0);
                         }
                         break;
                     case "protector":
                         if (this.counter.get(key) == PROTECTOR_DURATION) {
                             this.vehicle.turnDefault();
+                            this.counter.put(key, 0);
                         }
                         break;
                     default: break;
