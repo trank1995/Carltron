@@ -21,6 +21,7 @@ import java.util.TimerTask;
 public class GameManager implements EventHandler<KeyEvent> {
     final private double FRAMES_PER_SECOND = 15.0;
     final private double STEP_SIZE = 10.0;
+    private Grid grid_object = new Grid();
 
     @FXML private Button pauseButton;
     @FXML private LightCycle player1;
@@ -208,6 +209,27 @@ public class GameManager implements EventHandler<KeyEvent> {
         // collision tests.
         this.player1.step();
         this.player2.step();
+
+        // check if bike collided with a path.
+        boolean path_check_p1 = grid_object.collisionWithPath(this.player1);
+        boolean path_check_p2 = grid_object.collisionWithPath(this.player2);
+
+        // player1 and player2 crashed at the same time --> draw (tie).
+        if ((path_check_p1 == true) && (path_check_p2)) {
+            // crash
+            Platform.exit();
+            System.exit(0);
+            // player1 crashed --> player2 wins.
+        } else if (path_check_p1 == true) {
+            // crash
+            Platform.exit();
+            System.exit(0);
+            // player2 crashed --> player1 wins.
+        } else if (path_check_p2 == true) {
+            // crash
+            Platform.exit();
+            System.exit(0);
+        }
 
 //        // Need to update display of turbo/life/jump counts.
 //        int turbo_amount_p1 = this.player1.getTurboAmount();

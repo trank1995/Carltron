@@ -22,7 +22,20 @@ public class Grid {
     }
 
     public boolean collisionWithPath(Rectangle bike) {
-        x;
+        double bikeX = bike.getLayoutX();
+        double bikeY = bike.getLayoutY();
+        // loop over rectangles in path and check whether layout is the same
+        // as the bike's layout.
+        for (Rectangle object : path) {
+            double objectX = object.getLayoutX();
+            double objectY = object.getLayoutY();
+
+            if ((bikeX == objectX) && (bikeY == objectY)) {
+                return true;
+            }
+        }
+        // no collision? return false.
+        return false;
     }
 
     private int getWidth(){
