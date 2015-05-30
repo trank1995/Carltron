@@ -22,7 +22,7 @@ public class Main extends Application {
             }
         });
 
-        FXMLLoader loader = new FXMLLoader(getClass().getReasource
+        FXMLLoader loader = new FXMLLoader(getClass().getResource
                 ("carltron-game.fxml"));
 
         Parent root = (Parent)loader.load();
@@ -30,7 +30,8 @@ public class Main extends Application {
         root.setOnKeyPressed(gameManager);
 
         primaryStage.setTitle("CarlTron");
-        primaryStage.setScene(new Scene(root, 700, 700));
+        primaryStage.setScene(new Scene(root, 800, 600));
+        primaryStage.setResizable(false);
         primaryStage.show();
     }
 
