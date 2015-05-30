@@ -12,10 +12,10 @@ public class LightCycle extends Rectangle {
     private Color color;
 
     public static final int DEFAULT_VELOCITY = 5;
+    private final double STEP_SIZE = 10.0;
 
-    public LightCycle(Color color) {
-        super(25.0, 25.0);
-        this.color = color;
+    public LightCycle() {
+        //this.color = color;
     }
 
     public Color getColor() {
@@ -41,8 +41,8 @@ public class LightCycle extends Rectangle {
     }
 
     public void step() {
-        this.setLayoutX(this.getLayoutX() + this.velocityX);
-        this.setLayoutY(this.getLayoutY() + this.velocityY);
+        this.setLayoutX(this.getLayoutX() + this.velocityX * STEP_SIZE);
+        this.setLayoutY(this.getLayoutY() + this.velocityY * STEP_SIZE);
     }
 
     public void turnDefault() {
