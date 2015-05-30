@@ -40,13 +40,13 @@
         <entry file="file://$PROJECT_DIR$/carltron/GameManager.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="171" column="26" selection-start-line="171" selection-start-column="26" selection-end-line="171" selection-end-column="26" />
+              <caret line="22" column="31" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="31" />
               <folding>
-                <element signature="e#1682#1683#0" expanded="false" />
-                <element signature="e#1724#1725#0" expanded="false" />
-                <element signature="e#1936#1937#0" expanded="false" />
-                <element signature="e#2001#2002#0" expanded="false" />
-                <marker date="1433002027000" expanded="false" signature="26:537" placeholder="..." />
+                <element signature="e#1687#1688#0" expanded="false" />
+                <element signature="e#1729#1730#0" expanded="false" />
+                <element signature="e#1941#1942#0" expanded="false" />
+                <element signature="e#2006#2007#0" expanded="false" />
+                <marker date="1433003696000" expanded="false" signature="26:537" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -685,11 +685,11 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="278" column="26" selection-start-line="278" selection-start-column="26" selection-end-line="278" selection-end-column="26" />
           <folding>
-            <element signature="e#1682#1683#0" expanded="false" />
-            <element signature="e#1724#1725#0" expanded="false" />
-            <element signature="e#1936#1937#0" expanded="false" />
-            <element signature="e#2001#2002#0" expanded="false" />
-            <marker date="1433002027000" expanded="false" signature="26:537" placeholder="..." />
+            <element signature="e#1687#1688#0" expanded="false" />
+            <element signature="e#1729#1730#0" expanded="false" />
+            <element signature="e#1941#1942#0" expanded="false" />
+            <element signature="e#2006#2007#0" expanded="false" />
+            <marker date="1433003696000" expanded="false" signature="26:537" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -786,11 +786,11 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="278" column="26" selection-start-line="278" selection-start-column="26" selection-end-line="278" selection-end-column="26" />
           <folding>
-            <element signature="e#1682#1683#0" expanded="false" />
-            <element signature="e#1724#1725#0" expanded="false" />
-            <element signature="e#1936#1937#0" expanded="false" />
-            <element signature="e#2001#2002#0" expanded="false" />
-            <marker date="1433002027000" expanded="false" signature="26:537" placeholder="..." />
+            <element signature="e#1687#1688#0" expanded="false" />
+            <element signature="e#1729#1730#0" expanded="false" />
+            <element signature="e#1941#1942#0" expanded="false" />
+            <element signature="e#2006#2007#0" expanded="false" />
+            <marker date="1433003696000" expanded="false" signature="26:537" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -881,13 +881,13 @@
     <entry file="file://$PROJECT_DIR$/carltron/GameManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="171" column="26" selection-start-line="171" selection-start-column="26" selection-end-line="171" selection-end-column="26" />
+          <caret line="22" column="31" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="31" />
           <folding>
-            <element signature="e#1682#1683#0" expanded="false" />
-            <element signature="e#1724#1725#0" expanded="false" />
-            <element signature="e#1936#1937#0" expanded="false" />
-            <element signature="e#2001#2002#0" expanded="false" />
-            <marker date="1433002027000" expanded="false" signature="26:537" placeholder="..." />
+            <element signature="e#1687#1688#0" expanded="false" />
+            <element signature="e#1729#1730#0" expanded="false" />
+            <element signature="e#1941#1942#0" expanded="false" />
+            <element signature="e#2006#2007#0" expanded="false" />
+            <marker date="1433003696000" expanded="false" signature="26:537" placeholder="..." />
           </folding>
         </state>
       </provider>
