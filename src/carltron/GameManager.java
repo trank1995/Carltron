@@ -194,14 +194,14 @@ public class GameManager implements EventHandler<KeyEvent> {
 
         // add new path rectangle
         Rectangle path_p1 = new Rectangle();
-        path_p1.setWidth(10);
-        path_p1.setHeight(10);
+        path_p1.setWidth(STEP_SIZE);
+        path_p1.setHeight(STEP_SIZE);
         path_p1.setFill(Color.ORANGE);
         path_p1.setLayoutX(player1X);
         path_p1.setLayoutY(player1Y);
         Rectangle path_p2 = new Rectangle();
-        path_p2.setWidth(10);
-        path_p2.setHeight(10);
+        path_p2.setWidth(STEP_SIZE);
+        path_p2.setHeight(STEP_SIZE);
         path_p2.setFill(Color.WHITE);
         path_p2.setLayoutX(player2X);
         path_p2.setLayoutY(player2Y);
