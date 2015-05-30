@@ -26,7 +26,7 @@ public class GameManager implements EventHandler<KeyEvent> {
     @FXML private Button pauseButton;
     @FXML private LightCycle player1;
     @FXML private LightCycle player2;
-    @FXML private AnchorPane grid;
+    @FXML private AnchorPane grid_fxml;
     @FXML private Label player1TurboLabel;
     @FXML private Label player2TurboLabel;
     @FXML private Label player1JumpLabel;
@@ -101,7 +101,8 @@ public class GameManager implements EventHandler<KeyEvent> {
         // do checks:
 
         // player1 went of the grid (bottom)
-        if (player1Y_new + this.player1.getHeight() > this.grid.getHeight()) {
+        if (player1Y_new + this.player1.getHeight() > this.grid_fxml.getHeight
+                ()) {
             // crash
             Platform.exit();
             System.exit(0);
@@ -119,13 +120,15 @@ public class GameManager implements EventHandler<KeyEvent> {
             System.exit(0);
         }
         // player1 went of the grid (right)
-        if (player1X_new + this.player1.getWidth() > this.grid.getWidth()) {
+        if (player1X_new + this.player1.getWidth() > this.grid_fxml.getWidth
+                ()) {
             // crash
             Platform.exit();
             System.exit(0);
         }
         // player2 went of the grid (bottom)
-        if (player2Y_new + this.player2.getHeight() > this.grid.getHeight()) {
+        if (player2Y_new + this.player2.getHeight() > this.grid_fxml.getHeight
+                ()) {
             // crash
             Platform.exit();
             System.exit(0);
@@ -143,7 +146,8 @@ public class GameManager implements EventHandler<KeyEvent> {
             System.exit(0);
         }
         // player2 went of the grid (right)
-        if (player2X_new + this.player2.getWidth() > this.grid.getWidth()) {
+        if (player2X_new + this.player2.getWidth() > this.grid_fxml.getWidth
+                ()) {
             // crash
             Platform.exit();
             System.exit(0);
@@ -190,19 +194,19 @@ public class GameManager implements EventHandler<KeyEvent> {
 
         // add new path rectangle
         Rectangle path_p1 = new Rectangle();
-        path_p1.setWidth(10);
-        path_p1.setHeight(10);
+        path_p1.setWidth(STEP_SIZE);
+        path_p1.setHeight(STEP_SIZE);
         path_p1.setFill(Color.ORANGE);
         path_p1.setLayoutX(player1X);
         path_p1.setLayoutY(player1Y);
         Rectangle path_p2 = new Rectangle();
-        path_p2.setWidth(10);
-        path_p2.setHeight(10);
+        path_p2.setWidth(STEP_SIZE);
+        path_p2.setHeight(STEP_SIZE);
         path_p2.setFill(Color.WHITE);
         path_p2.setLayoutX(player2X);
         path_p2.setLayoutY(player2Y);
-        this.grid.getChildren().add(path_p1);
-        this.grid.getChildren().add(path_p2);
+        this.grid_fxml.getChildren().add(path_p1);
+        this.grid_fxml.getChildren().add(path_p2);
 
 
         // update the position of player1 and player2, as they passed all the
