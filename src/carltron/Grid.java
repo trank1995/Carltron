@@ -1,7 +1,8 @@
 package carltron;
 
-import java.util.*;
 import javafx.scene.shape.Rectangle;
+
+import java.util.ArrayList;
 
 /**
  * Created by shangd on 5/27/15.
@@ -9,7 +10,7 @@ import javafx.scene.shape.Rectangle;
 public class Grid {
     private int width;
     private int height;
-    private ArrayList<Rectangle> path = new ArrayList<>();
+    private ArrayList<Rectangle> path = new ArrayList<Rectangle>();
 
     public static final int DEFAULT_GRID_SIZE = 500;
 

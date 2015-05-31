@@ -14,14 +14,16 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class GameManager implements EventHandler<KeyEvent> {
-    final private double FRAMES_PER_SECOND = 15.0;
-    final private double STEP_SIZE = 10.0;
+    final private double FRAMES_PER_SECOND = 25.0;
+    final private double STEP_SIZE = 5.0;
     private Grid grid_object = new Grid();
+    public Stage primaryStage;
 
     @FXML private Button pauseButton;
     @FXML private LightCycle player1;
@@ -34,7 +36,7 @@ public class GameManager implements EventHandler<KeyEvent> {
     @FXML private Label player1LifeLabel;
     @FXML private Label player2LifeLabel;
 
-//    private int player1_turbo;
+    //    private int player1_turbo;
 //    private int player2_turbo;
 //    private int player1_jump;
 //    private int player2_jump;
@@ -44,7 +46,9 @@ public class GameManager implements EventHandler<KeyEvent> {
     private Timer timer;
 
     public GameManager() {
+        System.out.println("yes");
         this.paused = false;
+        this.primaryStage = null;
 //        this.player1_turbo = 3;
 //        this.player2_turbo = 3;
 //        this.player1_jump = 3;
@@ -54,6 +58,7 @@ public class GameManager implements EventHandler<KeyEvent> {
     }
 
     public void initialize() {
+        System.out.println("no");
         this.setUpAnimationTimer();
     }
 
@@ -207,6 +212,8 @@ public class GameManager implements EventHandler<KeyEvent> {
         path_p2.setLayoutY(player2Y);
         this.grid_fxml.getChildren().add(path_p1);
         this.grid_fxml.getChildren().add(path_p2);
+        grid_object.addToGrid(path_p1);
+        grid_object.addToGrid(path_p2);
 
 
         // update the position of player1 and player2, as they passed all the
@@ -369,5 +376,10 @@ public class GameManager implements EventHandler<KeyEvent> {
             this.pauseButton.setText("Resume");
         }
         this.paused = !this.paused;
+    }
+
+    //this sets and saves the primary stage for reuse in the window recreation.
+    public void setStage(Stage primary) {
+        this.primaryStage = primary;
     }
 }

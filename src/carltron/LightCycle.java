@@ -1,7 +1,7 @@
 package carltron;
 
-import javafx.scene.shape.Rectangle;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 
 /**
  * Created by shangd on 5/27/15.
@@ -14,33 +14,33 @@ public class LightCycle extends Rectangle {
     private boolean shield;
 
     public static final int DEFAULT_VELOCITY = 1;
-    public static final double DEFAULT_STEP_SIZE = 10;
+    public static final double DEFAULT_STEP_SIZE = 5;
 
-    public LightCycle(Color color) {
-        this.color = color;
+    public LightCycle() {
+        //this.color = color;
         this.leavesPath = true;
         this.shield = false;
     }
 
-    public Color getColor() {
-        return this.color;
-    }
+    //public Color getColor() {
+    //    return this.color;
+    //}
 
-    public boolean hasPath() {
-        return this.leavesPath;
-    }
+    //public boolean hasPath() {
+    //    return this.leavesPath;
+    //}
 
-    public void setLeavesPath(boolean flag) {
-        this.leavesPath = flag;
-    }
+    //public void setLeavesPath(boolean flag) {
+    //    this.leavesPath = flag;
+    //}
 
-    public boolean hasShield() {
-        return this.shield;
-    }
+    //public boolean hasShield() {
+    //    return this.shield;
+    //}
 
-    public void setShield(boolean flag) {
-        this.shield = flag;
-    }
+    //public void setShield(boolean flag) {
+    //    this.shield = flag;
+    //}
 
     public int getVelocityX() {
         return this.velocityX;
@@ -48,7 +48,7 @@ public class LightCycle extends Rectangle {
 
     public void setVelocityX(int v) {
         this.velocityX = v;
-        this.velocityY = 0;
+        //this.velocityY = 0;
     }
 
     public int getVelocityY() {
@@ -57,7 +57,7 @@ public class LightCycle extends Rectangle {
 
     public void setVelocityY(int v) {
         this.velocityY = v;
-        this.velocityX = 0;
+        //this.velocityX = 0;
     }
 
     public void step() {

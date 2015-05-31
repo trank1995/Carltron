@@ -19,7 +19,7 @@ public class Player {
 
     public Player(int life, Color color) {
         this.life = life;
-        this.vehicle = new LightCycle(color);
+        this.vehicle = new LightCycle();
         this.bonuses = new Bonus[] {
                 new Turbo(3, this.vehicle),
                 new Jump(3, this.vehicle),
