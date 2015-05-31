@@ -25,9 +25,8 @@ public class Main extends Application {
     @FXML private Button player1;
     @FXML private Button player2;
 
-    public Main() {
-        // nothing
-    }
+    // set private to prevent instantiation
+    private Main() {}
 
     @Override
     public void start(Stage primaryStage) throws Exception{

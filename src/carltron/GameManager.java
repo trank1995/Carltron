@@ -51,12 +51,6 @@ public class GameManager implements EventHandler<KeyEvent> {
         System.out.println("yes");
         this.paused = false;
         this.primaryStage = null;
-//        this.player1_turbo = 3;
-//        this.player2_turbo = 3;
-//        this.player1_jump = 3;
-//        this.player2_jump = 3;
-//        this.player1_life = 0;
-//        this.player2_life = 0;
 
         // create players and assign bikes.
         this.player2_object = new Player();
