@@ -26,21 +26,21 @@ public class LightCycle extends Rectangle {
     //    return this.color;
     //}
 
-    //public boolean hasPath() {
-    //    return this.leavesPath;
-    //}
+    public boolean hasPath() {
+        return this.leavesPath;
+    }
 
-    //public void setLeavesPath(boolean flag) {
-    //    this.leavesPath = flag;
-    //}
+    public void setLeavesPath(boolean flag) {
+        this.leavesPath = flag;
+    }
 
-    //public boolean hasShield() {
-    //    return this.shield;
-    //}
+    public boolean hasShield() {
+        return this.shield;
+    }
 
-    //public void setShield(boolean flag) {
-    //    this.shield = flag;
-    //}
+    public void setShield(boolean flag) {
+        this.shield = flag;
+    }
 
     public int getVelocityX() {
         return this.velocityX;

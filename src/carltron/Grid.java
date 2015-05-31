@@ -24,20 +24,23 @@ public class Grid {
         path.add(new_path);
     }
 
-    public boolean collisionWithPath(Rectangle bike) {
+    public boolean collisionWithPath(LightCycle bike) {
         double bikeX = bike.getLayoutX();
         double bikeY = bike.getLayoutY();
         // loop over rectangles in path and check whether layout is the same
         // as the bike's layout.
-        for (Rectangle object : path) {
-            double objectX = object.getLayoutX();
-            double objectY = object.getLayoutY();
+        if (bike.hasShield() == false) {
+            for (Rectangle object : path) {
+                double objectX = object.getLayoutX();
+                double objectY = object.getLayoutY();
 
-            if ((bikeX == objectX) && (bikeY == objectY)) {
-                return true;
+                if ((bikeX == objectX) && (bikeY == objectY)) {
+                    return true;
+                }
             }
+            // no collision? return false.
+            return false;
         }
-        // no collision? return false.
         return false;
     }
 

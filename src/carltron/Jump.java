@@ -17,7 +17,7 @@ public class Jump extends Bonus {
         if (this.amount == 0) return;
 
         setAmount(this.amount-1);
-        //this.owner.setLeavesPath(false);
+        this.owner.setLeavesPath(false);
         //this.owner.setShield(true);
     }
 

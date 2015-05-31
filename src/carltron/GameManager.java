@@ -24,6 +24,8 @@ public class GameManager implements EventHandler<KeyEvent> {
     final private double STEP_SIZE = 5.0;
     private Grid grid_object = new Grid();
     public Stage primaryStage;
+    private Player player1_object;
+    private Player player2_object;
 
     @FXML private Button pauseButton;
     @FXML private LightCycle player1;
@@ -55,6 +57,12 @@ public class GameManager implements EventHandler<KeyEvent> {
 //        this.player2_jump = 3;
 //        this.player1_life = 0;
 //        this.player2_life = 0;
+
+        // create players and assign bikes.
+        this.player2_object = new Player();
+        this.player1_object = new Player();
+        this.player2_object.setVehicle(this.player2);
+        this.player1_object.setVehicle(this.player1);
     }
 
     public void initialize() {
@@ -81,6 +89,9 @@ public class GameManager implements EventHandler<KeyEvent> {
     }
 
     public void updateAnimation() {
+        
+
+
         // find position of player1
         double player1X = this.player1.getLayoutX();
         double player1Y = this.player1.getLayoutY();
@@ -210,10 +221,22 @@ public class GameManager implements EventHandler<KeyEvent> {
         path_p2.setFill(Color.WHITE);
         path_p2.setLayoutX(player2X);
         path_p2.setLayoutY(player2Y);
-        this.grid_fxml.getChildren().add(path_p1);
-        this.grid_fxml.getChildren().add(path_p2);
-        grid_object.addToGrid(path_p1);
-        grid_object.addToGrid(path_p2);
+
+        if (this.player1.hasPath() == true) {
+            this.grid_fxml.getChildren().add(path_p1);
+            grid_object.addToGrid(path_p1);
+            //this.player1.setLeavesPath(false);
+            //this.player1.setShield(true);
+        }
+        if (this.player2.hasPath() == true) {
+            this.grid_fxml.getChildren().add(path_p2);
+            grid_object.addToGrid(path_p2);
+        }
+
+//        this.grid_fxml.getChildren().add(path_p1);
+//        this.grid_fxml.getChildren().add(path_p2);
+//        grid_object.addToGrid(path_p1);
+//        grid_object.addToGrid(path_p2);
 
 
         // update the position of player1 and player2, as they passed all the

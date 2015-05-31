@@ -1,5 +1,6 @@
 package carltron;
 
+import javafx.scene.effect.Light;
 import javafx.scene.paint.Color;
 
 import java.util.HashMap;
@@ -17,8 +18,8 @@ public class Player {
     public static final int JUMP_DURATION = 3;
     public static final int PROTECTOR_DURATION = 3;
 
-    public Player(int life, Color color) {
-        this.life = life;
+    public Player() {
+        this.life = 3;
         this.vehicle = new LightCycle();
         this.bonuses = new Bonus[] {
                 new Turbo(3, this.vehicle),
@@ -29,6 +30,10 @@ public class Player {
         this.counter.put("turbo",0);
         this.counter.put("jump",0);
         this.counter.put("protector",0);
+    }
+
+    public void setVehicle(LightCycle new_bike) {
+        this.vehicle = new_bike;
     }
 
     public int getLife() {
