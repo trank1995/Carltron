@@ -28,7 +28,7 @@
             <Button id="Button" layoutX="245.0" layoutY="331.0" mnemonicParsing="false" opacity="0.5" prefHeight="26.0" prefWidth="235.0" stylesheets="@start.css" text="1 PLAYER" textFill="#3baaad" />
             <ImageView fitHeight="104.0" fitWidth="484.0" layoutX="102.0" layoutY="80.0">
                <image>
-                  <Image url="@images/title.jpeg" />
+                  <Image url="@images/tr2n.title.png" />
                </image>
             </ImageView>
          </children>

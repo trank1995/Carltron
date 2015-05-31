@@ -14,20 +14,6 @@
             <Image url="@images/ruleBackground.jpg" />
          </image>
       </ImageView>
-      <Text layoutX="289.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rules" textAlignment="CENTER" wrappingWidth="239.345703125">
-         <fill>
-            <LinearGradient cycleMethod="REFLECT" endX="0.6538461538461539" endY="0.8653846153846154" startX="0.6298076923076924" startY="0.125">
-               <stops>
-                  <Stop color="#04bcff" />
-                  <Stop color="#05ddff" offset="0.007662835249042145" />
-                  <Stop color="#023f43" offset="1.0" />
-               </stops>
-            </LinearGradient>
-         </fill>
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Text>
       <Text layoutX="64.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Carltron is a game based on a grid system. Each player controls a light cycle, which leaves a trail as a solid wall. Players control the cars in all four directions so as to avoid colliding with the other player’s path, their own path or the walls of the grid. The aim of the game is to force the opponent to collide before you do." wrappingWidth="694.345703125">
          <fill>
             <RadialGradient centerX="0.7696629213483146" centerY="0.4807692307692307" focusAngle="-35.54" radius="0.5">
@@ -126,5 +112,10 @@
             </RadialGradient>
          </fill>
       </Text>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="335.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/rules.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
