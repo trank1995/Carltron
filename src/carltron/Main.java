@@ -14,19 +14,26 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
-
 import javax.swing.*;
+import javax.swing.text.html.ImageView;
 
+
+import javafx.util.StringConverter;
 public class Main extends Application {
 
-    Scene scene1, scene2, scene3;
+    Scene scene1, scene2, scene3, scene4;
     Stage theStage;
+    GameManager game_controller;
 
     @FXML private Button player1;
     @FXML private Button player2;
-
-    // set private to prevent instantiation
-    private Main() {}
+   // @FXML private ImageView winner;
+    @FXML private Button player1Score;
+    @FXML private Button player2Score;
+    @FXML public Button again;
+    public Main() {
+        again = new Button();
+    }
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -74,7 +81,7 @@ public class Main extends Application {
         //root.setOnKeyPressed(windowNavigation);
 
         primaryStage.getIcons().add(new Image(getClass().getResource
-                ("images/logo.png").toExternalForm()));
+                ("logo.png").toExternalForm()));
         primaryStage.setTitle("CarlTron");
         primaryStage.setScene(this.scene1);
         primaryStage.setResizable(false);
@@ -96,10 +103,8 @@ public class Main extends Application {
                 ("carltron-game.fxml"));
         Parent root2 = (Parent)loader2.load();
 
-        //Main new_main = loader2.getController();
-        //new_main.setStage(this.theStage);
-
-        GameManager game_controller = loader2.getController();
+        game_controller = loader2.getController();
+        game_controller.setStage(this.theStage);
         root2.setOnKeyPressed(game_controller);
 
         this.scene2 = new Scene(root2, 800, 600);
@@ -133,6 +138,24 @@ public class Main extends Application {
         this.theStage.setScene(this.scene1);
         this.theStage.show();
     }
+
+
+    public void victorPage(Stage theVictorStage, int won) throws Exception{
+        FXMLLoader loaderp = new FXMLLoader(getClass().getResource
+                ("done.fxml"));
+
+        Parent root4 = (Parent)loaderp.load();
+
+        Main new_main = loaderp.getController();
+        new_main.setStage(theVictorStage);
+        //again.setText("meeee");
+        //do stuff that changes the score and winner
+        theVictorStage.setScene(new Scene(root4, 800, 600));
+
+        theVictorStage.show();
+    }
+
+
 
 
     public static void main(String[] args) {

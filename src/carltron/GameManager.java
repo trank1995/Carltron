@@ -19,13 +19,12 @@ import javafx.stage.Stage;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class GameManager implements EventHandler<KeyEvent> {
+public class GameManager implements EventHandler<KeyEvent>{
     final private double FRAMES_PER_SECOND = 25.0;
     final private double STEP_SIZE = 5.0;
     private Grid grid_object = new Grid();
     public Stage primaryStage;
-    private Player player1_object;
-    private Player player2_object;
+    public int win;
 
     @FXML private Button pauseButton;
     @FXML private LightCycle player1;
@@ -38,7 +37,7 @@ public class GameManager implements EventHandler<KeyEvent> {
     @FXML private Label player1LifeLabel;
     @FXML private Label player2LifeLabel;
 
-    //    private int player1_turbo;
+//    private int player1_turbo;
 //    private int player2_turbo;
 //    private int player1_jump;
 //    private int player2_jump;
@@ -48,28 +47,39 @@ public class GameManager implements EventHandler<KeyEvent> {
     private Timer timer;
 
     public GameManager() {
-        System.out.println("yes");
         this.paused = false;
         this.primaryStage = null;
-
-        // create players and assign bikes.
-        this.player2_object = new Player();
-        this.player1_object = new Player();
-        this.player2_object.setVehicle(this.player2);
-        this.player1_object.setVehicle(this.player1);
+//        this.player1_turbo = 3;
+//        this.player2_turbo = 3;
+//        this.player1_jump = 3;
+//        this.player2_jump = 3;
+//        this.player1_life = 0;
+//        this.player2_life = 0;
+        this.win =0;
     }
 
-    public void initialize() {
-        System.out.println("no");
+    public void initialize() throws Exception{
         this.setUpAnimationTimer();
     }
 
-    public void setUpAnimationTimer() {
+    public void setUpAnimationTimer(){
         TimerTask timerTask = new TimerTask() {
-            public void run() {
+            public void run(){
                 Platform.runLater(new Runnable() {
-                    public void run() {
-                        updateAnimation();
+
+                    public void run(){
+
+                        try {
+
+                            if (updateAnimation() == true){
+                                updateAnimation();
+                            }else{
+                                callVictoryPage();
+                                updateAnimation();
+                            }
+                        }catch (Exception e){
+                            System.out.println("big error");
+                        }
                     }
                 });
             }
@@ -82,10 +92,7 @@ public class GameManager implements EventHandler<KeyEvent> {
         this.timer.schedule(timerTask, 0, frameTimeInMilliseconds);
     }
 
-    public void updateAnimation() {
-        
-
-
+    public boolean updateAnimation() throws Exception{
         // find position of player1
         double player1X = this.player1.getLayoutX();
         double player1Y = this.player1.getLayoutY();
@@ -110,57 +117,97 @@ public class GameManager implements EventHandler<KeyEvent> {
 
         // do checks:
 
+
+
+        ////////////// putting this before checking for wall collision
+
+        // check if bike collided with a path.
+        boolean path_check_p1 = grid_object.collisionWithPath(this.player1);
+        boolean path_check_p2 = grid_object.collisionWithPath(this.player2);
+
+        // player1 and player2 crashed at the same time --> draw (tie).
+        if ((path_check_p1 == true) && (path_check_p2)) {
+            // crash
+            this.win = 0;
+            this.timer.cancel();
+            return false;
+
+            // player1 crashed --> player2 wins.
+        } else if (path_check_p1 == true) {
+            // crash
+            this.win = 2;
+            this.timer.cancel();
+            return false;
+
+            // player2 crashed --> player1 wins.
+        } else if (path_check_p2 == true) {
+            // crash
+            this.timer.cancel();
+            this.win = 1;
+            return false;
+
+        }
+
+        ///////////////////////
         // player1 went of the grid (bottom)
         if (player1Y_new + this.player1.getHeight() > this.grid_fxml.getHeight
                 ()) {
             // crash
-            Platform.exit();
-            System.exit(0);
+            this.win = 2;
+            this.timer.cancel();
+            return false;
         }
         // player1 went of the grid (top)
         if (player1Y_new < 0) {
             // crash
-            Platform.exit();
-            System.exit(0);
+            this.win = 2;
+            this.timer.cancel();
+            return false;
         }
         // player1 went of the grid (left)
         if (player1X_new < 0) {
             // crash
-            Platform.exit();
-            System.exit(0);
+            this.win = 2;
+            this.timer.cancel();
+            return false;
         }
         // player1 went of the grid (right)
         if (player1X_new + this.player1.getWidth() > this.grid_fxml.getWidth
                 ()) {
             // crash
-            Platform.exit();
-            System.exit(0);
+            this.win=2;
+            this.timer.cancel();
+            return false;
         }
         // player2 went of the grid (bottom)
         if (player2Y_new + this.player2.getHeight() > this.grid_fxml.getHeight
                 ()) {
             // crash
-            Platform.exit();
-            System.exit(0);
+            this.win = 1;
+            this.timer.cancel();
+            return false;
         }
         // player2 went of the grid (top)
         if (player2Y_new < 0) {
             // crash
-            Platform.exit();
-            System.exit(0);
+            this.win = 1;
+            this.timer.cancel();
+            return false;
         }
         // player2 went of the grid (left)
         if (player2X_new < 0) {
             // crash
-            Platform.exit();
-            System.exit(0);
+            this.win = 1;
+            this.timer.cancel();
+            return false;
         }
         // player2 went of the grid (right)
         if (player2X_new + this.player2.getWidth() > this.grid_fxml.getWidth
                 ()) {
             // crash
-            Platform.exit();
-            System.exit(0);
+            this.win = 1;
+            this.timer.cancel();
+            return false;
         }
 
 
@@ -178,28 +225,39 @@ public class GameManager implements EventHandler<KeyEvent> {
         // collision is only when their position competely overlap.
         // p1--><--p2
         if ((player1X_new == player2X_new) && (player1Y_new == player2Y_new)) {
-            Platform.exit();
-            System.exit(0);
+            this.win=0;
+            this.timer.cancel();
+            return false;
+
+
             // p1-->p2
         } else if ((player1X_new == player2X) && (player1Y_new ==
                 player2Y_new)) {
-            Platform.exit();
-            System.exit(0);
+            this.win = 2;
+            this.timer.cancel();
+            return false;
+
             // p1<--p2
         } else if ((player1X == player2X_new) && (player1Y_new ==
                 player2Y_new)) {
-            Platform.exit();
-            System.exit(0);
+            this.win = 1;
+            this.timer.cancel();
+            return false;
+
             // p1/p2
         } else if ((player1X_new == player2X_new) && (player1Y_new ==
                 player2Y)) {
-            Platform.exit();
-            System.exit(0);
+            this.win = 2;
+            this.timer.cancel();
+            return false;
+
             // p2/p1
         } else if ((player1X_new == player2X_new) && (player1Y ==
                 player2Y_new)) {
-            Platform.exit();
-            System.exit(0);
+            this.win = 1;
+            this.timer.cancel();
+            return false;
+
         }
 
         // add new path rectangle
@@ -215,49 +273,16 @@ public class GameManager implements EventHandler<KeyEvent> {
         path_p2.setFill(Color.WHITE);
         path_p2.setLayoutX(player2X);
         path_p2.setLayoutY(player2Y);
-
-        if (this.player1.hasPath() == true) {
-            this.grid_fxml.getChildren().add(path_p1);
-            grid_object.addToGrid(path_p1);
-            //this.player1.setLeavesPath(false);
-            //this.player1.setShield(true);
-        }
-        if (this.player2.hasPath() == true) {
-            this.grid_fxml.getChildren().add(path_p2);
-            grid_object.addToGrid(path_p2);
-        }
-
-//        this.grid_fxml.getChildren().add(path_p1);
-//        this.grid_fxml.getChildren().add(path_p2);
-//        grid_object.addToGrid(path_p1);
-//        grid_object.addToGrid(path_p2);
+        this.grid_fxml.getChildren().add(path_p1);
+        this.grid_fxml.getChildren().add(path_p2);
+        grid_object.addToGrid(path_p1);
+        grid_object.addToGrid(path_p2);
 
 
         // update the position of player1 and player2, as they passed all the
         // collision tests.
         this.player1.step();
         this.player2.step();
-
-        // check if bike collided with a path.
-        boolean path_check_p1 = grid_object.collisionWithPath(this.player1);
-        boolean path_check_p2 = grid_object.collisionWithPath(this.player2);
-
-        // player1 and player2 crashed at the same time --> draw (tie).
-        if ((path_check_p1 == true) && (path_check_p2)) {
-            // crash
-            Platform.exit();
-            System.exit(0);
-            // player1 crashed --> player2 wins.
-        } else if (path_check_p1 == true) {
-            // crash
-            Platform.exit();
-            System.exit(0);
-            // player2 crashed --> player1 wins.
-        } else if (path_check_p2 == true) {
-            // crash
-            Platform.exit();
-            System.exit(0);
-        }
 
 //        // Need to update display of turbo/life/jump counts.
 //        int turbo_amount_p1 = this.player1.getTurboAmount();
@@ -294,6 +319,7 @@ public class GameManager implements EventHandler<KeyEvent> {
 //        } else if (player2_velocityY == 2 || player2_velocityY == -2) {
 //            this.player2.setVelocityY((player2_velocityY / 2));
 //        }
+        return true;
     }
 
     @Override
@@ -384,7 +410,7 @@ public class GameManager implements EventHandler<KeyEvent> {
         keyEvent.consume();
     }
 
-    public void onPauseButton(ActionEvent actionEvent) {
+    public void onPauseButton(ActionEvent actionEvent) throws Exception {
         if (this.paused) {
             this.setUpAnimationTimer();
             this.pauseButton.setText("Pause");
@@ -398,5 +424,16 @@ public class GameManager implements EventHandler<KeyEvent> {
     //this sets and saves the primary stage for reuse in the window recreation.
     public void setStage(Stage primary) {
         this.primaryStage = primary;
+    }
+    public Stage getStage(){
+        return this.primaryStage;
+    }
+
+
+    public void callVictoryPage() throws
+            Exception{
+        System.out.println(this.win);
+        Main victor = new Main();
+        victor.victorPage(this.primaryStage, this.win);
     }
 }
