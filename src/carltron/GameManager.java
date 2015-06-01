@@ -403,7 +403,7 @@ public class GameManager implements EventHandler<KeyEvent>{
 
     public void callVictoryPage() throws Exception{
         System.out.println(this.win);
-        Main victor = new Main();
+        WindowNavigation victor = new WindowNavigation();
         victor.victorPage(this.primaryStage, this.win);
     }
 }
