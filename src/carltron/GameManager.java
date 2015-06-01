@@ -304,28 +304,34 @@ public class GameManager implements EventHandler<KeyEvent>{
         int turbo_dist = 2;
 
         // player 2
+        /* speed2 is the magnitude of player2's velocity. Since velocityX is
+        either 0 or positive/minus speed, we use the ternary operator to
+        obtain the speed. */
+        int speed2 = (this.player2.getVelocityX() == 0) ?
+                         Math.abs(this.player2.getVelocityY()):
+                         Math.abs(this.player2.getVelocityX());
         if (code == KeyCode.LEFT) {
-            if (this.player2.getVelocityX() != 1) {
+            if (this.player2.getVelocityX() <= 0) {
                 // velocityX to -1 and Y to 0.
                 this.player2.setVelocityY(0);
-                this.player2.setVelocityX(-1);
+                this.player2.setVelocityX(-speed2);
             }
         } else if (code == KeyCode.RIGHT) {
-            if (this.player2.getVelocityX() != -1) {
+            if (this.player2.getVelocityX() >= 0) {
                 // velocityX to 1 and Y to 0.
                 this.player2.setVelocityY(0);
-                this.player2.setVelocityX(1);
+                this.player2.setVelocityX(speed2);
             }
         } else if (code == KeyCode.UP) {
-            if (this.player2.getVelocityY() != 1) {
+            if (this.player2.getVelocityY() <= 0) {
                 // velocityX to 0 and Y to 1.
-                this.player2.setVelocityY(-1);
+                this.player2.setVelocityY(-speed2);
                 this.player2.setVelocityX(0);
             }
         } else if (code == KeyCode.DOWN) {
-            if (this.player2.getVelocityY() != -1) {
+            if (this.player2.getVelocityY() >= 0) {
                 // velocityX to 0 and Y to -1.
-                this.player2.setVelocityY(1);
+                this.player2.setVelocityY(speed2);
                 this.player2.setVelocityX(0);
             }
             // turbo 2nd player?
