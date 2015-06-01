@@ -4,7 +4,7 @@ package carltron;
  * Created by shangd on 5/27/15.
  */
 public class Turbo extends Bonus {
-    public final static int BOOST_VELOCITY = 5;
+    public final static int BOOST_VELOCITY = 1;
 
     public Turbo(int amount, LightCycle owner) {
         super();
@@ -14,17 +14,28 @@ public class Turbo extends Bonus {
 
     @Override
     public void consume() {
-        if (this.amount == 0) return;
+        System.out.println("consumed");
+        if (this.amount == 0) {
+            return;
+        }
 
-        setAmount(this.amount-1);
-        if (this.owner.getVelocityX() < 0) {
+//        setAmount(this.amount - 1);
+        if (this.owner.getVelocityX() == -1) {
             this.owner.setVelocityX(this.owner.getVelocityX() - BOOST_VELOCITY);
-        } else if (this.owner.getVelocityX() > 0) {
+            System.out.println(this.owner.getVelocityX());
+            setAmount(this.amount - 1);
+        } else if (this.owner.getVelocityX() == 1) {
             this.owner.setVelocityX(this.owner.getVelocityX() + BOOST_VELOCITY);
-        } else if (this.owner.getVelocityY() < 0) {
+            System.out.println(this.owner.getVelocityX());
+            setAmount(this.amount - 1);
+        } else if (this.owner.getVelocityY() == -1) {
             this.owner.setVelocityY(this.owner.getVelocityY() - BOOST_VELOCITY);
-        } else if (this.owner.getVelocityY() > 0) {
+            System.out.println(this.owner.getVelocityY());
+            setAmount(this.amount - 1);
+        } else if (this.owner.getVelocityY() == 1) {
             this.owner.setVelocityY(this.owner.getVelocityY() + BOOST_VELOCITY);
+            System.out.println(this.owner.getVelocityY());
+            setAmount(this.amount - 1);
         }
     }
 

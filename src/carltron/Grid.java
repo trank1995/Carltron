@@ -10,37 +10,31 @@ import java.util.ArrayList;
 public class Grid {
     private int width;
     private int height;
-    private ArrayList<Rectangle> path = new ArrayList<Rectangle>();
+    private ArrayList<Rectangle> paths = new ArrayList<>();
 
     public static final int DEFAULT_GRID_SIZE = 500;
 
     public Grid(){
         this.width = DEFAULT_GRID_SIZE;
         this.height = DEFAULT_GRID_SIZE;
-
     }
 
-    public void addToGrid(Rectangle new_path) {
-        path.add(new_path);
+    public void addToGrid(Rectangle path) {
+        paths.add(path);
     }
 
     public boolean collisionWithPath(LightCycle bike) {
-        double bikeX = bike.getLayoutX();
-        double bikeY = bike.getLayoutY();
         // loop over rectangles in path and check whether layout is the same
         // as the bike's layout.
-        if (bike.hasShield() == false) {
-            for (Rectangle object : path) {
-                double objectX = object.getLayoutX();
-                double objectY = object.getLayoutY();
-
-                if ((bikeX == objectX) && (bikeY == objectY)) {
+        if (!bike.hasShield()) {
+            for (Rectangle path : paths) {
+                if ((bike.getLayoutX() == path.getLayoutX()) &&
+                    (bike.getLayoutY() == path.getLayoutY())) {
                     return true;
                 }
             }
-            // no collision? return false.
-            return false;
         }
+        // no collision? return false.
         return false;
     }
 

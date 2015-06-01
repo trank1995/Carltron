@@ -9,7 +9,6 @@ import javafx.scene.shape.Rectangle;
 public class LightCycle extends Rectangle {
     private int velocityX;
     private int velocityY;
-    private Color color;
     private boolean leavesPath;
     private boolean shield;
 
@@ -17,14 +16,9 @@ public class LightCycle extends Rectangle {
     public static final double DEFAULT_STEP_SIZE = 5;
 
     public LightCycle() {
-        //this.color = color;
         this.leavesPath = true;
         this.shield = false;
     }
-
-    //public Color getColor() {
-    //    return this.color;
-    //}
 
     public boolean hasPath() {
         return this.leavesPath;
@@ -48,7 +42,6 @@ public class LightCycle extends Rectangle {
 
     public void setVelocityX(int v) {
         this.velocityX = v;
-        //this.velocityY = 0;
     }
 
     public int getVelocityY() {
@@ -57,7 +50,6 @@ public class LightCycle extends Rectangle {
 
     public void setVelocityY(int v) {
         this.velocityY = v;
-        //this.velocityX = 0;
     }
 
     public void step() {

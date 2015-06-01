@@ -14,26 +14,22 @@ public class Player {
     private Bonus[] bonuses;
     private HashMap<String, Integer> counter;
 
-    public static final int TURBO_DURATION = 5;
+    public static final int TURBO_DURATION = 1;
     public static final int JUMP_DURATION = 3;
     public static final int PROTECTOR_DURATION = 3;
 
-    public Player() {
+    public Player(LightCycle vehicle) {
         this.life = 3;
-        this.vehicle = new LightCycle();
+        this.vehicle = vehicle;
         this.bonuses = new Bonus[] {
                 new Turbo(3, this.vehicle),
                 new Jump(3, this.vehicle),
                 new Protector(0, this.vehicle)
         };
         this.counter = new HashMap<>();
-        this.counter.put("turbo",0);
-        this.counter.put("jump",0);
+        this.counter.put("turbo",3);
+        this.counter.put("jump",3);
         this.counter.put("protector",0);
-    }
-
-    public void setVehicle(LightCycle new_bike) {
-        this.vehicle = new_bike;
     }
 
     public int getLife() {

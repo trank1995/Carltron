@@ -20,10 +20,12 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class GameManager implements EventHandler<KeyEvent>{
-    final private double FRAMES_PER_SECOND = 25.0;
+    final private double FRAMES_PER_SECOND = 15.0;
     final private double STEP_SIZE = 5.0;
-    private Grid grid_object = new Grid();
+    private Grid grid = new Grid();
     public Stage primaryStage;
+    private Player player1_object;
+    private Player player2_object;
     public int win;
 
     @FXML private Button pauseButton;
@@ -37,24 +39,12 @@ public class GameManager implements EventHandler<KeyEvent>{
     @FXML private Label player1LifeLabel;
     @FXML private Label player2LifeLabel;
 
-//    private int player1_turbo;
-//    private int player2_turbo;
-//    private int player1_jump;
-//    private int player2_jump;
-//    private int player1_life;
-//    private int player2_life;
     private boolean paused;
     private Timer timer;
 
     public GameManager() {
         this.paused = false;
         this.primaryStage = null;
-//        this.player1_turbo = 3;
-//        this.player2_turbo = 3;
-//        this.player1_jump = 3;
-//        this.player2_jump = 3;
-//        this.player1_life = 0;
-//        this.player2_life = 0;
         this.win =0;
     }
 
@@ -93,6 +83,11 @@ public class GameManager implements EventHandler<KeyEvent>{
     }
 
     public boolean updateAnimation() throws Exception{
+        if (this.player1_object == null || this.player2_object == null) {
+            this.player2_object = new Player(this.player2);
+            this.player1_object = new Player(this.player1);
+        }
+
         // find position of player1
         double player1X = this.player1.getLayoutX();
         double player1Y = this.player1.getLayoutY();
@@ -111,8 +106,10 @@ public class GameManager implements EventHandler<KeyEvent>{
         // find new position of player2
         double player2X_new = player2X + (STEP_SIZE * this.player2
                 .getVelocityX());
+        //****System.out.println(this.player2.getVelocityX());
         double player2Y_new = player2Y + (STEP_SIZE * this.player2
                 .getVelocityY());
+        //****System.out.println(this.player2.getVelocityY());
 
 
         // do checks:
@@ -122,8 +119,8 @@ public class GameManager implements EventHandler<KeyEvent>{
         ////////////// putting this before checking for wall collision
 
         // check if bike collided with a path.
-        boolean path_check_p1 = grid_object.collisionWithPath(this.player1);
-        boolean path_check_p2 = grid_object.collisionWithPath(this.player2);
+        boolean path_check_p1 = grid.collisionWithPath(this.player1);
+        boolean path_check_p2 = grid.collisionWithPath(this.player2);
 
         // player1 and player2 crashed at the same time --> draw (tie).
         if ((path_check_p1 == true) && (path_check_p2)) {
@@ -260,6 +257,9 @@ public class GameManager implements EventHandler<KeyEvent>{
 
         }
 
+        //****** CHECK TURBO *******//
+        //this.player2_object.statusCheck();
+
         // add new path rectangle
         Rectangle path_p1 = new Rectangle();
         path_p1.setWidth(STEP_SIZE);
@@ -273,10 +273,14 @@ public class GameManager implements EventHandler<KeyEvent>{
         path_p2.setFill(Color.WHITE);
         path_p2.setLayoutX(player2X);
         path_p2.setLayoutY(player2Y);
-        this.grid_fxml.getChildren().add(path_p1);
-        this.grid_fxml.getChildren().add(path_p2);
-        grid_object.addToGrid(path_p1);
-        grid_object.addToGrid(path_p2);
+        if (this.player1.hasPath()) {
+            this.grid_fxml.getChildren().add(path_p1);
+            grid.addToGrid(path_p1);
+        }
+        if (this.player2.hasPath()) {
+            this.grid_fxml.getChildren().add(path_p2);
+            grid.addToGrid(path_p2);
+        }
 
 
         // update the position of player1 and player2, as they passed all the
@@ -363,6 +367,8 @@ public class GameManager implements EventHandler<KeyEvent>{
 //            this.player2.setVelocityX(this.player2.getVelocityX() * turbo_dist);
             //this.player2.consume("turbo");
             // jump 2nd player?
+            this.player2_object.consume("turbo");
+
         } else if (code == KeyCode.SHIFT) {
             // do something
             //this.player2.consume("jump");
@@ -394,12 +400,7 @@ public class GameManager implements EventHandler<KeyEvent>{
             }
             // turbo 1st player?
         } else if (code == KeyCode.Q) {
-//            // velocityX to be 2x and Y to be 2y. This works as one of the two
-//            // will be 0, and 2*0 is still 0.
-//            this.player1.setVelocityY(this.player1.getVelocityY() * turbo_dist);
-//            this.player1.setVelocityX(this.player1.getVelocityX() * turbo_dist);
-            //this.player1.consume("turbo");
-            // jump 1st player?
+            this.player1_object.consume("turbo");
         } else if (code == KeyCode.E) {
             // do something
             //this.player1.consume("jump");
