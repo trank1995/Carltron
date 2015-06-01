@@ -262,7 +262,8 @@ public class GameManager implements EventHandler<KeyEvent>{
         }
 
         //****** CHECK TURBO *******//
-        //this.player2_object.statusCheck();
+        this.player1_object.statusCheck();
+        this.player2_object.statusCheck();
 
         // add new path rectangle
         Rectangle path_p1 = new Rectangle();
@@ -304,9 +305,12 @@ public class GameManager implements EventHandler<KeyEvent>{
         int turbo_dist = 2;
 
         // player 2
-        /* speed2 is the magnitude of player2's velocity. Since velocityX is
+        /* speed is the magnitude of player's velocity. Since velocityX is
         either 0 or positive/minus speed, we use the ternary operator to
         obtain the speed. */
+        int speed1 = (this.player1.getVelocityX() == 0) ?
+                         Math.abs(this.player1.getVelocityY()):
+                         Math.abs(this.player1.getVelocityX());
         int speed2 = (this.player2.getVelocityX() == 0) ?
                          Math.abs(this.player2.getVelocityY()):
                          Math.abs(this.player2.getVelocityX());
@@ -343,34 +347,34 @@ public class GameManager implements EventHandler<KeyEvent>{
         } else if (code == KeyCode.SHIFT) {
             //this.player2.consume("jump");
 
-            // player 1
+        // player 1
         } else if (code == KeyCode.A) {
-            if (this.player1.getVelocityX() != 1) {
+            if (this.player1.getVelocityX() <= 0) {
                 // velocityX to -1 and Y to 0.
                 this.player1.setVelocityY(0);
-                this.player1.setVelocityX(-1);
+                this.player1.setVelocityX(-speed1);
             }
         } else if (code == KeyCode.D) {
-            if (this.player1.getVelocityX() != -1) {
+            if (this.player1.getVelocityX() >= 0) {
                 // velocityX to 1 and Y to 0.
                 this.player1.setVelocityY(0);
-                this.player1.setVelocityX(1);
+                this.player1.setVelocityX(speed1);
             }
         } else if (code == KeyCode.W) {
-            if (this.player1.getVelocityY() != 1) {
+            if (this.player1.getVelocityY() <= 0) {
                 // velocityX to 0 and Y to 1.
-                this.player1.setVelocityY(-1);
+                this.player1.setVelocityY(-speed1);
                 this.player1.setVelocityX(0);
             }
         } else if (code == KeyCode.S) {
-            if (this.player1.getVelocityY() != -1) {
+            if (this.player1.getVelocityY() >= 0) {
                 // velocityX to 0 and Y to -1.
-                this.player1.setVelocityY(1);
+                this.player1.setVelocityY(speed1);
                 this.player1.setVelocityX(0);
             }
             // turbo 1st player?
         } else if (code == KeyCode.Q) {
-            //this.player1.consume("turbo");
+            this.player1_object.consume("turbo");
             // jump 1st player?
         } else if (code == KeyCode.E) {
             //this.player1.consume("jump");

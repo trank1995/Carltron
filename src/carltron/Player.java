@@ -14,9 +14,9 @@ public class Player {
     private Bonus[] bonuses;
     private HashMap<String, Integer> counter;
 
-    public static final int TURBO_DURATION = 1;
-    public static final int JUMP_DURATION = 3;
-    public static final int PROTECTOR_DURATION = 3;
+    public static final int TURBO_DURATION = 12;
+    public static final int JUMP_DURATION = 7;
+    public static final int PROTECTOR_DURATION = 9;
 
     public Player(LightCycle vehicle) {
         this.life = 3;
@@ -27,8 +27,8 @@ public class Player {
                 new Protector(0, this.vehicle)
         };
         this.counter = new HashMap<>();
-        this.counter.put("turbo",3);
-        this.counter.put("jump",3);
+        this.counter.put("turbo",0);
+        this.counter.put("jump",0);
         this.counter.put("protector",0);
     }
 

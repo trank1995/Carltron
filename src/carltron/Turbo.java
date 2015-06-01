@@ -14,27 +14,21 @@ public class Turbo extends Bonus {
 
     @Override
     public void consume() {
-        System.out.println("consumed");
         if (this.amount == 0) {
             return;
         }
 
-//        setAmount(this.amount - 1);
         if (this.owner.getVelocityX() == -1) {
             this.owner.setVelocityX(this.owner.getVelocityX() - BOOST_VELOCITY);
-            System.out.println(this.owner.getVelocityX());
             setAmount(this.amount - 1);
         } else if (this.owner.getVelocityX() == 1) {
             this.owner.setVelocityX(this.owner.getVelocityX() + BOOST_VELOCITY);
-            System.out.println(this.owner.getVelocityX());
             setAmount(this.amount - 1);
         } else if (this.owner.getVelocityY() == -1) {
             this.owner.setVelocityY(this.owner.getVelocityY() - BOOST_VELOCITY);
-            System.out.println(this.owner.getVelocityY());
             setAmount(this.amount - 1);
         } else if (this.owner.getVelocityY() == 1) {
             this.owner.setVelocityY(this.owner.getVelocityY() + BOOST_VELOCITY);
-            System.out.println(this.owner.getVelocityY());
             setAmount(this.amount - 1);
         }
     }
