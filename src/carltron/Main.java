@@ -81,7 +81,7 @@ public class Main extends Application {
         //root.setOnKeyPressed(windowNavigation);
 
         primaryStage.getIcons().add(new Image(getClass().getResource
-                ("logo.png").toExternalForm()));
+                ("images/logo.png").toExternalForm()));
         primaryStage.setTitle("CarlTron");
         primaryStage.setScene(this.scene1);
         primaryStage.setResizable(false);
