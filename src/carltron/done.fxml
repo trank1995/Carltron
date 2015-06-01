@@ -52,8 +52,9 @@
               mnemonicParsing="false" opacity="0.5" text="3" textFill="#3baaad" />
       <Button fx:id="player2Score" layoutX="320.0" layoutY="472.0"
               mnemonicParsing="false" opacity="0.5" text="0" textFill="#3baaad" />
-      <Button fx:id="again" layoutX="437.0" layoutY="255.0"
+      <Button fx:id="again" layoutX="430.0" layoutY="255.0"
               mnemonicParsing="false" onAction="#player2Clicked" opacity="0.8" prefHeight="79.0" prefWidth="311.0" text="Play Again" textAlignment="CENTER" textFill="#3baaad" />
-      <Button layoutX="429.0" layoutY="423.0" mnemonicParsing="false" onAction="#onBackButton" opacity="0.8" prefHeight="79.0" prefWidth="311.0" text="Main Menu" textAlignment="CENTER" textFill="#3baaad" />
+      <Button layoutX="430.0" layoutY="423.0" mnemonicParsing="false"
+              onAction="#onBackButton" opacity="0.8" prefHeight="79.0" prefWidth="311.0" text="Main Menu" textAlignment="CENTER" textFill="#3baaad" />
    </children>
 </AnchorPane>

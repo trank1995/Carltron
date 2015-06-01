@@ -31,8 +31,9 @@ public class Main extends Application {
     @FXML private Button player1Score;
     @FXML private Button player2Score;
     @FXML public Button again;
+
     public Main() {
-        again = new Button();
+        this.again = new Button();
     }
 
     @Override

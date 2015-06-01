@@ -19,6 +19,13 @@ import javafx.stage.Stage;
 import java.util.Timer;
 import java.util.TimerTask;
 
+// NOTE!
+// need to make off the path crash into a method.
+// call the method on both players.
+// do checks for #t / #f.
+// as now if they both go off the grid at the same time it is not a draw (tie).
+
+
 public class GameManager implements EventHandler<KeyEvent>{
     final private double FRAMES_PER_SECOND = 15.0;
     final private double STEP_SIZE = 5.0;
@@ -56,11 +63,8 @@ public class GameManager implements EventHandler<KeyEvent>{
         TimerTask timerTask = new TimerTask() {
             public void run(){
                 Platform.runLater(new Runnable() {
-
                     public void run(){
-
                         try {
-
                             if (updateAnimation() == true){
                                 updateAnimation();
                             }else{
@@ -123,7 +127,7 @@ public class GameManager implements EventHandler<KeyEvent>{
         boolean path_check_p2 = grid.collisionWithPath(this.player2);
 
         // player1 and player2 crashed at the same time --> draw (tie).
-        if ((path_check_p1 == true) && (path_check_p2)) {
+        if ((path_check_p1 == true) && (path_check_p2 == true)) {
             // crash
             this.win = 0;
             this.timer.cancel();
@@ -172,7 +176,7 @@ public class GameManager implements EventHandler<KeyEvent>{
         if (player1X_new + this.player1.getWidth() > this.grid_fxml.getWidth
                 ()) {
             // crash
-            this.win=2;
+            this.win = 2;
             this.timer.cancel();
             return false;
         }
@@ -219,10 +223,10 @@ public class GameManager implements EventHandler<KeyEvent>{
 //            // crash
 //        }
 
-        // collision is only when their position competely overlap.
+        // collision is only when their position overlap.
         // p1--><--p2
         if ((player1X_new == player2X_new) && (player1Y_new == player2Y_new)) {
-            this.win=0;
+            this.win = 0;
             this.timer.cancel();
             return false;
 
@@ -230,28 +234,28 @@ public class GameManager implements EventHandler<KeyEvent>{
             // p1-->p2
         } else if ((player1X_new == player2X) && (player1Y_new ==
                 player2Y_new)) {
-            this.win = 2;
+            this.win = 0;//2;
             this.timer.cancel();
             return false;
 
             // p1<--p2
         } else if ((player1X == player2X_new) && (player1Y_new ==
                 player2Y_new)) {
-            this.win = 1;
+            this.win = 0;//1;
             this.timer.cancel();
             return false;
 
             // p1/p2
         } else if ((player1X_new == player2X_new) && (player1Y_new ==
                 player2Y)) {
-            this.win = 2;
+            this.win = 0;//2;
             this.timer.cancel();
             return false;
 
             // p2/p1
         } else if ((player1X_new == player2X_new) && (player1Y ==
                 player2Y_new)) {
-            this.win = 1;
+            this.win = 0;//1;
             this.timer.cancel();
             return false;
 
@@ -288,41 +292,6 @@ public class GameManager implements EventHandler<KeyEvent>{
         this.player1.step();
         this.player2.step();
 
-//        // Need to update display of turbo/life/jump counts.
-//        int turbo_amount_p1 = this.player1.getTurboAmount();
-//        int life_amount_p1 = this.player1.getLifeAmount();
-//        int jump_amount_p1 = this.player1.getJumpAmount;
-//        int turbo_amount_p2 = this.player2.getTurboAmount();
-//        int life_amount_p2 = this.player2.getLifeAmount();
-//        int jump_amount_p2 = this.player2.getJumpAmount;
-//
-//        this.player1TurboLabel.setText(String.format("%i", turbo_amount_p1));
-//        this.player1LifeLabel.setText(String.format("%i", life_amount_p1));
-//        this.player1JumpLabel.setText(String.format("%i", jump_amount_p1));
-//        this.player2TurboLabel.setText(String.format("%i", turbo_amount_p1));
-//        this.player2LifeLabel.setText(String.format("%i", life_amount_p1));
-//        this.player2JumpLabel.setText(String.format("%i", jump_amount_p1));
-
-
-//        // DONT NEED THIS WHEN TURBO CLASS IS DONE
-//        int player1_velocityX = this.player1.getVelocityX() ;
-//        int player1_velocityY = this.player1.getVelocityY() ;
-//        int player2_velocityX = this.player2.getVelocityX() ;
-//        int player2_velocityY = this.player2.getVelocityY() ;
-//
-//        // set turbo velocity back to normal again for both players.
-//        // player1
-//        if (player1_velocityX == 2 || player1_velocityX == -2) {
-//            this.player1.setVelocityX((player1_velocityX / 2));
-//        } else if (player1_velocityY == 2 || player1_velocityY == -2) {
-//            this.player1.setVelocityY((player1_velocityY / 2));
-//        }
-//        // player2
-//        if (player2_velocityX == 2 || player2_velocityX == -2) {
-//            this.player2.setVelocityX((player2_velocityX / 2));
-//        } else if (player2_velocityY == 2 || player2_velocityY == -2) {
-//            this.player2.setVelocityY((player2_velocityY / 2));
-//        }
         return true;
     }
 
@@ -361,16 +330,11 @@ public class GameManager implements EventHandler<KeyEvent>{
             }
             // turbo 2nd player?
         } else if (code == KeyCode.ENTER) {
-//            // velocityX to be 2x and Y to be 2y. This works as one of the two
-//            // will be 0, and 2*0 is still 0.
-//            this.player2.setVelocityY(this.player2.getVelocityY() * turbo_dist);
-//            this.player2.setVelocityX(this.player2.getVelocityX() * turbo_dist);
             //this.player2.consume("turbo");
             // jump 2nd player?
             this.player2_object.consume("turbo");
 
         } else if (code == KeyCode.SHIFT) {
-            // do something
             //this.player2.consume("jump");
 
             // player 1
@@ -400,9 +364,9 @@ public class GameManager implements EventHandler<KeyEvent>{
             }
             // turbo 1st player?
         } else if (code == KeyCode.Q) {
-            this.player1_object.consume("turbo");
+            //this.player1.consume("turbo");
+            // jump 1st player?
         } else if (code == KeyCode.E) {
-            // do something
             //this.player1.consume("jump");
         }
 
@@ -431,8 +395,7 @@ public class GameManager implements EventHandler<KeyEvent>{
     }
 
 
-    public void callVictoryPage() throws
-            Exception{
+    public void callVictoryPage() throws Exception{
         System.out.println(this.win);
         Main victor = new Main();
         victor.victorPage(this.primaryStage, this.win);
