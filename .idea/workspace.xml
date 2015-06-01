@@ -65,12 +65,24 @@
         <entry file="file://$PROJECT_DIR$/src/carltron/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+              <caret line="154" column="0" selection-start-line="154" selection-start-column="0" selection-end-line="154" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#947#948#0" expanded="true" />
                 <element signature="e#988#989#0" expanded="true" />
+                <element signature="e#3088#3089#0" expanded="true" />
+                <element signature="e#3127#3128#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="done.fxml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/carltron/done.fxml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.69158876">
+              <caret line="54" column="59" selection-start-line="54" selection-start-column="59" selection-end-line="54" selection-end-column="59" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -87,10 +99,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameManager.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GameManager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/carltron/GameManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7009346">
+            <state vertical-scroll-proportion="0.0">
               <caret line="25" column="79" selection-start-line="25" selection-start-column="79" selection-end-line="25" selection-end-column="79" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -141,9 +153,9 @@
         <option value="$PROJECT_DIR$/src/carltron/carltron-game.fxml" />
         <option value="$PROJECT_DIR$/src/carltron/Player.java" />
         <option value="$PROJECT_DIR$/src/carltron/LightCycle.java" />
-        <option value="$PROJECT_DIR$/src/carltron/done.fxml" />
         <option value="$PROJECT_DIR$/src/carltron/Main.java" />
         <option value="$PROJECT_DIR$/src/carltron/GameManager.java" />
+        <option value="$PROJECT_DIR$/src/carltron/done.fxml" />
       </list>
     </option>
   </component>
@@ -571,12 +583,12 @@
       <workItem from="1433109329859" duration="388000" />
       <workItem from="1433109751374" duration="824000" />
       <workItem from="1433114348105" duration="845000" />
-      <workItem from="1433171975519" duration="603000" />
+      <workItem from="1433171975519" duration="885000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33440000" />
+    <option name="totallyTimeSpent" value="33722000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="822" extended-state="6" />
@@ -664,6 +676,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#947#948#0" expanded="true" />
             <element signature="e#988#989#0" expanded="true" />
+            <element signature="e#3088#3089#0" expanded="true" />
+            <element signature="e#3127#3128#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -704,6 +718,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#947#948#0" expanded="true" />
             <element signature="e#988#989#0" expanded="true" />
+            <element signature="e#3088#3089#0" expanded="true" />
+            <element signature="e#3127#3128#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -747,6 +763,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#947#948#0" expanded="true" />
             <element signature="e#988#989#0" expanded="true" />
+            <element signature="e#3088#3089#0" expanded="true" />
+            <element signature="e#3127#3128#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -790,6 +808,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#947#948#0" expanded="true" />
             <element signature="e#988#989#0" expanded="true" />
+            <element signature="e#3088#3089#0" expanded="true" />
+            <element signature="e#3127#3128#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -851,6 +871,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#947#948#0" expanded="true" />
             <element signature="e#988#989#0" expanded="true" />
+            <element signature="e#3088#3089#0" expanded="true" />
+            <element signature="e#3127#3128#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -916,6 +938,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#947#948#0" expanded="true" />
             <element signature="e#988#989#0" expanded="true" />
+            <element signature="e#3088#3089#0" expanded="true" />
+            <element signature="e#3127#3128#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -987,6 +1011,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#947#948#0" expanded="true" />
             <element signature="e#988#989#0" expanded="true" />
+            <element signature="e#3088#3089#0" expanded="true" />
+            <element signature="e#3127#3128#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1040,25 +1066,35 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/carltron/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#947#948#0" expanded="true" />
-            <element signature="e#988#989#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/carltron/GameManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7009346">
+        <state vertical-scroll-proportion="0.0">
           <caret line="25" column="79" selection-start-line="25" selection-start-column="79" selection-end-line="25" selection-end-column="79" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/carltron/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="154" column="0" selection-start-line="154" selection-start-column="0" selection-end-line="154" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#947#948#0" expanded="true" />
+            <element signature="e#988#989#0" expanded="true" />
+            <element signature="e#3088#3089#0" expanded="true" />
+            <element signature="e#3127#3128#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/carltron/done.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.69158876">
+          <caret line="54" column="59" selection-start-line="54" selection-start-column="59" selection-end-line="54" selection-end-column="59" />
+          <folding />
         </state>
       </provider>
     </entry>
