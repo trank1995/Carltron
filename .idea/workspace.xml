@@ -100,7 +100,7 @@
         <entry file="file://$PROJECT_DIR$/src/carltron/GameManager.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.6686047">
-              <caret line="325" column="32" selection-start-line="325" selection-start-column="32" selection-end-line="325" selection-end-column="32" />
+              <caret line="329" column="13" selection-start-line="329" selection-start-column="13" selection-end-line="329" selection-end-column="13" />
               <folding>
                 <element signature="e#13065#13066#0" expanded="true" />
                 <element signature="e#13108#13109#0" expanded="true" />
@@ -605,12 +605,12 @@
       <workItem from="1433109751374" duration="824000" />
       <workItem from="1433114348105" duration="845000" />
       <workItem from="1433171975519" duration="885000" />
-      <workItem from="1433193178176" duration="1340000" />
+      <workItem from="1433193178176" duration="2272000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35062000" />
+    <option name="totallyTimeSpent" value="35994000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="797" extended-state="6" />
@@ -1160,7 +1160,7 @@
     <entry file="file://$PROJECT_DIR$/src/carltron/GameManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6686047">
-          <caret line="325" column="32" selection-start-line="325" selection-start-column="32" selection-end-line="325" selection-end-column="32" />
+          <caret line="329" column="13" selection-start-line="329" selection-start-column="13" selection-end-line="329" selection-end-column="13" />
           <folding>
             <element signature="e#13065#13066#0" expanded="true" />
             <element signature="e#13108#13109#0" expanded="true" />
