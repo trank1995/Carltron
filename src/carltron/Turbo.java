@@ -19,22 +19,22 @@ public class Turbo extends Bonus {
 
     @Override
     public void consume() {
-        if (this.amount == 0) {
+        if (getAmount() == 0) {
             return;
         }
 
         if (this.owner.getVelocityX() == -1) {
             this.owner.setVelocityX(this.owner.getVelocityX() - BOOST_VELOCITY);
-            setAmount(this.amount - 1);
+            setAmount(getAmount() - 1);
         } else if (this.owner.getVelocityX() == 1) {
             this.owner.setVelocityX(this.owner.getVelocityX() + BOOST_VELOCITY);
-            setAmount(this.amount - 1);
+            setAmount(getAmount() - 1);
         } else if (this.owner.getVelocityY() == -1) {
             this.owner.setVelocityY(this.owner.getVelocityY() - BOOST_VELOCITY);
-            setAmount(this.amount - 1);
+            setAmount(getAmount() - 1);
         } else if (this.owner.getVelocityY() == 1) {
             this.owner.setVelocityY(this.owner.getVelocityY() + BOOST_VELOCITY);
-            setAmount(this.amount - 1);
+            setAmount(getAmount() - 1);
         }
     }
 

@@ -18,9 +18,9 @@ public class Jump extends Bonus {
     /**Consumes a potion of jump and gains the ability to cross a path and leave no path behind while the potion is in effect.**/
     @Override
     public void consume() {
-        if (this.amount == 0) return;
+        if (getAmount() == 0) return;
 
-        setAmount(this.amount - 1);
+        setAmount(getAmount() - 1);
         this.owner.setLeavesPath(false);
         //this.owner.setShield(true);
     }
