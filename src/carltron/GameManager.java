@@ -19,14 +19,27 @@ import javafx.stage.Stage;
 import java.util.Timer;
 import java.util.TimerTask;
 
-// NOTE!
-// need to make off the path crash into a method.
-// call the method on both players.
-// do checks for #t / #f.
-// as now if they both go off the grid at the same time it is not a draw (tie).
 
-
-public class GameManager implements EventHandler<KeyEvent>{
+/**
+ * GameManager is the class that handles the 2 player game mode of CarlTron.
+ * Since the class handles the 2 player game mode it is responsible for finding
+ * out whether the two LightCycles crashed, whether a LightCycle went off the
+ * map, and the general movement of the LightCycles.
+ * Methods include setUpAnimationTimer(), updateAnimation(), handle(KeyEvent),
+ * onPauseButton(ActionEvent), setStage(Stage), getStage(), callVictoryPage().
+ *
+ * NOTE:
+ * - Crashing will be moved to separate functions in version 2.
+ * - Off-the-path-crashes will be fixed, so that when both players go off the
+ * map at the same time it is draw (tie), instead of a victory to one of the
+ * players.
+ * - Jumps will be implemented in version 2.
+ * - Turbos are not fully function, but will be in version 2.
+ *
+ * @params n/a.
+ * @return n/a.
+ * */
+public class GameManager implements EventHandler<KeyEvent> {
     final private double FRAMES_PER_SECOND = 15.0;
     final private double STEP_SIZE = 5.0;
     private Grid grid = new Grid();
@@ -49,16 +62,41 @@ public class GameManager implements EventHandler<KeyEvent>{
     private boolean paused;
     private Timer timer;
 
+    /**
+     * GameManager() is the controller that handles the general 2 player
+     * gameplay.
+     * Methods include setUpAnimationTimer(), updateAnimation(),
+     * handle(KeyEvent), onPauseButton(ActionEvent), setStage(Stage),
+     * getStage(), callVictoryPage().
+     *
+     * @params n/.
+     * @return n/a.
+     * */
     public GameManager() {
         this.paused = false;
         this.primaryStage = null;
         this.win =0;
     }
 
+    /**
+     * initialize() simply calls setUpAnimationTimer(). This function is only
+     * called when the controller is gotten.
+     *
+     * @params n/a.
+     * @return n/a.
+     * */
     public void initialize() throws Exception{
         this.setUpAnimationTimer();
     }
 
+    /**
+     * setUpAnimationTimer() sets up a timer and will keep track of when we
+     * want to update our animation depending on the number of frames per
+     * second specified.
+     *
+     * @params n/a.
+     * @return n/a.
+     * */
     public void setUpAnimationTimer(){
         TimerTask timerTask = new TimerTask() {
             public void run(){
@@ -86,6 +124,15 @@ public class GameManager implements EventHandler<KeyEvent>{
         this.timer.schedule(timerTask, 0, frameTimeInMilliseconds);
     }
 
+    /**
+     * updateAnimation() handles all the movement of the players and checking
+     * for crashes, both with walls and with other the player's LightCycle.
+     * Checks also whether a turbo is active and manages the movement of the
+     * respective LightCycle accordingly. The same applies to jump (soon).
+     *
+     * @params n/a.
+     * @return true or false.
+     * */
     public boolean updateAnimation() throws Exception{
         if (this.player1_object == null || this.player2_object == null) {
             this.player2_object = new Player(this.player2);
@@ -151,8 +198,8 @@ public class GameManager implements EventHandler<KeyEvent>{
 
         ///////////////////////
         // player1 went of the grid (bottom)
-        if (player1Y_new + this.player1.getHeight() > this.grid_fxml.getHeight
-                ()) {
+        if (player1Y_new + this.player1.getHeight() >
+                this.grid_fxml.getHeight()) {
             // crash
             this.win = 2;
             this.timer.cancel();
@@ -173,16 +220,16 @@ public class GameManager implements EventHandler<KeyEvent>{
             return false;
         }
         // player1 went of the grid (right)
-        if (player1X_new + this.player1.getWidth() > this.grid_fxml.getWidth
-                ()) {
+        if (player1X_new + this.player1.getWidth() >
+                this.grid_fxml.getWidth()) {
             // crash
             this.win = 2;
             this.timer.cancel();
             return false;
         }
         // player2 went of the grid (bottom)
-        if (player2Y_new + this.player2.getHeight() > this.grid_fxml.getHeight
-                ()) {
+        if (player2Y_new + this.player2.getHeight() >
+                this.grid_fxml.getHeight()) {
             // crash
             this.win = 1;
             this.timer.cancel();
@@ -203,8 +250,8 @@ public class GameManager implements EventHandler<KeyEvent>{
             return false;
         }
         // player2 went of the grid (right)
-        if (player2X_new + this.player2.getWidth() > this.grid_fxml.getWidth
-                ()) {
+        if (player2X_new + this.player2.getWidth() > this.grid_fxml.getWidth())
+        {
             // crash
             this.win = 1;
             this.timer.cancel();
@@ -212,18 +259,10 @@ public class GameManager implements EventHandler<KeyEvent>{
         }
 
 
-        // check if player1 crashed with path
-
-        // check if player2 crashed with path
-
-        // check if player1 and player2 crashed with eachother
-        // --> this is a draw (tie).
-//        if (this.player1.getBoundsInParent().intersects(this.player2
-//                .getBoundsInParent())) {
-//            // crash
-//        }
-
         // collision is only when their position overlap.
+        // due to be moving objects they will not necessarily step on the same
+        // square when they collide, so we need to check if they are colliding
+        // taking into account where they were before the newest move.
         // p1--><--p2
         if ((player1X_new == player2X_new) && (player1Y_new == player2Y_new)) {
             this.win = 0;
@@ -232,29 +271,29 @@ public class GameManager implements EventHandler<KeyEvent>{
 
 
             // p1-->p2
-        } else if ((player1X_new == player2X) && (player1Y_new ==
-                player2Y_new)) {
+        } else if ((player1X_new == player2X) &&
+                   (player1Y_new == player2Y_new)) {
             this.win = 0;//2;
             this.timer.cancel();
             return false;
 
             // p1<--p2
-        } else if ((player1X == player2X_new) && (player1Y_new ==
-                player2Y_new)) {
+        } else if ((player1X == player2X_new) &&
+                   (player1Y_new == player2Y_new)) {
             this.win = 0;//1;
             this.timer.cancel();
             return false;
 
             // p1/p2
-        } else if ((player1X_new == player2X_new) && (player1Y_new ==
-                player2Y)) {
+        } else if ((player1X_new == player2X_new) &&
+                   (player1Y_new == player2Y)) {
             this.win = 0;//2;
             this.timer.cancel();
             return false;
 
             // p2/p1
-        } else if ((player1X_new == player2X_new) && (player1Y ==
-                player2Y_new)) {
+        } else if ((player1X_new == player2X_new) &&
+                   (player1Y == player2Y_new)) {
             this.win = 0;//1;
             this.timer.cancel();
             return false;
@@ -265,7 +304,7 @@ public class GameManager implements EventHandler<KeyEvent>{
         this.player1_object.statusCheck();
         this.player2_object.statusCheck();
 
-        // add new path rectangle
+        // add new path rectangle to both the screen and the grid.
         Rectangle path_p1 = new Rectangle();
         path_p1.setWidth(STEP_SIZE);
         path_p1.setHeight(STEP_SIZE);
@@ -278,6 +317,10 @@ public class GameManager implements EventHandler<KeyEvent>{
         path_p2.setFill(Color.WHITE);
         path_p2.setLayoutX(player2X);
         path_p2.setLayoutY(player2Y);
+
+        // only add the path if the player currently is leaving a path.
+        // basically this is checking for whether the player has jump
+        // activated or not.
         if (this.player1.hasPath()) {
             this.grid_fxml.getChildren().add(path_p1);
             this.grid.addToGrid(path_p1);
@@ -286,6 +329,10 @@ public class GameManager implements EventHandler<KeyEvent>{
             this.grid_fxml.getChildren().add(path_p2);
             this.grid.addToGrid(path_p2);
         }
+
+        // NOTE:
+        // need to add more path to the grid if turbo is on (as now it skips
+        // one square because of the increase in speed).
 
 
         // update the position of player1 and player2, as they passed all the
@@ -296,6 +343,14 @@ public class GameManager implements EventHandler<KeyEvent>{
         return true;
     }
 
+    /**
+     * handle(KeyEvent) decides what to do with the different keys that are
+     * pressed. Certain keys are used to control the two different players and
+     * handle() handles that correctly.
+     *
+     * @params KeyEvent
+     * @return n/a.
+     * */
     @Override
     public void handle(KeyEvent keyEvent) {
         // only gets called when a key is pressed, so here we really only want
@@ -314,6 +369,11 @@ public class GameManager implements EventHandler<KeyEvent>{
         int speed2 = (this.player2.getVelocityX() == 0) ?
                          Math.abs(this.player2.getVelocityY()):
                          Math.abs(this.player2.getVelocityX());
+
+        // the controls for player 2 are the arrow keys, enter and shift.
+        // the controls for player 1 are w,a,s,d,q,e.
+        // need to change the velocity of the different players depending
+        // on which key was pressed.
         if (code == KeyCode.LEFT) {
             if (this.player2.getVelocityX() <= 0) {
                 // velocityX to -1 and Y to 0.
@@ -385,7 +445,18 @@ public class GameManager implements EventHandler<KeyEvent>{
         keyEvent.consume();
     }
 
+    /**
+     * onPauseButton is a method that stops the animation by stopping the
+     * calls to setUpAnimationTimer() when the game is to be paused, and starts
+     * the animation again by calling setUpAnimationTimer() when the game is to
+     * be resumed.
+     *
+     * @params ActionEvent.
+     * @return n/a.
+     * */
     public void onPauseButton(ActionEvent actionEvent) throws Exception {
+        // depending on the state of the game (pause or in action) we want to
+        // pause or resume it.
         if (this.paused) {
             this.setUpAnimationTimer();
             this.pauseButton.setText("Pause");
@@ -396,15 +467,37 @@ public class GameManager implements EventHandler<KeyEvent>{
         this.paused = !this.paused;
     }
 
+    /**
+     * setStage(Stage) is a function used to forward the stage when loading new
+     * scenes. It takes a stage and sets the primaryStage variable of the
+     * GameManager controller to be that stage.
+     *
+     * @params Stage.
+     * @return n/a.
+     * */
     //this sets and saves the primary stage for reuse in the window recreation.
     public void setStage(Stage primary) {
         this.primaryStage = primary;
     }
+
+    /**
+     * getStage() simply return the stage that the current scene is in.
+     *
+     * @params n/a.
+     * @return n/a.
+     * */
     public Stage getStage(){
         return this.primaryStage;
     }
 
-
+    /**
+     * callVictoryPage() gives access to changing the scene of the stage to
+     * the victory page by setting up a new WindowNavigation object that
+     * is instructed to set up that page.
+     *
+     * @params n/a.
+     * @return n/a.
+     * */
     public void callVictoryPage() throws Exception{
         System.out.println(this.win);
         WindowNavigation victor = new WindowNavigation();
