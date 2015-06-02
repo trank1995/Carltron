@@ -46,6 +46,7 @@
             <CheckBox layoutX="361.0" layoutY="250.0" mnemonicParsing="false" text="Turbo" textFill="#3baaad" />
             <CheckBox layoutX="433.0" layoutY="250.0" mnemonicParsing="false" text="Invincibility" textFill="#3baaad" />
             <CheckBox layoutX="536.0" layoutY="250.0" mnemonicParsing="false" text="Clear all" textFill="#3baaad" />
+            <Button fx:id="player131" layoutX="44.0" layoutY="553.0" mnemonicParsing="false" onAction="#pLayer1Clicked" opacity="0.5" prefHeight="26.0" prefWidth="138.0" text="Return" textFill="#3baaad" />
          </children>
       </AnchorPane>
    </children>
