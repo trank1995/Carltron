@@ -6,6 +6,7 @@ import static org.junit.Assert.*;
 
 /**
  * Created by Frederik on 01.06.15.
+ * Tests for Protector.
  */
 public class ProtectorTest {
 

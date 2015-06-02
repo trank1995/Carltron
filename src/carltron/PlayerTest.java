@@ -8,6 +8,7 @@ import static org.junit.Assert.*;
 
 /**
  * Created by shangd on 6/1/15.
+ * Tests for Player.
  */
 public class PlayerTest {
 
