@@ -123,8 +123,8 @@ public class GameManager implements EventHandler<KeyEvent>{
         ////////////// putting this before checking for wall collision
 
         // check if bike collided with a path.
-        boolean path_check_p1 = grid.collisionWithPath(this.player1);
-        boolean path_check_p2 = grid.collisionWithPath(this.player2);
+        boolean path_check_p1 = this.grid.collisionWithPath(this.player1);
+        boolean path_check_p2 = this.grid.collisionWithPath(this.player2);
 
         // player1 and player2 crashed at the same time --> draw (tie).
         if ((path_check_p1 == true) && (path_check_p2 == true)) {
@@ -280,11 +280,11 @@ public class GameManager implements EventHandler<KeyEvent>{
         path_p2.setLayoutY(player2Y);
         if (this.player1.hasPath()) {
             this.grid_fxml.getChildren().add(path_p1);
-            grid.addToGrid(path_p1);
+            this.grid.addToGrid(path_p1);
         }
         if (this.player2.hasPath()) {
             this.grid_fxml.getChildren().add(path_p2);
-            grid.addToGrid(path_p2);
+            this.grid.addToGrid(path_p2);
         }
 
 
