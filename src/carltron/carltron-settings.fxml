@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
-
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1">
    <children>
@@ -19,6 +21,31 @@
                   <Image url="@images/settings.png" />
                </image>
             </ImageView>
+            <Text fill="#3baaad" layoutX="129.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Speed" wrappingWidth="105.86083984375">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Text fill="#3baaad" layoutX="129.0" layoutY="259.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bonuses" wrappingWidth="105.86083984375">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Text fill="#3baaad" layoutX="129.0" layoutY="382.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AI difficulty" wrappingWidth="156.86083984375">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Button fx:id="player1" layoutX="286.0" layoutY="116.0" mnemonicParsing="false" onAction="#pLayer1Clicked" opacity="0.5" prefHeight="26.0" prefWidth="138.0" text="slow" textFill="#3baaad" />
+            <Button fx:id="player11" layoutX="424.0" layoutY="116.0" mnemonicParsing="false" onAction="#pLayer1Clicked" opacity="0.5" prefHeight="26.0" prefWidth="138.0" text="medium" textFill="#3baaad" />
+            <Button fx:id="player12" layoutX="562.0" layoutY="116.0" mnemonicParsing="false" onAction="#pLayer1Clicked" opacity="0.5" prefHeight="26.0" prefWidth="138.0" text="fast" textFill="#3baaad" />
+            <Button fx:id="player13" layoutX="286.0" layoutY="359.0" mnemonicParsing="false" onAction="#pLayer1Clicked" opacity="0.5" prefHeight="26.0" prefWidth="138.0" text="slow" textFill="#3baaad" />
+            <Button fx:id="player14" layoutX="424.0" layoutY="359.0" mnemonicParsing="false" onAction="#pLayer1Clicked" opacity="0.5" prefHeight="26.0" prefWidth="138.0" text="slow" textFill="#3baaad" />
+            <Button fx:id="player15" layoutX="562.0" layoutY="359.0" mnemonicParsing="false" onAction="#pLayer1Clicked" opacity="0.5" prefHeight="26.0" prefWidth="138.0" text="slow" textFill="#3baaad" />
+            <CheckBox layoutX="286.0" layoutY="250.0" mnemonicParsing="false" text="JUMP" textFill="#3baaad" />
+            <CheckBox layoutX="361.0" layoutY="250.0" mnemonicParsing="false" text="Turbo" textFill="#3baaad" />
+            <CheckBox layoutX="433.0" layoutY="250.0" mnemonicParsing="false" text="Invincibility" textFill="#3baaad" />
+            <CheckBox layoutX="536.0" layoutY="250.0" mnemonicParsing="false" text="Clear all" textFill="#3baaad" />
          </children>
       </AnchorPane>
    </children>
