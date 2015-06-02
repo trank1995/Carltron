@@ -65,7 +65,7 @@
         <entry file="file://$PROJECT_DIR$/src/carltron/Turbo.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="10" column="19" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
+              <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
               <folding>
                 <element signature="e#1246#1247#0" expanded="true" />
                 <element signature="e#1280#1281#0" expanded="true" />
@@ -80,7 +80,7 @@
         <entry file="file://$PROJECT_DIR$/src/carltron/TurboTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="40" column="9" selection-start-line="40" selection-start-column="9" selection-end-line="40" selection-end-column="9" />
+              <caret line="41" column="9" selection-start-line="41" selection-start-column="9" selection-end-line="41" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -88,29 +88,27 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Jump.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/carltron/Jump.java">
+      <file leaf-file-name="Protector.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/carltron/Protector.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="22" column="35" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
+              <caret line="21" column="30" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
               <folding>
-                <element signature="e#891#892#0" expanded="true" />
-                <element signature="e#925#926#0" expanded="true" />
-                <element signature="e#965#966#0" expanded="true" />
-                <element signature="e#998#999#0" expanded="true" />
+                <element signature="e#554#555#0" expanded="true" />
+                <element signature="e#588#589#0" expanded="true" />
+                <element signature="e#628#629#0" expanded="true" />
+                <element signature="e#661#662#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JumpTest.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/carltron/JumpTest.java">
+      <file leaf-file-name="ProtectorTest.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/carltron/ProtectorTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8044693">
-              <caret line="44" column="58" selection-start-line="44" selection-start-column="58" selection-end-line="44" selection-end-column="58" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="0.75232774">
+              <caret line="40" column="50" selection-start-line="40" selection-start-column="50" selection-end-line="40" selection-end-column="50" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -167,6 +165,8 @@
         <option value="$PROJECT_DIR$/src/carltron/TurboTest.java" />
         <option value="$PROJECT_DIR$/src/carltron/Jump.java" />
         <option value="$PROJECT_DIR$/src/carltron/JumpTest.java" />
+        <option value="$PROJECT_DIR$/src/carltron/Protector.java" />
+        <option value="$PROJECT_DIR$/src/carltron/ProtectorTest.java" />
       </list>
     </option>
   </component>
@@ -304,7 +304,7 @@
       <recent name="$PROJECT_DIR$/src/sample" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.JumpTest">
+  <component name="RunManager" selected="JUnit.ProtectorTest">
     <configuration default="false" name="GridTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -369,6 +369,32 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="carltron" />
       <option name="MAIN_CLASS_NAME" value="carltron.JumpTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="ProtectorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="carltron.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="carltron" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="carltron" />
+      <option name="MAIN_CLASS_NAME" value="carltron.ProtectorTest" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
@@ -702,17 +728,19 @@
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
-    <list size="4">
+    <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Application.Main" />
       <item index="1" class="java.lang.String" itemvalue="JUnit.GridTest" />
       <item index="2" class="java.lang.String" itemvalue="JUnit.TurboTest" />
       <item index="3" class="java.lang.String" itemvalue="JUnit.JumpTest" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.ProtectorTest" />
     </list>
     <recent_temporary>
-      <list size="3">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.JumpTest" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.TurboTest" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.GridTest" />
+      <list size="4">
+        <item index="0" class="java.lang.String" itemvalue="JUnit.ProtectorTest" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.JumpTest" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.TurboTest" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.GridTest" />
       </list>
     </recent_temporary>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
@@ -748,12 +776,12 @@
       <workItem from="1433189199017" duration="316000" />
       <workItem from="1433195730957" duration="18000" />
       <workItem from="1433195908830" duration="1245000" />
-      <workItem from="1433209461212" duration="5016000" />
+      <workItem from="1433209461212" duration="5452000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40317000" />
+    <option name="totallyTimeSpent" value="40753000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="822" extended-state="6" />
@@ -839,21 +867,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/carltron/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="26" column="35" selection-start-line="26" selection-start-column="35" selection-end-line="26" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/carltron/Turbo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/carltron/LightCycle.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1246,19 +1259,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/carltron/Turbo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="19" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
-          <folding>
-            <element signature="e#1246#1247#0" expanded="true" />
-            <element signature="e#1280#1281#0" expanded="true" />
-            <element signature="e#1320#1321#0" expanded="true" />
-            <element signature="e#1353#1354#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/carltron/LightCycle.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6703911">
@@ -1266,16 +1266,6 @@
           <folding>
             <element signature="e#603#604#0" expanded="true" />
             <element signature="e#641#642#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/carltron/TurboTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="40" column="9" selection-start-line="40" selection-start-column="9" selection-end-line="40" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1295,11 +1285,55 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/carltron/JumpTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8044693">
+        <state vertical-scroll-proportion="0.0">
           <caret line="44" column="58" selection-start-line="44" selection-start-column="58" selection-end-line="44" selection-end-column="58" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/carltron/Turbo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
+          <folding>
+            <element signature="e#1246#1247#0" expanded="true" />
+            <element signature="e#1280#1281#0" expanded="true" />
+            <element signature="e#1320#1321#0" expanded="true" />
+            <element signature="e#1353#1354#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/carltron/TurboTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="41" column="9" selection-start-line="41" selection-start-column="9" selection-end-line="41" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/carltron/Protector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="21" column="30" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
+          <folding>
+            <element signature="e#554#555#0" expanded="true" />
+            <element signature="e#588#589#0" expanded="true" />
+            <element signature="e#628#629#0" expanded="true" />
+            <element signature="e#661#662#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/carltron/ProtectorTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.75232774">
+          <caret line="40" column="50" selection-start-line="40" selection-start-column="50" selection-end-line="40" selection-end-column="50" />
+          <folding />
         </state>
       </provider>
     </entry>
