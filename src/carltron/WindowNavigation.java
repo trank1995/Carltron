@@ -87,17 +87,58 @@ public class WindowNavigation {
     }
 
 
-    public void victorPage(Stage theVictorStage, int won) throws Exception{
+    public void victorPage(Stage theVictorStage, int won)
+            throws Exception{
+        //ystem.out.println(player2Score);
         FXMLLoader loaderp = new FXMLLoader(getClass().getResource
                 ("done.fxml"));
-
+        Image image;
         Parent root4 = (Parent)loaderp.load();
+        System.out.println(won);
+        if (won == 2) {
+            image = new Image(getClass().getResourceAsStream("p2logo.png"));
+            //this.p2scorecount = 1;
+            //game_controller.setScores(this.p1scorecount,this.p2scorecount);
+        }else if (won == 1){
+            image = new Image(getClass().getResourceAsStream("p1logo.png"));
+            //this.p1scorecount = 1;
+            //game_controller.setScores(this.p1scorecount,this.p2scorecount);
+        }else{
+            image = new Image(getClass().getResourceAsStream("drawf.png"));
+        }
+
+        Button p1Score = new Button();
+        Button p2Score = new Button();
+
+        p1Score.setText(Integer.toString(1));
+        p2Score.setText(Integer.toString(2));
+        p1Score.setLayoutX(320);
+        p1Score.setLayoutY(423);
+        p2Score.setLayoutX(320);
+        p2Score.setLayoutY(472);
+
+        javafx.scene.image.ImageView iv = new javafx.scene.image.ImageView();
+        AnchorPane root7 = (AnchorPane) root4;
+
+        iv.setImage(image);
+        iv.setFitWidth(141);
+        iv.setFitHeight(22);
+        iv.setLayoutX(159);
+        iv.setLayoutY(300);
+        iv.setPreserveRatio(true);
+        iv.setSmooth(true);
+        iv.setCache(true);
+
+        root7.getChildren().add(iv);
+        root7.getChildren().add(p1Score);
+        root7.getChildren().add(p2Score);
+
 
         WindowNavigation new_window = loaderp.getController();
         new_window.setStage(theVictorStage);
         //this.player1Score.setText("meeee");
         //do stuff that changes the score and winner
-        theVictorStage.setScene(new Scene(root4, 800, 600));
+        theVictorStage.setScene(new Scene(root7, 800, 600));
 
         theVictorStage.show();
     }
