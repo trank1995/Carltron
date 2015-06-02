@@ -60,7 +60,7 @@ public class Turbo extends Bonus {
 
     // These are only used for testing.
     /**
-     * getAmountTest() returns the amount that the Jump object is holding.
+     * getAmountTest() returns the amount that the Turbo object is holding.
      * This method is only used for testing.
      *
      * @params n/a.
@@ -71,7 +71,7 @@ public class Turbo extends Bonus {
     }
 
     /**
-     * getOwnerTest() returns the owner of the Jump object.
+     * getOwnerTest() returns the owner of the Turbo object.
      * This method is only used for testing.
      *
      * @params n/a.
