@@ -106,8 +106,8 @@
       <file leaf-file-name="ProtectorTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/carltron/ProtectorTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.75232774">
-              <caret line="40" column="50" selection-start-line="40" selection-start-column="50" selection-end-line="40" selection-end-column="50" />
+            <state vertical-scroll-proportion="0.58472997">
+              <caret line="34" column="53" selection-start-line="34" selection-start-column="53" selection-end-line="34" selection-end-column="53" />
               <folding />
             </state>
           </provider>
@@ -304,7 +304,7 @@
       <recent name="$PROJECT_DIR$/src/sample" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ProtectorTest">
+  <component name="RunManager" selected="Application.Main">
     <configuration default="false" name="GridTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -776,12 +776,12 @@
       <workItem from="1433189199017" duration="316000" />
       <workItem from="1433195730957" duration="18000" />
       <workItem from="1433195908830" duration="1245000" />
-      <workItem from="1433209461212" duration="5452000" />
+      <workItem from="1433209461212" duration="5760000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40753000" />
+    <option name="totallyTimeSpent" value="41061000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="822" extended-state="6" />
@@ -1331,8 +1331,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/carltron/ProtectorTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.75232774">
-          <caret line="40" column="50" selection-start-line="40" selection-start-column="50" selection-end-line="40" selection-end-column="50" />
+        <state vertical-scroll-proportion="0.58472997">
+          <caret line="34" column="53" selection-start-line="34" selection-start-column="53" selection-end-line="34" selection-end-column="53" />
           <folding />
         </state>
       </provider>
