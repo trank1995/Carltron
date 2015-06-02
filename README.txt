@@ -11,6 +11,8 @@ Current Features:
 - ability to detect head-on collisions between LightCycles.
 - ability to show the ‘correct winner’ (granted that it is with a path, or one of the LightCycles going off the grid (but not both at the same time)).
 - ability to use a turbo to increase the movement speed of the LightCycle (this does not leave a proper path yet, and collision detection when turbo is activated is not complete).
+- be able to go back to the main menu when a game is over.
+- be able to start a new game once reached the victory page.
 
 Note:
 - turbos mess with collisions —> can make the game freeze.
@@ -19,6 +21,7 @@ Note:
 - no jumps are available as of now.
 - the scoreboard on-top of the gameplay window does not update and displays wrong information.
 - the victory page does not display the correct score.
+- 1 player mode has not been implemented yet.
 
 
 Enjoy!
