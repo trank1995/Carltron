@@ -1,15 +1,9 @@
-/**WindowNavigation.java
- * This class integrated several fxml files and
- * let players switch between pages
- * June 1, 2015 - version 1
- * /
-
 /**
  * There are still some stuffs left to do
  * after version 1
  * (1) Switch to settings and switch back
  * (2) Pass data from settings to other classes
- */
+ * */
 package carltron;
 
 import javafx.event.ActionEvent;
@@ -21,6 +15,13 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+
+/**
+ * WindowNavigation.java
+ * This class integrated several fxml files and
+ * let players switch between pages
+ * June 1, 2015 - version 1
+ * */
 public class WindowNavigation {
     //Instance variables
     //pages contents
@@ -43,7 +44,8 @@ public class WindowNavigation {
     }
 
     /**
-     * set current stage as given stage
+     * setStage(Stage) sets current stage as given stage.
+     *
      * @param primary
      */
     public void setStage(Stage primary) {
@@ -51,7 +53,9 @@ public class WindowNavigation {
     }
 
     /**
-     * this part is not yet implemented in version 1
+     * player1Clicked(ActionEvent): this part is not yet implemented in
+     * version 1.
+     *
      * @param e
      * @throws Exception
      */
@@ -60,7 +64,8 @@ public class WindowNavigation {
     }
 
     /**
-     * create a 2 players game upon request
+     * player2Clicked(ActionEvent) creates a 2 players game upon request.
+     *
      * @param e
      * @throws Exception
      */
@@ -80,7 +85,8 @@ public class WindowNavigation {
     }
 
     /**
-     * move to rule page upon request
+     * rulesClicked(ActionEvent) moves to the rule page upon request.
+     *
      * @param e
      * @throws Exception
      */
@@ -100,7 +106,8 @@ public class WindowNavigation {
     }
 
     /**
-     * load the main page upon request
+     * onBackButton(ActionEvent) loads the main page upon request.
+     *
      * @param e
      * @throws Exception
      */
@@ -119,7 +126,8 @@ public class WindowNavigation {
     }
 
     /**
-     * load the victory page when the game ends
+     * victorPage(Stage) loads the victory page when the game ends.
+     *
      * @param theVictorStage
      * @param won
      * @throws Exception
@@ -176,5 +184,4 @@ public class WindowNavigation {
         theVictorStage.setScene(new Scene(root7, 800, 600));
         theVictorStage.show();
     }
-
 }
