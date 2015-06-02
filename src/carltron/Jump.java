@@ -8,18 +8,30 @@ public class Jump extends Bonus {
      **/
     public Jump(int amount, LightCycle owner) {
         super();
-        this.amount = amount;
+        if (amount < 0) {
+            this.amount = 0;
+        } else {
+            this.amount = amount;
+        }
         this.owner = owner;
     }
     /**Consumes a potion of jump and gains the ability to cross a path and leave no path behind while the potion is in effect.**/
     @Override
-    public void consume(){
+    public void consume() {
         if (this.amount == 0) return;
 
-        setAmount(this.amount-1);
+        setAmount(this.amount - 1);
         this.owner.setLeavesPath(false);
         //this.owner.setShield(true);
     }
 
+    // These are only used for testing.
+    public int getAmountTest() {
+        return this.amount;
+    }
+
+    public LightCycle getOwnerTest() {
+        return this.owner;
+    }
 
 }
