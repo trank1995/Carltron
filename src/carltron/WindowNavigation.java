@@ -143,10 +143,10 @@ public class WindowNavigation {
         if (won == 2) {
             //player2 won
             image = new Image(getClass().getResourceAsStream("p2logo.png"));
-        }else if (won == 1){
+        } else if (won == 1) {
             //player1 won
             image = new Image(getClass().getResourceAsStream("p1logo.png"));
-        }else{
+        } else {
             //tie
             image = new Image(getClass().getResourceAsStream("drawf.png"));
         }
