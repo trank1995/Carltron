@@ -9,9 +9,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 
-<GridPane alignment="center" hgap="10" vgap="10"
-          xmlns="http://javafx.com/javafx/8.0.40"
-          xmlns:fx="http://javafx.com/fxml/1" fx:controller="carltron.WindowNavigation">
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="carltron.WindowNavigation">
    <columnConstraints>
       <ColumnConstraints />
    </columnConstraints>
@@ -26,15 +24,9 @@
                   <Image url="@images/ruleBackgroundcopy.jpg" />
                </image>
             </ImageView>
-            <Button fx:id="player2" onAction="#player2Clicked" layoutX="255.0"
-                    layoutY="387.0"
-                    mnemonicParsing="false"  opacity="0.5" prefHeight="26.0" prefWidth="235.0" text="2 PLAYER" textFill="#3baaad" />
-            <Button fx:id="player1" onAction="#pLayer1Clicked" layoutX="255.0"
-                    layoutY="343.0"
-                    mnemonicParsing="false" opacity="0.5" prefHeight="26.0" prefWidth="235.0" text="1 PLAYER" textFill="#3baaad" AnchorPane.bottomAnchor="231.0" AnchorPane.leftAnchor="255.0" AnchorPane.rightAnchor="310.0" AnchorPane.topAnchor="343.0" />
-            <Button layoutX="206.0" onAction="#rulesClicked" layoutY="429.0"
-                    mnemonicParsing="false"
-                    opacity="0.5" prefHeight="26.0" prefWidth="314.0" text="INSTRUCTIONS " textFill="#3baaad" />
+            <Button fx:id="player2" layoutX="255.0" layoutY="376.0" mnemonicParsing="false" onAction="#player2Clicked" opacity="0.5" prefHeight="26.0" prefWidth="235.0" text="2 PLAYER" textFill="#3baaad" />
+            <Button fx:id="player1" layoutX="255.0" layoutY="331.0" mnemonicParsing="false" onAction="#pLayer1Clicked" opacity="0.5" prefHeight="26.0" prefWidth="235.0" text="1 PLAYER" textFill="#3baaad" AnchorPane.bottomAnchor="243.0" AnchorPane.leftAnchor="255.0" AnchorPane.rightAnchor="310.0" AnchorPane.topAnchor="331.0" />
+            <Button layoutX="216.0" layoutY="426.0" mnemonicParsing="false" onAction="#rulesClicked" opacity="0.5" prefHeight="26.0" prefWidth="314.0" text="INSTRUCTIONS " textFill="#3baaad" />
             <ImageView fitHeight="104.0" fitWidth="484.0" layoutX="102.0" layoutY="80.0">
                <image>
                   <Image url="@images/tr2n.title.png" />
@@ -45,6 +37,7 @@
                   <Image url="@images/bike.png" />
                </image>
             </ImageView>
+            <Button layoutX="216.0" layoutY="478.0" mnemonicParsing="false" onAction="#rulesClicked" opacity="0.5" prefHeight="26.0" prefWidth="314.0" text="SETTINGS" textFill="#3baaad" />
          </children>
       </AnchorPane>
    </children>

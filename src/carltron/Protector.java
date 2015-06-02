@@ -7,7 +7,11 @@ public class Protector extends Bonus {
 
     public Protector(int amount, LightCycle owner) {
         super();
-        this.amount = amount;
+        if (amount < 0) {
+            this.amount = 0;
+        } else {
+            this.amount = amount;
+        }
         this.owner = owner;
     }
 
@@ -15,7 +19,16 @@ public class Protector extends Bonus {
     public void consume() {
         if (this.amount == 0) return;
 
-        setAmount(this.amount-1);
+        setAmount(this.amount - 1);
         //this.owner.setShield(true);
+    }
+
+    // These are only used for testing.
+    public int getAmountTest() {
+        return this.amount;
+    }
+
+    public LightCycle getOwnerTest() {
+        return this.owner;
     }
 }

@@ -8,7 +8,12 @@ public class Turbo extends Bonus {
 
     public Turbo(int amount, LightCycle owner) {
         super();
-        this.amount = amount;
+        if (amount < 0) {
+            this.amount = 0;
+        } else {
+            this.amount = amount;
+        }
+
         this.owner = owner;
     }
 
@@ -33,13 +38,12 @@ public class Turbo extends Bonus {
         }
     }
 
-    /*
-    in GameManager:
-        onPressEnter(player1.consume("Turbo"));
-        for (int i=0;i<3;i++) {
-            if (!player1.getBonuses[i].isInEffect())
-                { player1.turnDefault(); }
-        }
-     */
+    // These are only used for testing.
+    public int getAmountTest() {
+        return this.amount;
+    }
 
+    public LightCycle getOwnerTest() {
+        return this.owner;
+    }
 }
