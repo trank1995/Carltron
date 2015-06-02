@@ -13,6 +13,7 @@ Current Features:
 - ability to use a turbo to increase the movement speed of the LightCycle (this does not leave a proper path yet, and collision detection when turbo is activated is not complete).
 - be able to go back to the main menu when a game is over.
 - be able to start a new game once reached the victory page.
+- ability to see the CarlTron logo in the header of the game window.
 
 Note:
 - turbos mess with collisions —> can make the game freeze.
