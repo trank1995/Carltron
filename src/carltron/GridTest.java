@@ -9,6 +9,7 @@ import carltron.Grid;
 
 /**
  * Created by Frederik on 01.06.15.
+ * Tests for Grid.
  */
 public class GridTest {
 

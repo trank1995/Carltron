@@ -23,13 +23,27 @@ public class Main extends Application {
     Scene scene1;
     Stage theStage;
 
-
+    /**
+     * The constructor for main. Takes no parameters and sets up nothing.
+     *
+     * @params nothing.
+     * @return nothing.
+     * */
     public Main() {
         //does nothing here
     }
 
+    /**
+     * start(Stage) is responsible for loading our menu scene (the first scene
+     * to be displayed to the user).
+     *
+     * @return nothing.
+     * @params nothing.
+     * */
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage primaryStage) throws Exception {
+        // make sure that if the window is closed the appliation is also
+        // closed.
         primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
             @Override
             public void handle(WindowEvent t) {
@@ -39,6 +53,7 @@ public class Main extends Application {
         });
 
         this.theStage = primaryStage;
+        // load the fxml file and create a scene with it.
         FXMLLoader loader = new FXMLLoader(getClass().getResource
                 ("carltron-menu.fxml"));
 
@@ -54,6 +69,7 @@ public class Main extends Application {
                 ("images/logo.png").toExternalForm()));
 
 
+        // put the scene into the stage and show it.
         primaryStage.setTitle("CarlTron");
         primaryStage.setScene(this.scene1);
         primaryStage.setResizable(false);
@@ -61,6 +77,12 @@ public class Main extends Application {
         primaryStage.show();
     }
 
+    /**
+     * setStage(Stage) takes a Stage and sets the variable theStage to be that
+     * stage. This is used for forwarding purposes, so that we can alter the
+     * same stage later on.
+     *
+     * */
     public void setStage(Stage primary) {
         this.theStage = primary;
     }
