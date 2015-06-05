@@ -15,10 +15,10 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-
+import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
-
+import java.util.Arrays;
 
 /**
  * GameManager is the class that handles the 2 player game mode of CarlTron.
@@ -529,9 +529,10 @@ public class GameManager implements EventHandler<KeyEvent> {
      * @return n/a.
      * */
     public void callVictoryPage() throws Exception{
-        System.out.println(this.win);
+        //System.out.println(this.win);
         WindowNavigation victor = new WindowNavigation();
         victor.setScore(this.p1s , this.p2s);
+        victor.setpnumber(this.numberPlayers);
         victor.victorPage(this.primaryStage, this.win);
     }
 }
