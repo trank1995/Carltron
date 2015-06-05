@@ -152,16 +152,12 @@ public class GameManager implements EventHandler<KeyEvent> {
      * @return true or false.
      * */
     public boolean updateAnimation() throws Exception {
-        
+
         if (this.player1_object == null || this.player2_object == null) {
             this.player2_object = new Player(this.player2);
             this.player1_object = new Player(this.player1);
         }
-
-        this.player2_object = new Player(this.player2);
-        this.player1_object = new Player(this.player1);
-
-
+        
 
         // find position of player1
         double player1X = this.player1.getLayoutX();
