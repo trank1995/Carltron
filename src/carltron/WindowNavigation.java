@@ -225,12 +225,13 @@ public class WindowNavigation {
         Parent root2 = (Parent)loader.load();
         game_controller = loader.getController();
         game_controller.setStage(this.theStage);
+
+        //which player checking
         if (playerAmount == 1) {
             game_controller.setPlayerNumber(1);
             game_controller.setScore(this.f1, this.f2);
             game_controller.setGameManager(this.game_controller);
         }else{
-
             game_controller.setPlayerNumber(2);
             game_controller.setScore(this.f1, this.f2);
         }
@@ -241,20 +242,21 @@ public class WindowNavigation {
     }
 
     /**
-     * victorPage(Stage) loads the victory page when the game ends.
-     *
+     *@method victorPage(Stage) loads the victory page when the game ends.
      * @param theVictorStage
      * @param won
      * @throws Exception
      */
     public void victorPage(Stage theVictorStage, int won)
             throws Exception{
+
         //load the page
         FXMLLoader loaderp = new FXMLLoader(getClass().getResource
                 ("done.fxml"));
         Image image;
         Parent root4 = (Parent)loaderp.load();
-        //create the image depending on the winner
+
+        //create the winner's image depending on the winner
         if (won == 2) {
             //player2 won
             this.f2 = this.f2 + 1;
@@ -270,9 +272,11 @@ public class WindowNavigation {
             image = new Image(getClass().getResourceAsStream("images/drawf" +
                     ".png"));
         }
+
         //use button to show score
         Button p1Score = new Button();
         Button p2Score = new Button();
+
         //show the score
         p1Score.setText(Integer.toString(this.f1));
         p2Score.setText(Integer.toString(this.f2));
@@ -280,9 +284,11 @@ public class WindowNavigation {
         p1Score.setLayoutY(423);
         p2Score.setLayoutX(320);
         p2Score.setLayoutY(472);
+
         //create imageview object and anchorpane object
         javafx.scene.image.ImageView iv = new javafx.scene.image.ImageView();
         AnchorPane root7 = (AnchorPane) root4;
+
         //put the image in the imageview object
         iv.setImage(image);
         iv.setFitWidth(141);
