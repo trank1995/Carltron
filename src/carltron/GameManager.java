@@ -153,11 +153,15 @@ public class GameManager implements EventHandler<KeyEvent> {
      * */
     public boolean updateAnimation() throws Exception {
 
+
         if (this.player1_object == null || this.player2_object == null) {
             this.player2_object = new Player(this.player2);
             this.player1_object = new Player(this.player1);
         }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3d0ab801ad201c037199094db1822c5dc47ca5a1
 
         // find position of player1
         double player1X = this.player1.getLayoutX();
@@ -177,14 +181,10 @@ public class GameManager implements EventHandler<KeyEvent> {
         // find new position of player2
         double player2X_new = player2X + (STEP_SIZE * this.player2
                 .getVelocityX());
-        //****System.out.println(this.player2.getVelocityX());
         double player2Y_new = player2Y + (STEP_SIZE * this.player2
                 .getVelocityY());
-        //****System.out.println(this.player2.getVelocityY());
-
 
         // do checks:
-
 
         ////////////// putting this before checking for wall collision
 
@@ -384,7 +384,6 @@ public class GameManager implements EventHandler<KeyEvent> {
         // to update the velocity and direction in which the player is moving.
 
         KeyCode code = keyEvent.getCode();
-        int turbo_dist = 2;
 
         // player 2
         /* speed is the magnitude of player's velocity. Since velocityX is
@@ -425,14 +424,14 @@ public class GameManager implements EventHandler<KeyEvent> {
                 this.player2.setVelocityY(speed2);
                 this.player2.setVelocityX(0);
             }
-            // turbo 2nd player?
+        // turbo 2nd player?
         } else if (code == KeyCode.ENTER) {
             //this.player2.consume("turbo");
             // jump 2nd player?
             this.player2_object.consume("turbo");
 
         } else if (code == KeyCode.SHIFT) {
-            //this.player2.consume("jump");
+            this.player2_object.consume("jump");
 
         // player 1
         } else if (code == KeyCode.A) {
@@ -459,12 +458,12 @@ public class GameManager implements EventHandler<KeyEvent> {
                 this.player1.setVelocityY(speed1);
                 this.player1.setVelocityX(0);
             }
-            // turbo 1st player?
+        // turbo 1st player?
         } else if (code == KeyCode.Q) {
             this.player1_object.consume("turbo");
-            // jump 1st player?
+        // jump 1st player?
         } else if (code == KeyCode.E) {
-            //this.player1.consume("jump");
+            this.player1_object.consume("jump");
         }
 
         // if no critical key is pressed, we do not need to do anything to the

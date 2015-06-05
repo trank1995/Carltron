@@ -33,7 +33,11 @@ public class WindowNavigation {
     //Instance variables end
     public  int f1;
     public int f2;
+<<<<<<< HEAD
     public int pnumber;
+=======
+    public int playerAmount = 2;
+>>>>>>> 3d0ab801ad201c037199094db1822c5dc47ca5a1
 
 
     @FXML private Button player1;
@@ -73,6 +77,7 @@ public class WindowNavigation {
      * @throws Exception
      */
     public void pLayer1Clicked(ActionEvent e) throws Exception {
+        playerAmount = 1;
         //load game page
         FXMLLoader loader2 = new FXMLLoader(getClass().getResource
                 ("carltron-game.fxml"));
@@ -98,6 +103,7 @@ public class WindowNavigation {
      * @throws Exception
      */
     public void player2Clicked(ActionEvent e) throws Exception {
+        playerAmount = 2;
         //load game page
         FXMLLoader loader2 = new FXMLLoader(getClass().getResource
                 ("carltron-game.fxml"));
@@ -172,6 +178,27 @@ public class WindowNavigation {
         //show the scene
         this.scene1 = new Scene(root, 800, 600);
         this.theStage.setScene(this.scene1);
+        this.theStage.show();
+    }
+    public void onAgainButton(ActionEvent e) throws Exception {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource
+                ("carltron-game.fxml"));
+        WindowNavigation new_window = loader.getController();
+        Parent root2 = (Parent)loader.load();
+        game_controller = loader.getController();
+        game_controller.setStage(this.theStage);
+        if (playerAmount == 1) {
+            game_controller.setPlayerNumber(1);
+            game_controller.setScore(this.f1, this.f2);
+            game_controller.setGameManager(this.game_controller);
+        }else{
+
+            game_controller.setPlayerNumber(2);
+            game_controller.setScore(this.f1, this.f2);
+        }
+        root2.setOnKeyPressed(game_controller);
+        this.scene2 = new Scene(root2, 800, 600);
+        this.theStage.setScene(this.scene2);
         this.theStage.show();
     }
 

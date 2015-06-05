@@ -94,6 +94,7 @@ public class Player {
                 this.counter.put(key, this.counter.get(key)+1);
                 switch (key) {
                     case "turbo":
+                        System.out.println("count: "+counter.get(key));
                         if (this.counter.get(key) == TURBO_DURATION) {
                             this.vehicle.turnDefault();
                             // reset counter

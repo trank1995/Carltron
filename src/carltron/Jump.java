@@ -37,7 +37,7 @@ public class Jump extends Bonus {
 
         setAmount(getAmount() - 1);
         this.owner.setLeavesPath(false);
-        //this.owner.setShield(true);
+        this.owner.setShield(true);
     }
 
     // These are only used for testing.
