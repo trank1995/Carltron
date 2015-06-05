@@ -15,10 +15,10 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-
+import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
-
+import java.util.Arrays;
 
 /**
  * GameManager is the class that handles the 2 player game mode of CarlTron.
@@ -157,7 +157,7 @@ public class GameManager implements EventHandler<KeyEvent> {
             this.player2_object = new Player(this.player2);
             this.player1_object = new Player(this.player1);
         }
-        
+
 
         // find position of player1
         double player1X = this.player1.getLayoutX();
@@ -526,9 +526,10 @@ public class GameManager implements EventHandler<KeyEvent> {
      * @return n/a.
      * */
     public void callVictoryPage() throws Exception{
-        System.out.println(this.win);
+        //System.out.println(this.win);
         WindowNavigation victor = new WindowNavigation();
         victor.setScore(this.p1s , this.p2s);
+        victor.setpnumber(this.numberPlayers);
         victor.victorPage(this.primaryStage, this.win);
     }
 
@@ -543,22 +544,23 @@ public class GameManager implements EventHandler<KeyEvent> {
                 Math.abs(this.player2.getVelocityY()) :
                 Math.abs(this.player2.getVelocityX());
 
-        boolean path_check_p2 = this.grid.detectpathcollision(this.player2);
+        boolean path_check_p3 = this.grid.detectpathcollision(this.player2);
         //System.out.println(path_check_p2);
 
         //if about to collide with path
-        if (path_check_p2 == true){
-           turndown(speed2);
+        System.out.println(path_check_p3);
+
+
+        if (path_check_p3 == true){
+            int[] freeside = this.grid.getFreeSides(this.player2);
+            //System.out.println(Arrays.toString(freeside));
+            turnup(speed2);
+
+            //System.out.println(freeside);
+
         }
 
 
-        //if headon collision
-        if (Math.abs(player1x - player2x) <= 50) {
-            int random = 3;
-            if (random ==3) {
-                turnup(speed2);
-            }
-        }
 
         // player2 went of the grid (top)
         if ((player2y) < 50) {
@@ -571,16 +573,15 @@ public class GameManager implements EventHandler<KeyEvent> {
         }
 
         // player2 went of the grid (right)
-        if ((player2x+50) + this.player2.getWidth() > this.grid_fxml
-                .getWidth()){
+        double user = player2x + 50;
+        if (user> this.grid_fxml.getWidth()){
+            System.out.println("got here");
             turnup(speed2);
         }
 
         //player2 went to the botom of grid.
-        System.out.println(player2y);
-        double use = player2y +20;
-
-        if (use > this.grid_fxml.getHeight()) {
+        double useb = player2y +20;
+        if (useb > this.grid_fxml.getHeight()) {
             turnright(speed2);
 
         }

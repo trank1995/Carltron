@@ -33,6 +33,7 @@ public class WindowNavigation {
     //Instance variables end
     public  int f1;
     public int f2;
+    public int pnumber;
 
 
     @FXML private Button player1;
@@ -56,6 +57,10 @@ public class WindowNavigation {
         this.theStage = primary;
     }
 
+    public void setpnumber(int pnumber){
+        this.pnumber = pnumber;
+    }
+
     public void setScore(int p1, int p2){
         this.f1 = p1;
         this.f2 = p2;
@@ -75,9 +80,10 @@ public class WindowNavigation {
         //prepare the controller
         game_controller = loader2.getController();
         game_controller.setStage(this.theStage);
-        game_controller.setPlayerNumber(1);
+        game_controller.setPlayerNumber(this.pnumber);
         game_controller.setScore(this.f1, this.f2);
         game_controller.setGameManager(this.game_controller);
+        game_controller.setPlayerNumber(1);
         root2.setOnKeyPressed(game_controller);
         //show the scene
         this.scene2 = new Scene(root2, 800, 600);
@@ -108,6 +114,25 @@ public class WindowNavigation {
         this.theStage.setScene(this.scene2);
         this.theStage.show();
     }
+
+    public void playAgain(ActionEvent e) throws Exception {
+        //load game page
+        FXMLLoader loader2 = new FXMLLoader(getClass().getResource
+                ("carltron-game.fxml"));
+        Parent root2 = (Parent)loader2.load();
+        //prepare the controller
+        game_controller = loader2.getController();
+        game_controller.setStage(this.theStage);
+        game_controller.setPlayerNumber(this.pnumber);
+        game_controller.setScore(this.f1, this.f2);
+
+        root2.setOnKeyPressed(game_controller);
+        //show the scene
+        this.scene2 = new Scene(root2, 800, 600);
+        this.theStage.setScene(this.scene2);
+        this.theStage.show();
+    }
+
 
     /**
      * rulesClicked(ActionEvent) moves to the rule page upon request.
@@ -307,6 +332,7 @@ public class WindowNavigation {
         WindowNavigation new_window = loaderp.getController();
         new_window.setStage(theVictorStage);
         new_window.setScore(this.f1, this.f2);
+        new_window.setpnumber(this.pnumber);
         //put the anchorpane in the scene and show it
         theVictorStage.setScene(new Scene(root7, 800, 600));
         theVictorStage.show();

@@ -74,16 +74,64 @@ public class Grid {
                 // loop over rectangles in path and check whether
                 // layout is the same as the bike's layout.
                 for (Rectangle path : paths) {
-                    if (((bike.getLayoutX() + 50) == path.getLayoutX()) &&
-                            ((bike.getLayoutY() + 50) == path.getLayoutY())) {
+                    if (((bike.getLayoutX()) == (path.getLayoutX())) &&
+                            ((bike.getLayoutY()) == (path.getLayoutY())
+                            )) {
                         return true;
+                    }
                     }
                 }
             }
             // return false if no collision
             return false;
         }
-        return false;
+
+
+    public int[] getFreeSides(LightCycle bike){
+        int[] sides = {0,0,0,0};
+
+        for (Rectangle path : paths) {
+
+            //moving in X direction so change sides by turning
+            if (bike.getVelocityY() == 0) {
+
+                //System.out.println("got here");
+                //check up and down for free
+                if (((bike.getLayoutX()) == (path.getLayoutX())) &&
+                        ((bike.getLayoutY()) == (path.getLayoutY() + 20)
+                        )) {
+                    sides[2] = 3;
+
+                }
+
+                //detect stuff to the bottom
+                if (((bike.getLayoutX()) == (path.getLayoutX())) &&
+                        ((bike.getLayoutY() - 20) == (path.getLayoutY())
+                        )) {
+                    sides[3] = 4;
+
+                }
+            } else {
+
+                //detect stuff at the left
+                if (((bike.getLayoutX()) == (path.getLayoutX() + 20)) &&
+                        ((bike.getLayoutY()) == (path.getLayoutY())
+                        )) {
+                    sides[0] = 1;
+
+                }
+
+                //detect stuff to the right
+                if (((bike.getLayoutX() - 20) == (path.getLayoutX())) &&
+                        ((bike.getLayoutY()) == (path.getLayoutY())
+                        )) {
+                    sides[1] = 2;
+
+                    }
+                }
+            }
+        return sides;
+
     }
 }
 
