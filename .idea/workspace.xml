@@ -78,7 +78,7 @@
         <entry file="file://$PROJECT_DIR$/src/carltron/Player.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+              <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -114,19 +114,29 @@
       <file leaf-file-name="GameManager.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/carltron/GameManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.48584202">
-              <caret line="600" column="0" selection-start-line="600" selection-start-column="0" selection-end-line="600" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.2175857">
+              <caret line="154" column="8" selection-start-line="154" selection-start-column="8" selection-end-line="154" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#3214#3215#0" expanded="true" />
                 <element signature="e#3257#3258#0" expanded="true" />
                 <element signature="e#3311#3312#0" expanded="true" />
                 <element signature="e#3349#3350#0" expanded="true" />
-                <element signature="e#17072#17073#0" expanded="true" />
-                <element signature="e#17115#17116#0" expanded="true" />
-                <element signature="e#17282#17283#0" expanded="true" />
-                <element signature="e#17322#17323#0" expanded="true" />
+                <element signature="e#17284#17285#0" expanded="true" />
+                <element signature="e#17327#17328#0" expanded="true" />
+                <element signature="e#17494#17495#0" expanded="true" />
+                <element signature="e#17534#17535#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Turbo.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/carltron/Turbo.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="73" column="20" selection-start-line="73" selection-start-column="20" selection-end-line="73" selection-end-column="20" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -755,12 +765,12 @@
       <workItem from="1433262214190" duration="114000" />
       <workItem from="1433281589219" duration="48000" />
       <workItem from="1433282087595" duration="170000" />
-      <workItem from="1433454493053" duration="17008000" />
+      <workItem from="1433454493053" duration="19464000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="65382000" />
+    <option name="totallyTimeSpent" value="67838000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1332" y="34" width="1812" height="1014" extended-state="6" />
@@ -1144,13 +1154,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/carltron/Turbo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.3051949">
-          <caret line="73" column="20" selection-start-line="73" selection-start-column="20" selection-end-line="73" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/carltron/Protector.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.8766234">
@@ -1163,12 +1166,12 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1433475086000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1433475086000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1433475086000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1433475086000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1433475086000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1433475086000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1433477697000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1433477697000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1433477697000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1433477697000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1433477697000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1433477697000" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -1188,16 +1191,6 @@
           <folding>
             <element signature="e#2613#2614#0" expanded="true" />
             <element signature="e#2652#2653#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/carltron/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1242,20 +1235,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/carltron/Turbo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="73" column="20" selection-start-line="73" selection-start-column="20" selection-end-line="73" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/carltron/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/carltron/GameManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.48584202">
-          <caret line="600" column="0" selection-start-line="600" selection-start-column="0" selection-end-line="600" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.2175857">
+          <caret line="154" column="8" selection-start-line="154" selection-start-column="8" selection-end-line="154" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#3214#3215#0" expanded="true" />
             <element signature="e#3257#3258#0" expanded="true" />
             <element signature="e#3311#3312#0" expanded="true" />
             <element signature="e#3349#3350#0" expanded="true" />
-            <element signature="e#17072#17073#0" expanded="true" />
-            <element signature="e#17115#17116#0" expanded="true" />
-            <element signature="e#17282#17283#0" expanded="true" />
-            <element signature="e#17322#17323#0" expanded="true" />
+            <element signature="e#17284#17285#0" expanded="true" />
+            <element signature="e#17327#17328#0" expanded="true" />
+            <element signature="e#17494#17495#0" expanded="true" />
+            <element signature="e#17534#17535#0" expanded="true" />
           </folding>
         </state>
       </provider>
