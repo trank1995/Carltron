@@ -36,7 +36,7 @@ import java.util.TimerTask;
  * @return n/a.
  * */
 public class GameManager implements EventHandler<KeyEvent> {
-    final private double FRAMES_PER_SECOND = 15.0;
+    final private double FRAMES_PER_SECOND = 30.0;
     final private double STEP_SIZE = 5.0;
     private Grid grid = new Grid();
     public Stage primaryStage;
@@ -117,9 +117,10 @@ public class GameManager implements EventHandler<KeyEvent> {
                 Platform.runLater(new Runnable() {
                     public void run(){
                         try {
-                            if (updateAnimation() == true){
-                                updateAnimation();
+                            if (updateAnimation()){
+                                //updateAnimation();
                             }else{
+                                updateAnimation();
                                 callVictoryPage();
                                 updateAnimation();
                             }
