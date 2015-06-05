@@ -33,11 +33,8 @@ public class WindowNavigation {
     //Instance variables end
     public  int f1;
     public int f2;
-<<<<<<< HEAD
     public int pnumber;
-=======
     public int playerAmount = 2;
->>>>>>> 3d0ab801ad201c037199094db1822c5dc47ca5a1
 
 
     @FXML private Button player1;
