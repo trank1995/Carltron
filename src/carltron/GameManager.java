@@ -77,7 +77,7 @@ public class GameManager implements EventHandler<KeyEvent> {
         this.paused = false;
         this.primaryStage = null;
         this.win =0;
-        Score gamescores = new Score(0,0);
+        //Score gamescores = new Score(0,0);
     }
 
     /**

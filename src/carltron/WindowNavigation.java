@@ -1,11 +1,18 @@
 /**
- * There are still some stuffs left to do
- * after version 1
- * (1) Switch to settings and switch back
- * (2) Pass data from settings to other classes
- * */
+ ************************ CARLTRON GAME****************************************
+ * Made by  Derek Shang (shangd7)
+ *          Frederik Ronn Stensaeth (stensaethf)
+ *          Sabastian Mugazambi (mugazambis)
+ *          Kiet Tran (trank)
+ *          *******************************************************************
+ *
+ * Date : June 5 2015
+ * @Purpose Software Design Course Final Project
+ **/
+
 package carltron;
 
+//importing the needed classes and packages
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,10 +24,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 /**
- * WindowNavigation.java
+ * @class WindowNavigation.java
  * This class integrated several fxml files and
  * let players switch between pages
- * June 1, 2015 - version 1
  * */
 public class WindowNavigation {
     //Instance variables
@@ -36,36 +42,45 @@ public class WindowNavigation {
     public int pnumber;
     public int playerAmount = 2;
 
-
+    //accessing the aspects of FXML files that we neede.
     @FXML private Button player1;
     @FXML private Button player2;
-    // @FXML private ImageView winner;
     @FXML private Button player1Score;
     @FXML private Button player2Score;
     @FXML public Button again;
 
+    /**
+     * @Constructor not initializing anything here.
+     */
     public WindowNavigation() {
-        //this.again = new Button();
-
     }
 
     /**
-     * setStage(Stage) sets current stage as given stage.
-     *
+     * @method setStage(Stage) sets current stage as given stage.
      * @param primary
      */
     public void setStage(Stage primary) {
         this.theStage = primary;
     }
 
+    /**
+     * @method setpnumber(pnumber) sets the chosen player mode
+     * @param pnumber
+     */
     public void setpnumber(int pnumber){
         this.pnumber = pnumber;
     }
 
+    /**
+     * @method setScore(p1,p2) sets the score of player one and player 2 for
+     * latter retrieval by the system.
+     * @param p1,p2
+     */
     public void setScore(int p1, int p2){
         this.f1 = p1;
         this.f2 = p2;
     }
+
     /**
      * player1Clicked(ActionEvent): this part is not yet implemented in
      * version 1.
@@ -78,7 +93,9 @@ public class WindowNavigation {
         //load game page
         FXMLLoader loader2 = new FXMLLoader(getClass().getResource
                 ("carltron-game.fxml"));
+
         Parent root2 = (Parent)loader2.load();
+
         //prepare the controller
         game_controller = loader2.getController();
         game_controller.setStage(this.theStage);
@@ -87,6 +104,7 @@ public class WindowNavigation {
         game_controller.setGameManager(this.game_controller);
         game_controller.setPlayerNumber(1);
         root2.setOnKeyPressed(game_controller);
+
         //show the scene
         this.scene2 = new Scene(root2, 800, 600);
         this.theStage.setScene(this.scene2);
@@ -94,42 +112,52 @@ public class WindowNavigation {
     }
 
     /**
-     * player2Clicked(ActionEvent) creates a 2 players game upon request.
-     *
+     * @method player2Clicked(ActionEvent) creates a 2 players game upon
+     * request.
      * @param e
      * @throws Exception
      */
     public void player2Clicked(ActionEvent e) throws Exception {
         playerAmount = 2;
+
         //load game page
         FXMLLoader loader2 = new FXMLLoader(getClass().getResource
                 ("carltron-game.fxml"));
         Parent root2 = (Parent)loader2.load();
+
         //prepare the controller
         game_controller = loader2.getController();
         game_controller.setStage(this.theStage);
         game_controller.setPlayerNumber(2);
         game_controller.setScore(this.f1, this.f2);
-
         root2.setOnKeyPressed(game_controller);
+
         //show the scene
         this.scene2 = new Scene(root2, 800, 600);
         this.theStage.setScene(this.scene2);
         this.theStage.show();
     }
 
+    /**
+     * @method that reloads the same game mode at request from clicking the
+     * play again button, keeps track of the current score.
+     * @param e
+     * @throws Exception
+     */
     public void playAgain(ActionEvent e) throws Exception {
+
         //load game page
         FXMLLoader loader2 = new FXMLLoader(getClass().getResource
                 ("carltron-game.fxml"));
         Parent root2 = (Parent)loader2.load();
+
         //prepare the controller
         game_controller = loader2.getController();
         game_controller.setStage(this.theStage);
         game_controller.setPlayerNumber(this.pnumber);
         game_controller.setScore(this.f1, this.f2);
-
         root2.setOnKeyPressed(game_controller);
+
         //show the scene
         this.scene2 = new Scene(root2, 800, 600);
         this.theStage.setScene(this.scene2);
@@ -138,19 +166,21 @@ public class WindowNavigation {
 
 
     /**
-     * rulesClicked(ActionEvent) moves to the rule page upon request.
-     *
+     * @metod rulesClicked(ActionEvent) moves to the rule page upon request.
      * @param e
      * @throws Exception
      */
     public void rulesClicked(ActionEvent e) throws Exception {
+
         //load the rule page
         FXMLLoader loader3 = new FXMLLoader(getClass().getResource
                 ("carltron-rules.fxml"));
         Parent root3 = (Parent)loader3.load();
+
         //prepare the controller
         WindowNavigation new_window = loader3.getController();
         new_window.setStage(this.theStage);
+
         //show the scene
         this.scene3 = new Scene(root3, 800, 600);
         this.theStage.setScene(this.scene3);
@@ -159,25 +189,36 @@ public class WindowNavigation {
     }
 
     /**
-     * onBackButton(ActionEvent) loads the main page upon request.
-     *
+     * @method onBackButton(ActionEvent) loads the main page upon request.
      * @param e
      * @throws Exception
      */
     public void onBackButton(ActionEvent e) throws Exception {
+
         //load the menu page
         FXMLLoader loader = new FXMLLoader(getClass().getResource
                 ("carltron-menu.fxml"));
         Parent root = (Parent)loader.load();
+
         //prepare the controller
         WindowNavigation new_window = loader.getController();
         new_window.setStage(this.theStage);
+
         //show the scene
         this.scene1 = new Scene(root, 800, 600);
         this.theStage.setScene(this.scene1);
         this.theStage.show();
     }
+
+    /**
+     * @method variation of play again and might be removed if deemed
+     * unnneccesary
+     * @param e
+     * @throws Exception
+     */
     public void onAgainButton(ActionEvent e) throws Exception {
+
+        //load fxml file
         FXMLLoader loader = new FXMLLoader(getClass().getResource
                 ("carltron-game.fxml"));
         WindowNavigation new_window = loader.getController();
@@ -217,14 +258,17 @@ public class WindowNavigation {
         if (won == 2) {
             //player2 won
             this.f2 = this.f2 + 1;
-            image = new Image(getClass().getResourceAsStream("p2logo.png"));
+            image = new Image(getClass().getResourceAsStream("images/p2logo" +
+                    ".png"));
         } else if (won == 1) {
             //player1 won
             this.f1 = this.f1 + 1;
-            image = new Image(getClass().getResourceAsStream("p1logo.png"));
+            image = new Image(getClass().getResourceAsStream("images/p1logo" +
+                    ".png"));
         } else {
             //tie
-            image = new Image(getClass().getResourceAsStream("drawf.png"));
+            image = new Image(getClass().getResourceAsStream("images/drawf" +
+                    ".png"));
         }
         //use button to show score
         Button p1Score = new Button();
@@ -266,7 +310,7 @@ public class WindowNavigation {
         // right player depending on score.
         if (scoreDef >= 2){
             medalssilver = new Image(getClass().getResourceAsStream
-                    ("silvermedal.png"));
+                    ("images/silvermedal.png"));
             medalP.setImage(medalssilver);
             medalP.setFitWidth(45);
             medalP.setFitHeight(51);
@@ -280,7 +324,7 @@ public class WindowNavigation {
 
         if (scoreDef <= -2){
             medalssilver = new Image(getClass().getResourceAsStream
-                    ("silvermedal.png"));
+                    ("images/silvermedal.png"));
             medalP.setImage(medalssilver);
             medalP.setFitWidth(45);
             medalP.setFitHeight(51);
@@ -294,7 +338,7 @@ public class WindowNavigation {
 
         if (scoreDef >= 3){
             medalsgold = new Image(getClass().getResourceAsStream
-                    ("GoldMedal.png"));
+                    ("images/GoldMedal.png"));
             medalg.setImage(medalsgold);
             medalg.setFitWidth(76);
             medalg.setFitHeight(51);
@@ -308,7 +352,7 @@ public class WindowNavigation {
 
         if (scoreDef <= -3){
             medalsgold = new Image(getClass().getResourceAsStream
-                    ("GoldMedal.png"));
+                    ("images/GoldMedal.png"));
             medalg.setImage(medalsgold);
             medalg.setFitWidth(76);
             medalg.setFitHeight(51);
@@ -322,7 +366,7 @@ public class WindowNavigation {
 
         if (scoreDef >= 4){
             crown = new Image(getClass().getResourceAsStream
-                    ("Crownmedal.png"));
+                    ("images/Crownmedal.png"));
             medalo.setImage(crown);
             medalo.setFitWidth(52);
             medalo.setFitHeight(44);
@@ -336,7 +380,7 @@ public class WindowNavigation {
 
         if (scoreDef <= -4){
             crown = new Image(getClass().getResourceAsStream
-                    ("Crownmedal.png"));
+                    ("images/Crownmedal.png"));
             medalo.setImage(crown);
             medalo.setFitWidth(52);
             medalo.setFitHeight(44);

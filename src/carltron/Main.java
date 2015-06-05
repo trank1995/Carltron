@@ -1,5 +1,18 @@
+/**
+ ************************ CARLTRON GAME****************************************
+ * Made by  Derek Shang (shangd7)
+ *          Frederik Ronn Stensaeth (stensaethf)
+ *          Sabastian Mugazambi (mugazambis)
+ *          Kiet Tran (trank)
+ *          *******************************************************************
+ *
+ * Date : June 5 2015
+ * @Purpose Software Design Course Final Project
+ **/
+
 package carltron;
 
+//Importing all the neccessary libraries
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -18,6 +31,12 @@ import javax.swing.*;
 import javax.swing.text.html.ImageView;
 import javafx.util.StringConverter;
 
+
+/**
+ * @Class (Main.java) that is responsible of starting the game and loading
+ * the first fxml file
+ * @Params none
+ */
 public class Main extends Application {
 
     Scene scene1;
@@ -34,7 +53,9 @@ public class Main extends Application {
     }
 
     /**
-     * start(Stage) is responsible for loading our menu scene (the first scene
+     * @method start(Stage) is responsible for loading our menu scene (the
+     * first
+     * scene
      * to be displayed to the user).
      *
      * @return nothing.
@@ -53,6 +74,7 @@ public class Main extends Application {
         });
 
         this.theStage = primaryStage;
+
         // load the fxml file and create a scene with it.
         FXMLLoader loader = new FXMLLoader(getClass().getResource
                 ("carltron-menu.fxml"));
@@ -78,7 +100,8 @@ public class Main extends Application {
     }
 
     /**
-     * setStage(Stage) takes a Stage and sets the variable theStage to be that
+     * @method setStage(Stage) takes a Stage and sets the variable theStage to
+     * be that
      * stage. This is used for forwarding purposes, so that we can alter the
      * same stage later on.
      *
