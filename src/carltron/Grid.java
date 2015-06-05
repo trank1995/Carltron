@@ -65,6 +65,26 @@ public class Grid {
         }
         return false;
     }
+
+    public boolean detectpathcollision(LightCycle bike){
+
+        if (bike != null) {
+            //if bike doesn't have protector
+            if (!bike.hasShield()) {
+                // loop over rectangles in path and check whether
+                // layout is the same as the bike's layout.
+                for (Rectangle path : paths) {
+                    if (((bike.getLayoutX() + 50) == path.getLayoutX()) &&
+                            ((bike.getLayoutY() + 50) == path.getLayoutY())) {
+                        return true;
+                    }
+                }
+            }
+            // return false if no collision
+            return false;
+        }
+        return false;
+    }
 }
 
 

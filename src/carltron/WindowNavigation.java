@@ -31,6 +31,9 @@ public class WindowNavigation {
     //controller for the game page
     GameManager game_controller;
     //Instance variables end
+    public  int f1;
+    public int f2;
+
 
     @FXML private Button player1;
     @FXML private Button player2;
@@ -41,6 +44,7 @@ public class WindowNavigation {
 
     public WindowNavigation() {
         //this.again = new Button();
+
     }
 
     /**
@@ -52,6 +56,10 @@ public class WindowNavigation {
         this.theStage = primary;
     }
 
+    public void setScore(int p1, int p2){
+        this.f1 = p1;
+        this.f2 = p2;
+    }
     /**
      * player1Clicked(ActionEvent): this part is not yet implemented in
      * version 1.
@@ -60,7 +68,21 @@ public class WindowNavigation {
      * @throws Exception
      */
     public void pLayer1Clicked(ActionEvent e) throws Exception {
-        //
+        //load game page
+        FXMLLoader loader2 = new FXMLLoader(getClass().getResource
+                ("carltron-game.fxml"));
+        Parent root2 = (Parent)loader2.load();
+        //prepare the controller
+        game_controller = loader2.getController();
+        game_controller.setStage(this.theStage);
+        game_controller.setPlayerNumber(1);
+        game_controller.setScore(this.f1, this.f2);
+        game_controller.setGameManager(this.game_controller);
+        root2.setOnKeyPressed(game_controller);
+        //show the scene
+        this.scene2 = new Scene(root2, 800, 600);
+        this.theStage.setScene(this.scene2);
+        this.theStage.show();
     }
 
     /**
@@ -77,6 +99,9 @@ public class WindowNavigation {
         //prepare the controller
         game_controller = loader2.getController();
         game_controller.setStage(this.theStage);
+        game_controller.setPlayerNumber(2);
+        game_controller.setScore(this.f1, this.f2);
+
         root2.setOnKeyPressed(game_controller);
         //show the scene
         this.scene2 = new Scene(root2, 800, 600);
@@ -142,9 +167,11 @@ public class WindowNavigation {
         //create the image depending on the winner
         if (won == 2) {
             //player2 won
+            this.f2 = this.f2 + 1;
             image = new Image(getClass().getResourceAsStream("p2logo.png"));
         } else if (won == 1) {
             //player1 won
+            this.f1 = this.f1 + 1;
             image = new Image(getClass().getResourceAsStream("p1logo.png"));
         } else {
             //tie
@@ -154,8 +181,8 @@ public class WindowNavigation {
         Button p1Score = new Button();
         Button p2Score = new Button();
         //show the score
-        p1Score.setText(Integer.toString(1));
-        p2Score.setText(Integer.toString(2));
+        p1Score.setText(Integer.toString(this.f1));
+        p2Score.setText(Integer.toString(this.f2));
         p1Score.setLayoutX(320);
         p1Score.setLayoutY(423);
         p2Score.setLayoutX(320);
@@ -173,6 +200,105 @@ public class WindowNavigation {
         iv.setSmooth(true);
         iv.setCache(true);
         //put imageview in anchorpane
+
+        //creating medals and adding them to the frame depending on scores
+        int scoreDef= this.f1 - this.f2;
+        javafx.scene.image.ImageView medalP = new javafx.scene.image
+                .ImageView();
+        javafx.scene.image.ImageView medalg = new javafx.scene.image
+                .ImageView();
+        javafx.scene.image.ImageView medalo = new javafx.scene.image
+                .ImageView();
+        Image medalssilver;
+        Image medalsgold;
+        Image crown;
+
+        //Checking the scoe difference and adding the right medals to the
+        // right player depending on score.
+        if (scoreDef >= 2){
+            medalssilver = new Image(getClass().getResourceAsStream
+                    ("silvermedal.png"));
+            medalP.setImage(medalssilver);
+            medalP.setFitWidth(45);
+            medalP.setFitHeight(51);
+            medalP.setPreserveRatio(true);
+            medalP.setSmooth(true);
+            medalP.setCache(true);
+            medalP.setLayoutX(100);
+            medalP.setLayoutY(411);
+            root7.getChildren().add(medalP);
+        }
+
+        if (scoreDef <= -2){
+            medalssilver = new Image(getClass().getResourceAsStream
+                    ("silvermedal.png"));
+            medalP.setImage(medalssilver);
+            medalP.setFitWidth(45);
+            medalP.setFitHeight(51);
+            medalP.setPreserveRatio(true);
+            medalP.setSmooth(true);
+            medalP.setCache(true);
+            medalP.setLayoutX(100);
+            medalP.setLayoutY(469);
+            root7.getChildren().add(medalP);
+        }
+
+        if (scoreDef >= 3){
+            medalsgold = new Image(getClass().getResourceAsStream
+                    ("GoldMedal.png"));
+            medalg.setImage(medalsgold);
+            medalg.setFitWidth(76);
+            medalg.setFitHeight(51);
+            medalg.setPreserveRatio(true);
+            medalg.setSmooth(true);
+            medalg.setCache(true);
+            medalg.setLayoutX(43);
+            medalg.setLayoutY(411);
+            root7.getChildren().add(medalg);
+        }
+
+        if (scoreDef <= -3){
+            medalsgold = new Image(getClass().getResourceAsStream
+                    ("GoldMedal.png"));
+            medalg.setImage(medalsgold);
+            medalg.setFitWidth(76);
+            medalg.setFitHeight(51);
+            medalg.setPreserveRatio(true);
+            medalg.setSmooth(true);
+            medalg.setCache(true);
+            medalg.setLayoutX(43);
+            medalg.setLayoutY(469);
+            root7.getChildren().add(medalg);
+        }
+
+        if (scoreDef >= 4){
+            crown = new Image(getClass().getResourceAsStream
+                    ("Crownmedal.png"));
+            medalo.setImage(crown);
+            medalo.setFitWidth(52);
+            medalo.setFitHeight(44);
+            medalo.setPreserveRatio(true);
+            medalo.setSmooth(true);
+            medalo.setCache(true);
+            medalo.setLayoutX(374);
+            medalo.setLayoutY(419);
+            root7.getChildren().add(medalo);
+        }
+
+        if (scoreDef <= -4){
+            crown = new Image(getClass().getResourceAsStream
+                    ("Crownmedal.png"));
+            medalo.setImage(crown);
+            medalo.setFitWidth(52);
+            medalo.setFitHeight(44);
+            medalo.setPreserveRatio(true);
+            medalo.setSmooth(true);
+            medalo.setCache(true);
+            medalo.setLayoutX(374);
+            medalo.setLayoutY(466);
+            root7.getChildren().add(medalo);
+        }
+
         root7.getChildren().add(iv);
         root7.getChildren().add(p1Score);
         root7.getChildren().add(p2Score);
@@ -180,6 +306,7 @@ public class WindowNavigation {
 
         WindowNavigation new_window = loaderp.getController();
         new_window.setStage(theVictorStage);
+        new_window.setScore(this.f1, this.f2);
         //put the anchorpane in the scene and show it
         theVictorStage.setScene(new Scene(root7, 800, 600));
         theVictorStage.show();
