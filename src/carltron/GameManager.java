@@ -4,21 +4,17 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.geometry.Point2D;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.shape.Rectangle;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
-import java.util.Random;
+
 import java.util.Timer;
 import java.util.TimerTask;
-import java.util.Arrays;
 
 /**
  * GameManager is the class that handles the 2 player game mode of CarlTron.
@@ -404,41 +400,44 @@ public class GameManager implements EventHandler<KeyEvent> {
         // the controls for player 1 are w,a,s,d,q,e.
         // need to change the velocity of the different players depending
         // on which key was pressed.
-        if (code == KeyCode.LEFT) {
-            if (this.player2.getVelocityX() <= 0) {
-                // velocityX to -1 and Y to 0.
-                this.player2.setVelocityY(0);
-                this.player2.setVelocityX(-speed2);
-            }
-        } else if (code == KeyCode.RIGHT) {
-            if (this.player2.getVelocityX() >= 0) {
-                // velocityX to 1 and Y to 0.
-                this.player2.setVelocityY(0);
-                this.player2.setVelocityX(speed2);
-            }
-        } else if (code == KeyCode.UP) {
-            if (this.player2.getVelocityY() <= 0) {
-                // velocityX to 0 and Y to 1.
-                this.player2.setVelocityY(-speed2);
-                this.player2.setVelocityX(0);
-            }
-        } else if (code == KeyCode.DOWN) {
-            if (this.player2.getVelocityY() >= 0) {
-                // velocityX to 0 and Y to -1.
-                this.player2.setVelocityY(speed2);
-                this.player2.setVelocityX(0);
-            }
-        // turbo 2nd player?
-        } else if (code == KeyCode.ENTER) {
-            //this.player2.consume("turbo");
-            // jump 2nd player?
-            this.player2_object.consume("turbo");
+        if (this.numberPlayers == 2) {
+            if (code == KeyCode.LEFT) {
+                if (this.player2.getVelocityX() <= 0) {
+                    // velocityX to -1 and Y to 0.
+                    this.player2.setVelocityY(0);
+                    this.player2.setVelocityX(-speed2);
+                }
+            } else if (code == KeyCode.RIGHT) {
+                if (this.player2.getVelocityX() >= 0) {
+                    // velocityX to 1 and Y to 0.
+                    this.player2.setVelocityY(0);
+                    this.player2.setVelocityX(speed2);
+                }
+            } else if (code == KeyCode.UP) {
+                if (this.player2.getVelocityY() <= 0) {
+                    // velocityX to 0 and Y to 1.
+                    this.player2.setVelocityY(-speed2);
+                    this.player2.setVelocityX(0);
+                }
+            } else if (code == KeyCode.DOWN) {
+                if (this.player2.getVelocityY() >= 0) {
+                    // velocityX to 0 and Y to -1.
+                    this.player2.setVelocityY(speed2);
+                    this.player2.setVelocityX(0);
+                }
+                // turbo 2nd player?
+            } else if (code == KeyCode.ENTER) {
+                //this.player2.consume("turbo");
+                // jump 2nd player?
+                this.player2_object.consume("turbo");
 
-        } else if (code == KeyCode.SHIFT) {
-            this.player2_object.consume("jump");
+            } else if (code == KeyCode.SHIFT) {
+                this.player2_object.consume("jump");
+            }
+        }
 
         // player 1
-        } else if (code == KeyCode.A) {
+        if (code == KeyCode.A) {
             if (this.player1.getVelocityX() <= 0) {
                 // velocityX to -1 and Y to 0.
                 this.player1.setVelocityY(0);

@@ -1,7 +1,5 @@
 package carltron;
 
-import java.util.HashMap;
-
 /**
  * Created by shangd on 6/5/15.
  */
@@ -22,12 +20,6 @@ public class AiPlayer extends Player {
         if (this.vehicle.getLayoutX() <= human.vehicle.getLayoutX()+80) {
             this.vehicle.setVelocityX(0);
             this.vehicle.setVelocityY(-1);
-            //System.out.println(this.vehicle.getVelocityY());
-            //System.out.println("set v");
-        }
-        if (this.vehicle.getVelocityY() == -1) {
-            this.vehicle.setVelocityX(-1);
-            this.vehicle.setVelocityY(0);
         }
     }
 }
