@@ -1,4 +1,15 @@
 package carltron;
+/**
+ ************************ CARLTRON GAME****************************************
+ * Made by  Derek Shang (shangd7)
+ *          Frederik Ronn Stensaeth (stensaethf)
+ *          Sabastian Mugazambi (mugazambis)
+ *          Kiet Tran (trank)
+ *          *******************************************************************
+ *
+ * Date : June 5 2015
+ * @Purpose Software Design Course Final Project
+ **/
 
 /**
  * An abstract class that serves as the parent of important in-game bonus
