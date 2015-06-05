@@ -11,7 +11,7 @@ import java.util.ArrayList;
  */
 public class Grid {
     //an arraylist of path
-    private ArrayList<Rectangle> paths = new ArrayList<Rectangle>();
+    private ArrayList<Rectangle> paths = new ArrayList<>();
 
     /**
      * The constructor for Grid. Takes no parameters and sets up nothing.

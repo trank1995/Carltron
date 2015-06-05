@@ -17,10 +17,10 @@ import java.util.HashMap;
 public class Player {
 
     /* instance variable field */
-    private LightCycle vehicle;
-    private int life;
-    private Bonus[] bonuses;
-    private HashMap<String, Integer> counter;
+    protected LightCycle vehicle;
+    protected int life;
+    protected Bonus[] bonuses;
+    protected HashMap<String, Integer> counter;
 
     /* constants are defined here */
     public static final int TURBO_DURATION = 12;
@@ -46,6 +46,7 @@ public class Player {
         this.counter.put("jump",0);
         this.counter.put("protector",0);
     }
+
 
     /**
      * Returns the life of the player
@@ -85,7 +86,7 @@ public class Player {
 
     //******************* hasn't resolved the case where more than 1 bonuses
     // are used at the same time**************************
-    private void bonusEffectCheck() {
+    protected void bonusEffectCheck() {
         // iterate over all bonus objects and check if we need to make any
         // change to corresponding counters
         for (String key : this.counter.keySet()) {
@@ -94,7 +95,6 @@ public class Player {
                 this.counter.put(key, this.counter.get(key)+1);
                 switch (key) {
                     case "turbo":
-                        System.out.println("count: "+counter.get(key));
                         if (this.counter.get(key) == TURBO_DURATION) {
                             this.vehicle.turnDefault();
                             // reset counter
@@ -149,4 +149,6 @@ public class Player {
             default: break;
         }
     }
+
+    public void strategy() {}
 }

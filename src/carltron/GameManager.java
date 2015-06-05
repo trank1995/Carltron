@@ -154,10 +154,18 @@ public class GameManager implements EventHandler<KeyEvent> {
     public boolean updateAnimation() throws Exception {
 
 
-        if (this.player1_object == null || this.player2_object == null) {
-            this.player2_object = new Player(this.player2);
-            this.player1_object = new Player(this.player1);
+        if (this.player1_object == null && this.player2_object == null) {
+            if (this.numberPlayers == 2) {
+                this.player1_object = new Player(this.player1);
+                this.player2_object = new Player(this.player2);
+            } else if (this.numberPlayers == 1) {
+                this.player1_object = new Player(this.player1);
+                this.player2_object = new AiPlayer (this.player2,
+                                            this.player1_object,
+                                            this.grid);
+            }
         }
+
 
         // find position of player1
         double player1X = this.player1.getLayoutX();
@@ -345,12 +353,12 @@ public class GameManager implements EventHandler<KeyEvent> {
             this.grid.addToGrid(path_p2);
         }
 
-        //AI playing here
-
+        /********* AI HERE *******************/
         if (this.numberPlayers == 1){
-            this.AIplayer(player1X_new,player1Y_new, player2X_new, player2Y_new);
+        //this.AIplayer(player1X_new,player1Y_new, player2X_new,
+        //player2Y_new);
+            this.player2_object.strategy();
         }
-
 
 
         // NOTE:
@@ -526,94 +534,4 @@ public class GameManager implements EventHandler<KeyEvent> {
         victor.setScore(this.p1s , this.p2s);
         victor.victorPage(this.primaryStage, this.win);
     }
-
-    public void AIplayer(double player1x,double player1y, double player2x,
-                         double player2y) {
-        // player 2
-        /* speed is the magnitude of player's velocity. Since velocityX is
-        either 0 or positive/minus speed, we use the ternary operator to
-        obtain the speed. */
-
-        int speed2 = (this.player2.getVelocityX() == 0) ?
-                Math.abs(this.player2.getVelocityY()) :
-                Math.abs(this.player2.getVelocityX());
-
-        boolean path_check_p2 = this.grid.detectpathcollision(this.player2);
-        //System.out.println(path_check_p2);
-
-        //if about to collide with path
-        if (path_check_p2 == true){
-           turndown(speed2);
-        }
-
-
-        //if headon collision
-        if (Math.abs(player1x - player2x) <= 50) {
-            int random = 3;
-            if (random ==3) {
-                turnup(speed2);
-            }
-        }
-
-        // player2 went of the grid (top)
-        if ((player2y) < 50) {
-            turnleft(speed2);
-        }
-
-        // player2 went of the grid (left)
-        if ((player2x) < 20) {
-            turndown(speed2);
-        }
-
-        // player2 went of the grid (right)
-        if ((player2x+50) + this.player2.getWidth() > this.grid_fxml
-                .getWidth()){
-            turnup(speed2);
-        }
-
-        //player2 went to the botom of grid.
-        System.out.println(player2y);
-        double use = player2y +20;
-
-        if (use > this.grid_fxml.getHeight()) {
-            turnright(speed2);
-
-        }
-
-    }
-
-    public void turnup(int speed2){
-        if (this.player2.getVelocityY() <= 0) {
-            // velocityX to 0 and Y to 1.
-            this.player2.setVelocityY(-speed2);
-            this.player2.setVelocityX(0);
-        }
-    }
-
-    public void turndown(int speed2) {
-
-        if (this.player2.getVelocityY() >= 0) {
-            // velocityX to 0 and Y to -1.
-            this.player2.setVelocityY(speed2);
-            this.player2.setVelocityX(0);
-        }
-    }
-
-    public void turnleft(int speed2) {
-        if (this.player2.getVelocityX() <= 0) {
-            // velocityX to -1 and Y to 0.
-            this.player2.setVelocityY(0);
-            this.player2.setVelocityX(-speed2);
-        }
-    }
-
-    public void turnright(int speed2) {
-
-        if (this.player2.getVelocityX() >= 0) {
-            // velocityX to 1 and Y to 0.
-            this.player2.setVelocityY(0);
-            this.player2.setVelocityX(speed2);
-        }
-    }
-
 }
