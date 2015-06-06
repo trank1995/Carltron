@@ -22,6 +22,13 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import sun.audio.AudioPlayer;
+import sun.audio.AudioStream;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
+
 
 /**
  * @class WindowNavigation.java
@@ -40,7 +47,6 @@ public class WindowNavigation {
     public  int f1;
     public int f2;
     public int pnumber;
-    public int playerAmount = 2;
 
     //accessing the aspects of FXML files that we neede.
     @FXML private Button player1;
@@ -89,7 +95,7 @@ public class WindowNavigation {
      * @throws Exception
      */
     public void pLayer1Clicked(ActionEvent e) throws Exception {
-        playerAmount = 1;
+        playAudioFile("sound/button-3.mp3");
         //load game page
         FXMLLoader loader2 = new FXMLLoader(getClass().getResource
                 ("carltron-game.fxml"));
@@ -118,7 +124,7 @@ public class WindowNavigation {
      * @throws Exception
      */
     public void player2Clicked(ActionEvent e) throws Exception {
-        playerAmount = 2;
+        playAudioFile("sound/button-3.mp3");
 
         //load game page
         FXMLLoader loader2 = new FXMLLoader(getClass().getResource
@@ -216,30 +222,30 @@ public class WindowNavigation {
      * @param e
      * @throws Exception
      */
-    public void onAgainButton(ActionEvent e) throws Exception {
-
-        //load fxml file
-        FXMLLoader loader = new FXMLLoader(getClass().getResource
-                ("carltron-game.fxml"));
-        WindowNavigation new_window = loader.getController();
-        Parent root2 = (Parent)loader.load();
-        game_controller = loader.getController();
-        game_controller.setStage(this.theStage);
-
-        //which player checking
-        if (playerAmount == 1) {
-            game_controller.setPlayerNumber(1);
-            game_controller.setScore(this.f1, this.f2);
-            game_controller.setGameManager(this.game_controller);
-        }else{
-            game_controller.setPlayerNumber(2);
-            game_controller.setScore(this.f1, this.f2);
-        }
-        root2.setOnKeyPressed(game_controller);
-        this.scene2 = new Scene(root2, 800, 600);
-        this.theStage.setScene(this.scene2);
-        this.theStage.show();
-    }
+//    public void onAgainButton(ActionEvent e) throws Exception {
+//
+//        //load fxml file
+//        FXMLLoader loader = new FXMLLoader(getClass().getResource
+//                ("carltron-game.fxml"));
+//        WindowNavigation new_window = loader.getController();
+//        Parent root2 = (Parent)loader.load();
+//        game_controller = loader.getController();
+//        game_controller.setStage(this.theStage);
+//
+//        //which player checking
+//        if (playerAmount == 1) {
+//            game_controller.setPlayerNumber(1);
+//            game_controller.setScore(this.f1, this.f2);
+//            game_controller.setGameManager(this.game_controller);
+//        }else{
+//            game_controller.setPlayerNumber(2);
+//            game_controller.setScore(this.f1, this.f2);
+//        }
+//        root2.setOnKeyPressed(game_controller);
+//        this.scene2 = new Scene(root2, 800, 600);
+//        this.theStage.setScene(this.scene2);
+//        this.theStage.show();
+//    }
 
     /**
      *@method victorPage(Stage) loads the victory page when the game ends.
@@ -410,5 +416,33 @@ public class WindowNavigation {
         //put the anchorpane in the scene and show it
         theVictorStage.setScene(new Scene(root7, 800, 600));
         theVictorStage.show();
+    }
+    public void playAudioFile(String filepath){
+        File audioFile = new File(filepath);
+        try {
+            InputStream input = new FileInputStream(filepath);
+
+            // create an audiostream from the inputstream
+            System.out.println("here1");
+            AudioStream audioStream = new AudioStream(input);
+            System.out.println("here2");
+            // play the audio clip with the audioplayer class
+            AudioPlayer.player.start(audioStream);
+            System.out.println("here3");
+//            System.out.println(audioFile);
+//            AudioInputStream audioStream = AudioSystem.getAudioInputStream(audioFile);
+//            System.out.println("here1");
+//            AudioFormat format = audioStream.getFormat();
+//            System.out.println("here2");
+//            DataLine.Info info = new DataLine.Info(Clip.class, format);
+//            Clip audioClip = (Clip) AudioSystem.getLine(info);
+//            System.out.println("here3");
+//            audioClip.open(audioStream);
+//            audioClip.start();
+        }catch(Exception e) {
+            System.out.println("sound problem");
+        }
+
+
     }
 }
