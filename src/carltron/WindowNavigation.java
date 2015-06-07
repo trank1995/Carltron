@@ -89,8 +89,8 @@ public class WindowNavigation {
      * @throws Exception
      */
     public void pLayer1Clicked(ActionEvent e) throws Exception {
-        //change to beep2
-        playAudioFile("sound/joke.mp3");
+        //play sound.
+        playAudioFile("sound/beep2.mp3");
         //load game page
         FXMLLoader loader2 = new FXMLLoader(getClass().getResource
                 ("carltron-game.fxml"));
@@ -119,8 +119,8 @@ public class WindowNavigation {
      * @throws Exception
      */
     public void player2Clicked(ActionEvent e) throws Exception {
-        //change to beep2
-        playAudioFile("sound/joke.mp3");
+        //play button sound.
+        playAudioFile("sound/beep2.mp3");
 
         //load game page
         FXMLLoader loader2 = new FXMLLoader(getClass().getResource
@@ -147,8 +147,8 @@ public class WindowNavigation {
      * @throws Exception
      */
     public void playAgain(ActionEvent e) throws Exception {
-        //change to beep2
-        playAudioFile("sound/joke.mp3");
+        //play button sound
+        playAudioFile("sound/beep2.mp3");
         //load game page
         FXMLLoader loader2 = new FXMLLoader(getClass().getResource
                 ("carltron-game.fxml"));
@@ -174,8 +174,8 @@ public class WindowNavigation {
      * @throws Exception
      */
     public void rulesClicked(ActionEvent e) throws Exception {
-        //change to beep2
-        playAudioFile("sound/joke.mp3");
+        //play button sound
+        playAudioFile("sound/beep2.mp3");
         //load the rule page
         FXMLLoader loader3 = new FXMLLoader(getClass().getResource
                 ("carltron-rules.fxml"));
@@ -198,8 +198,8 @@ public class WindowNavigation {
      * @throws Exception
      */
     public void onBackButton(ActionEvent e) throws Exception {
-        //change to beep2
-        playAudioFile("sound/joke.mp3");
+        //play button soundS
+        playAudioFile("sound/beep2.mp3");
         //load the menu page
         FXMLLoader loader = new FXMLLoader(getClass().getResource
                 ("carltron-menu.fxml"));
