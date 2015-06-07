@@ -1,5 +1,12 @@
 package carltron;
 
+import javafx.scene.shape.Rectangle;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Queue;
+import java.util.concurrent.ArrayBlockingQueue;
+
 /**
  * Created by shangd on 6/5/15.
  */
@@ -7,12 +14,15 @@ public class AiPlayer extends Player {
     private Player human;
     private Grid grid;
     private String direction;
+    private Queue<Rectangle> queue;
 
     public AiPlayer(LightCycle vehicle, Player human, Grid grid) {
         super(vehicle);
         this.human = human;
         this.grid = grid;
         this.direction = "LEFT";
+        this.queue = new ArrayBlockingQueue<>((int)(Math.ceil(grid
+                .DEFAULT_HEIGHT)*Math.ceil(grid.DEFAULT_WIDTH)));
     }
 
     @Override
@@ -22,6 +32,82 @@ public class AiPlayer extends Player {
             this.vehicle.setVelocityY(-1);
         }
     }
+
+    private void detectOpenArea() {
+
+    }
+
+    private double getDistance() {
+        return Math.sqrt(Math.pow(this.vehicle.getLayoutX() -
+                                  human.vehicle.getLayoutX(), 2) +
+                         Math.pow(this.vehicle.getLayoutY() -
+                                  human.vehicle.getLayoutY(), 2));
+    }
+
+    private boolean hasWayToPoint(double currentX, double currentY,
+                                  double endX, double endY) {
+        boolean find = false;
+        List<Rectangle> seen = new ArrayList<>();
+        Rectangle start = new Rectangle(currentX, currentY);
+        queue.add(start);
+        seen.add(start);
+
+        while (!find) {
+            Rectangle[] short_one = new Rectangle[4];
+            Rectangle current = queue.poll();
+            if (!seen.contains(current)) {
+                seen.add(current);
+            }
+
+            if (current.getLayoutX() <= grid.DEFAULT_WIDTH-5) {
+                Rectangle neighbor1 = new Rectangle(current.getLayoutX()+5,
+                        current.getLayoutY());
+                short_one[0] = neighbor1;
+            }
+            if (current.getLayoutX() >= 5) {
+                Rectangle neighbor2 = new Rectangle(current.getLayoutX()-5,
+                          currentY);
+                short_one[1] = neighbor2;
+            }
+            if (current.getLayoutY() <= grid.DEFAULT_HEIGHT-5) {
+                Rectangle neighbor3 = new Rectangle(current.getLayoutX(),
+                          current.getLayoutY()+5);
+                short_one[2] = neighbor3;
+            }
+            if (current.getLayoutY() >= 5) {
+                Rectangle neighbor4 = new Rectangle(current.getLayoutX(),
+                          current.getLayoutY()-5);
+                short_one[3] = neighbor4;
+            }
+
+            for (int i=0;i<short_one.length;i++) {
+                boolean bool_seen = false;
+                if (short_one[i] != null) {
+                    for (Rectangle item : seen) {
+                        if (item.getLayoutX() == short_one[i].getLayoutX() &&
+                            item.getLayoutY() == short_one[i].getLayoutY()) {
+                            bool_seen = true;
+                        }
+                    }
+                    if (!bool_seen) {
+                        if (short_one[i].getLayoutX() == endX &&
+                            short_one[i].getLayoutY() == endY) {
+                            find = true;
+                        }
+                        queue.add(short_one[i]);
+                    }
+                }
+            }
+
+            if (queue.size() == 0 && find == false) {
+                return false;
+            }
+        }
+
+        return find;
+    }
+
+
 }
 
 

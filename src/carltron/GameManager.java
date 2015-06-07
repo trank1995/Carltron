@@ -117,10 +117,11 @@ public class GameManager implements EventHandler<KeyEvent> {
                 Platform.runLater(new Runnable() {
                     public void run(){
                         try {
-                            if (updateAnimation() == true){
+                            if (updateAnimation()){
                                 updateAnimation();
                             }else{
                                 callVictoryPage();
+                                grid.printPaths();
                                 updateAnimation();
                             }
                         }catch (Exception e){

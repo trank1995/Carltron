@@ -13,6 +13,9 @@ public class Grid {
     //an arraylist of path
     private ArrayList<Rectangle> paths = new ArrayList<>();
 
+    public static final double DEFAULT_WIDTH = 590;
+    public static final double DEFAULT_HEIGHT = 460;
+
     /**
      * The constructor for Grid. Takes no parameters and sets up nothing.
      * */
@@ -132,6 +135,12 @@ public class Grid {
             }
         return sides;
 
+    }
+
+    public void printPaths() {
+        for (Rectangle path : paths) {
+            System.out.print("("+path.getLayoutX()+", "+path.getLayoutY()+") ");
+        }
     }
 }
 
