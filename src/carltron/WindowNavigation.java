@@ -42,7 +42,6 @@ public class WindowNavigation {
     public  int f1;
     public int f2;
     public int pnumber;
-
     //accessing the aspects of FXML files that we neede.
     @FXML private Button player1;
     @FXML private Button player2;
@@ -256,7 +255,7 @@ public class WindowNavigation {
     public void victorPage(Stage theVictorStage, int won)
             throws Exception{
         //change to beep2
-        playAudioFile("sound/victory.mp3");
+        playAudioFile("sound/death.mp3");
         //load the page
         FXMLLoader loaderp = new FXMLLoader(getClass().getResource
                 ("done.fxml"));
@@ -423,7 +422,7 @@ public class WindowNavigation {
             AudioClip sound = new AudioClip(WindowNavigation.class.getResource(filepath).toString());
             sound.play();
         }catch(Exception e) {
-            System.out.println("sound problem");
+            System.out.println("technical issue with sound");
         }
     }
 }
