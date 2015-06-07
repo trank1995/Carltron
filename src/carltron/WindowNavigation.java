@@ -21,13 +21,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.media.AudioClip;
 import javafx.stage.Stage;
-import sun.audio.AudioPlayer;
-import sun.audio.AudioStream;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStream;
 
 
 /**
@@ -95,7 +90,8 @@ public class WindowNavigation {
      * @throws Exception
      */
     public void pLayer1Clicked(ActionEvent e) throws Exception {
-        playAudioFile("sound/button-3.mp3");
+        //change to beep2
+        playAudioFile("sound/joke.mp3");
         //load game page
         FXMLLoader loader2 = new FXMLLoader(getClass().getResource
                 ("carltron-game.fxml"));
@@ -124,7 +120,8 @@ public class WindowNavigation {
      * @throws Exception
      */
     public void player2Clicked(ActionEvent e) throws Exception {
-        playAudioFile("sound/button-3.mp3");
+        //change to beep2
+        playAudioFile("sound/joke.mp3");
 
         //load game page
         FXMLLoader loader2 = new FXMLLoader(getClass().getResource
@@ -151,7 +148,8 @@ public class WindowNavigation {
      * @throws Exception
      */
     public void playAgain(ActionEvent e) throws Exception {
-
+        //change to beep2
+        playAudioFile("sound/joke.mp3");
         //load game page
         FXMLLoader loader2 = new FXMLLoader(getClass().getResource
                 ("carltron-game.fxml"));
@@ -177,7 +175,8 @@ public class WindowNavigation {
      * @throws Exception
      */
     public void rulesClicked(ActionEvent e) throws Exception {
-
+        //change to beep2
+        playAudioFile("sound/joke.mp3");
         //load the rule page
         FXMLLoader loader3 = new FXMLLoader(getClass().getResource
                 ("carltron-rules.fxml"));
@@ -200,7 +199,8 @@ public class WindowNavigation {
      * @throws Exception
      */
     public void onBackButton(ActionEvent e) throws Exception {
-
+        //change to beep2
+        playAudioFile("sound/joke.mp3");
         //load the menu page
         FXMLLoader loader = new FXMLLoader(getClass().getResource
                 ("carltron-menu.fxml"));
@@ -418,27 +418,9 @@ public class WindowNavigation {
         theVictorStage.show();
     }
     public void playAudioFile(String filepath){
-        File audioFile = new File(filepath);
         try {
-            InputStream input = new FileInputStream(filepath);
-
-            // create an audiostream from the inputstream
-            System.out.println("here1");
-            AudioStream audioStream = new AudioStream(input);
-            System.out.println("here2");
-            // play the audio clip with the audioplayer class
-            AudioPlayer.player.start(audioStream);
-            System.out.println("here3");
-//            System.out.println(audioFile);
-//            AudioInputStream audioStream = AudioSystem.getAudioInputStream(audioFile);
-//            System.out.println("here1");
-//            AudioFormat format = audioStream.getFormat();
-//            System.out.println("here2");
-//            DataLine.Info info = new DataLine.Info(Clip.class, format);
-//            Clip audioClip = (Clip) AudioSystem.getLine(info);
-//            System.out.println("here3");
-//            audioClip.open(audioStream);
-//            audioClip.start();
+            AudioClip sound = new AudioClip(WindowNavigation.class.getResource(filepath).toString());
+            sound.play();
         }catch(Exception e) {
             System.out.println("sound problem");
         }
