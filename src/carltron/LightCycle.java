@@ -1,3 +1,16 @@
+/**
+ ************************ CARLTRON GAME****************************************
+ * Made by  Derek Shang (shangd7)
+ *          Frederik Ronn Stensaeth (stensaethf)
+ *          Sabastian Mugazambi (mugazambis)
+ *          Kiet Tran (trank)
+ *          *******************************************************************
+ *
+ * Date : June 5 2015
+ * @Purpose Software Design Course Final Project
+ **/
+
+
 package carltron;
 
 import javafx.scene.paint.Color;

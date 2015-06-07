@@ -1,5 +1,18 @@
+/**
+ ************************ CARLTRON GAME****************************************
+ * Made by  Derek Shang (shangd7)
+ *          Frederik Ronn Stensaeth (stensaethf)
+ *          Sabastian Mugazambi (mugazambis)
+ *          Kiet Tran (trank)
+ *          *******************************************************************
+ *
+ * Date : June 5 2015
+ * @Purpose Software Design Course Final Project
+ **/
+
 package carltron;
 
+//Importing the right packages
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -12,7 +25,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
-
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -36,7 +48,7 @@ import java.util.TimerTask;
  * @return n/a.
  * */
 public class GameManager implements EventHandler<KeyEvent> {
-    final private double FRAMES_PER_SECOND = 15.0;
+    final private double FRAMES_PER_SECOND = 30.0;
     final private double STEP_SIZE = 5.0;
     private Grid grid = new Grid();
     public Stage primaryStage;
@@ -46,9 +58,9 @@ public class GameManager implements EventHandler<KeyEvent> {
     public int p1s;
     public int p2s;
     public int numberPlayers;
-    //public AI machine;
     public GameManager current;
 
+    //referencing the FXML file that is controlled by game controller.
     @FXML private Button pauseButton;
     @FXML private LightCycle player1;
     @FXML private LightCycle player2;
@@ -60,6 +72,7 @@ public class GameManager implements EventHandler<KeyEvent> {
     @FXML private Label player1LifeLabel;
     @FXML private Label player2LifeLabel;
 
+    //some more variables
     private boolean paused;
     private Timer timer;
 
@@ -77,11 +90,12 @@ public class GameManager implements EventHandler<KeyEvent> {
         this.paused = false;
         this.primaryStage = null;
         this.win =0;
-        Score gamescores = new Score(0,0);
+        //Score gamescores = new Score(0,0);
     }
 
     /**
-     * initialize() simply calls setUpAnimationTimer(). This function is only
+     * @method initialize() simply calls setUpAnimationTimer(). This function
+     * is only
      * called when the controller is gotten.
      *
      * @params n/a.
@@ -91,18 +105,33 @@ public class GameManager implements EventHandler<KeyEvent> {
         this.setUpAnimationTimer();
     }
 
+    /**
+     * @method  that sets the score of the players to the right score.
+     * @param p1
+     * @param p2
+     */
     public void setScore(int p1, int p2){
         this.p1s = p1;
         this.p2s = p2;
     }
 
+    /**
+     * @method that sets the right number of players when the user chooses
+     * the player mode.
+     * @param number
+     */
     public void setPlayerNumber(int number){
         this.numberPlayers = number;
     }
 
+    /**
+     * @method that sets the current game manager object for reference's sake.
+     * @param current
+     */
     public void setGameManager(GameManager current){
         this.current = current;
     }
+
     /**
      * setUpAnimationTimer() sets up a timer and will keep track of when we
      * want to update our animation depending on the number of frames per
@@ -118,8 +147,9 @@ public class GameManager implements EventHandler<KeyEvent> {
                     public void run(){
                         try {
                             if (updateAnimation()){
-                                updateAnimation();
+                                //updateAnimation();
                             }else{
+                                updateAnimation();
                                 callVictoryPage();
                                 grid.printPaths();
                                 updateAnimation();
@@ -132,6 +162,7 @@ public class GameManager implements EventHandler<KeyEvent> {
             }
         };
 
+        //set the timer and everything
         final long startTimeInMilliseconds = 0;
         final long repetitionPeriodInMilliseconds = 100;
         long frameTimeInMilliseconds = (long)(1000.0 / FRAMES_PER_SECOND);
