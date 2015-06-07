@@ -255,7 +255,8 @@ public class WindowNavigation {
      */
     public void victorPage(Stage theVictorStage, int won)
             throws Exception{
-
+        //change to beep2
+        playAudioFile("sound/victory.mp3");
         //load the page
         FXMLLoader loaderp = new FXMLLoader(getClass().getResource
                 ("done.fxml"));
@@ -424,7 +425,5 @@ public class WindowNavigation {
         }catch(Exception e) {
             System.out.println("sound problem");
         }
-
-
     }
 }
