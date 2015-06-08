@@ -26,6 +26,8 @@ Current Features:
 - ability to see the CarlTron logo in the header of the game window.
 - ability to play 1-player mode.
 - ability to see how many turbos/ jumps remaining for each player.
+- players earn/ lose badgets depending on the difference in score between the
+  two players.
 
 NOTE:
 - when using a turbo the LightCycle does not leave a continuous path anymore,
