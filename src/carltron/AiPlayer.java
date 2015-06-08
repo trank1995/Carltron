@@ -15,7 +15,7 @@ public class AiPlayer extends Player {
         this.direction = "LEFT";
     }
 
-    @Override
+
     public void strategy() {
         if (getDistance() <= 80) {
             this.vehicle.setVelocityX(0);

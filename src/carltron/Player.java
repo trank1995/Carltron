@@ -13,6 +13,7 @@
 package carltron;
 
 import javafx.scene.effect.Light;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 
 import java.util.HashMap;
@@ -162,5 +163,5 @@ public class Player {
         }
     }
 
-    public void strategy() {}
+    public void strategy(double p1g, double p2g, AnchorPane grid) {}
 }
