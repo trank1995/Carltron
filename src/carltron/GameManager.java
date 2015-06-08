@@ -23,8 +23,8 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
+
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -48,8 +48,8 @@ import java.util.TimerTask;
  * @return n/a.
  * */
 public class GameManager implements EventHandler<KeyEvent> {
-    final private double FRAMES_PER_SECOND = 30.0;
-    final private double STEP_SIZE = 5.0;
+    public static final double FRAMES_PER_SECOND = 30.0;
+    public static final double STEP_SIZE = 5.0;
     private Grid grid = new Grid();
     public Stage primaryStage;
     private Player player1_object;
@@ -151,11 +151,11 @@ public class GameManager implements EventHandler<KeyEvent> {
                             }else{
                                 updateAnimation();
                                 callVictoryPage();
-                                grid.printPaths();
                                 updateAnimation();
                             }
                         }catch (Exception e){
-                            System.out.println("big error");
+                            System.out.println("Error in updateAnimation()");
+                            System.out.println(e.getMessage());
                         }
                     }
                 });
@@ -191,6 +191,7 @@ public class GameManager implements EventHandler<KeyEvent> {
                 this.player2_object = new AiPlayer (this.player2,
                                             this.player1_object,
                                             this.grid);
+                player2_object.getVehicle().setLeavesPath(false);
             }
         }
 
@@ -217,7 +218,6 @@ public class GameManager implements EventHandler<KeyEvent> {
                 .getVelocityY());
 
         // do checks:
-
         ////////////// putting this before checking for wall collision
 
         // check if bike collided with a path.
@@ -317,6 +317,9 @@ public class GameManager implements EventHandler<KeyEvent> {
         // p1--><--p2
         if ((player1X_new == player2X_new) && (player1Y_new == player2Y_new)) {
             this.win = 0;
+            for (GridCell path : this.grid.getPaths()) {
+                System.out.println(path);
+            }
             this.timer.cancel();
             return false;
 
@@ -356,35 +359,29 @@ public class GameManager implements EventHandler<KeyEvent> {
         this.player2_object.statusCheck();
 
         // add new path rectangle to both the screen and the grid.
-        Rectangle path_p1 = new Rectangle();
-        path_p1.setWidth(STEP_SIZE);
-        path_p1.setHeight(STEP_SIZE);
+        GridCell path_p1 = this.grid.getCells()[(int)player1X][(int)player1Y];
         path_p1.setFill(Color.ORANGE);
-        path_p1.setLayoutX(player1X);
-        path_p1.setLayoutY(player1Y);
-        Rectangle path_p2 = new Rectangle();
-        path_p2.setWidth(STEP_SIZE);
-        path_p2.setHeight(STEP_SIZE);
+        GridCell path_p2 = this.grid.getCells()[(int)player2X][(int)player2Y];
         path_p2.setFill(Color.WHITE);
-        path_p2.setLayoutX(player2X);
-        path_p2.setLayoutY(player2Y);
 
         // only add the path if the player currently is leaving a path.
         // basically this is checking for whether the player has jump
         // activated or not.
         if (this.player1.hasPath()) {
-            this.grid_fxml.getChildren().add(path_p1);
-            this.grid.addToGrid(path_p1);
+            if (!grid_fxml.getChildren().contains(path_p1)) {
+                this.grid_fxml.getChildren().add(path_p1);
+                this.grid.addToPaths(path_p1);
+            }
         }
         if (this.player2.hasPath()) {
-            this.grid_fxml.getChildren().add(path_p2);
-            this.grid.addToGrid(path_p2);
+            if (!grid_fxml.getChildren().contains(path_p2)) {
+                this.grid_fxml.getChildren().add(path_p2);
+                this.grid.addToPaths(path_p2);
+            }
         }
 
         /********* AI HERE *******************/
         if (this.numberPlayers == 1){
-        //this.AIplayer(player1X_new,player1Y_new, player2X_new,
-        //player2Y_new);
             this.player2_object.strategy();
         }
 

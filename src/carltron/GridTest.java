@@ -15,10 +15,9 @@ package carltron;
 //Neccessary imports
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-import javafx.scene.shape.Rectangle;
-import java.util.ArrayList;
-import carltron.Grid;
+import java.util.List;
+
+import static org.junit.Assert.assertEquals;
 
 /**
  * Tests for Grid.
@@ -29,8 +28,8 @@ public class GridTest {
     public void testAddToGridWithNoneShouldStillHaveEmptyList() throws
             Exception {
         Grid grid = new Grid();
-        grid.addToGrid(null);
-        ArrayList<Rectangle> grid_list = grid.getGridList();
+        grid.addToPaths(null);
+        List<GridCell> grid_list = grid.getPaths();
         assertEquals(0, grid_list.size());
     }
 
@@ -38,12 +37,9 @@ public class GridTest {
     public void testAddToGridWithRectangleShouldHaveListWithRectangle() throws
             Exception {
         Grid grid = new Grid();
-        Rectangle rectangle = new Rectangle();
-        rectangle.setLayoutX(100);
-        rectangle.setLayoutY(100);
-        grid.addToGrid(rectangle);
+        grid.addToPaths(grid.getCells()[100][100]);
 
-        ArrayList<Rectangle> grid_list = grid.getGridList();
+        List<GridCell> grid_list = grid.getPaths();
         assertEquals(1, grid_list.size());
         assertEquals(100.0, grid_list.get(0).getLayoutX(), 0.1);
         assertEquals(100.0, grid_list.get(0).getLayoutY(), 0.1);
@@ -74,10 +70,7 @@ public class GridTest {
             Exception {
         Grid grid = new Grid();
 
-        Rectangle rectangle = new Rectangle();
-        rectangle.setLayoutX(100);
-        rectangle.setLayoutY(100);
-        grid.addToGrid(rectangle);
+        grid.addToPaths(grid.getCells()[100][100]);
 
         LightCycle bike = new LightCycle();
         bike.setLayoutX(10);
@@ -92,10 +85,7 @@ public class GridTest {
             Exception {
         Grid grid = new Grid();
 
-        Rectangle rectangle = new Rectangle();
-        rectangle.setLayoutX(100);
-        rectangle.setLayoutY(100);
-        grid.addToGrid(rectangle);
+        grid.addToPaths(grid.getCells()[100][100]);
 
         LightCycle bike = new LightCycle();
         bike.setLayoutX(100);

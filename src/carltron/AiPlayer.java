@@ -2,8 +2,6 @@ package carltron;
 
 import javafx.scene.shape.Rectangle;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Queue;
 import java.util.concurrent.ArrayBlockingQueue;
 
@@ -31,6 +29,11 @@ public class AiPlayer extends Player {
             this.vehicle.setVelocityX(0);
             this.vehicle.setVelocityY(-1);
         }
+        //if (vehicle.getLayoutX() > 520) {
+        //    boolean test = hasWayToPoint(vehicle.getLayoutX(), vehicle
+        //            .getLayoutY(),450.0,220.0);
+        //    System.out.println(test);
+        //}
     }
 
     private void detectOpenArea() {
@@ -44,39 +47,63 @@ public class AiPlayer extends Player {
                                   human.vehicle.getLayoutY(), 2));
     }
 
-    private boolean hasWayToPoint(double currentX, double currentY,
+}
+
+
+    /*private boolean hasWayToPoint(double currentX, double currentY,
                                   double endX, double endY) {
         boolean find = false;
         List<Rectangle> seen = new ArrayList<>();
-        Rectangle start = new Rectangle(currentX, currentY);
+        Rectangle start = new Rectangle(currentX, currentY, 5.0, 5.0);
         queue.add(start);
         seen.add(start);
 
         while (!find) {
             Rectangle[] short_one = new Rectangle[4];
             Rectangle current = queue.poll();
-            if (!seen.contains(current)) {
-                seen.add(current);
-            }
 
-            if (current.getLayoutX() <= grid.DEFAULT_WIDTH-5) {
-                Rectangle neighbor1 = new Rectangle(current.getLayoutX()+5,
-                        current.getLayoutY());
+            if (current.getX() <= grid.DEFAULT_WIDTH-5) {
+                Rectangle neighbor1 = new Rectangle(current.getX()+5,
+                        current.getY(), 5.0, 5.0);
+                for (Rectangle path : this.grid.getGridList()) {
+                    if (neighbor1.getX() == path.getX() &&
+                            neighbor1.getY() == path.getY()) {
+                        neighbor1 = null; break;
+                    }
+                }
                 short_one[0] = neighbor1;
             }
-            if (current.getLayoutX() >= 5) {
-                Rectangle neighbor2 = new Rectangle(current.getLayoutX()-5,
-                          currentY);
+            if (current.getX() >= 5) {
+                Rectangle neighbor2 = new Rectangle(current.getX()-5,
+                        current.getY(), 5.0, 5.0);
+                for (Rectangle path : this.grid.getGridList()) {
+                    if (neighbor2.getX() == path.getX() &&
+                            neighbor2.getY() == path.getY()) {
+                        neighbor2 = null; break;
+                    }
+                }
                 short_one[1] = neighbor2;
             }
-            if (current.getLayoutY() <= grid.DEFAULT_HEIGHT-5) {
-                Rectangle neighbor3 = new Rectangle(current.getLayoutX(),
-                          current.getLayoutY()+5);
+            if (current.getY() <= grid.DEFAULT_HEIGHT-5) {
+                Rectangle neighbor3 = new Rectangle(current.getX(),
+                        current.getY()+5, 5.0, 5.0);
+                for (Rectangle path : this.grid.getGridList()) {
+                    if (neighbor3.getX() == path.getX() &&
+                            neighbor3.getY() == path.getY()) {
+                        neighbor3 = null; break;
+                    }
+                }
                 short_one[2] = neighbor3;
             }
-            if (current.getLayoutY() >= 5) {
-                Rectangle neighbor4 = new Rectangle(current.getLayoutX(),
-                          current.getLayoutY()-5);
+            if (current.getY() >= 5) {
+                Rectangle neighbor4 = new Rectangle(current.getX(),
+                        current.getY()-5, 5.0, 5.0);
+                for (Rectangle path : this.grid.getGridList()) {
+                    if (neighbor4.getX() == path.getX() &&
+                            neighbor4.getY() == path.getY()) {
+                        neighbor4 = null; break;
+                    }
+                }
                 short_one[3] = neighbor4;
             }
 
@@ -84,32 +111,29 @@ public class AiPlayer extends Player {
                 boolean bool_seen = false;
                 if (short_one[i] != null) {
                     for (Rectangle item : seen) {
-                        if (item.getLayoutX() == short_one[i].getLayoutX() &&
-                            item.getLayoutY() == short_one[i].getLayoutY()) {
+                        if (item.getX() == short_one[i].getX() &&
+                                item.getY() == short_one[i].getY()) {
                             bool_seen = true;
                         }
                     }
                     if (!bool_seen) {
-                        if (short_one[i].getLayoutX() == endX &&
-                            short_one[i].getLayoutY() == endY) {
+                        seen.add(short_one[i]);
+                        if (short_one[i].getX() == endX &&
+                                short_one[i].getY() == endY) {
                             find = true;
                         }
                         queue.add(short_one[i]);
                     }
                 }
             }
-
             if (queue.size() == 0 && find == false) {
                 return false;
             }
         }
 
+        queue.clear();
         return find;
-    }
-
-
-}
-
+    }*/
 
    // The following lines were previously in GameManager
    /* public void AIplayer(double player1x,double player1y, double player2x,

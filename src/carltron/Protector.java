@@ -49,7 +49,7 @@ public class Protector extends Bonus {
         if (this.amount == 0) return;
 
         setAmount(this.amount - 1);
-        //this.owner.setShield(true);
+        this.owner.setShield(true);
     }
 
     // These are only used for testing.

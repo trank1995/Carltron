@@ -16,6 +16,7 @@ package carltron;
 //Importing all important libraries
 import javafx.scene.shape.Rectangle;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Grid.java
@@ -25,7 +26,8 @@ import java.util.ArrayList;
  */
 public class Grid {
     //an arraylist of path
-    private ArrayList<Rectangle> paths = new ArrayList<>();
+    private GridCell[][] cells;
+    private List<GridCell> paths = new ArrayList<>();
 
     public static final double DEFAULT_WIDTH = 590;
     public static final double DEFAULT_HEIGHT = 460;
@@ -34,6 +36,34 @@ public class Grid {
      * The constructor for Grid. Takes no parameters and sets up nothing.
      * */
     public Grid() {
+        cells = new GridCell[(int)DEFAULT_WIDTH+1][(int)DEFAULT_HEIGHT+1];
+        for (int i=0; i<=(int)DEFAULT_WIDTH; i+=5) {
+            for (int j=0; j<=(int)DEFAULT_HEIGHT; j+=5) {
+                cells[i][j] = new GridCell(i,j, GameManager.STEP_SIZE,
+                                           GameManager.STEP_SIZE);
+            }
+        }
+        // set the neighbors of all cells
+        for (int i=0; i<=(int)DEFAULT_WIDTH; i+=5) {
+            for (int j=0; j<=(int)DEFAULT_HEIGHT; j+=5) {
+                if (i <= DEFAULT_WIDTH-5) {
+                    cells[i][j].setNeighbors(cells[i+5][j]);
+                }
+                if (i >= 5) {
+                    cells[i][j].setNeighbors(cells[i-5][j]);
+                }
+                if (j <= DEFAULT_HEIGHT-5) {
+                    cells[i][j].setNeighbors(cells[i][j+5]);
+                }
+                if (j >= 5) {
+                    cells[i][j].setNeighbors(cells[i][j-5]);
+                }
+            }
+        }
+    }
+
+    public GridCell[][] getCells() {
+        return this.cells;
     }
 
     /**
@@ -42,9 +72,10 @@ public class Grid {
      *
      * @params path
      */
-    public void addToGrid(Rectangle path) {
-        if (path != null) {
-            paths.add(path);
+    public void addToPaths(GridCell cell) {
+        if (!cell.isWall()) {
+            cell.setWall(true);
+            paths.add(cell);
         }
     }
 
@@ -54,7 +85,7 @@ public class Grid {
      *
      * @return ArrayList<Rectangle>
      */
-    public ArrayList<Rectangle> getGridList() {
+    public List<GridCell> getPaths() {
         return this.paths;
     }
 
@@ -70,7 +101,7 @@ public class Grid {
             if (!bike.hasShield()) {
                 // loop over rectangles in path and check whether
                 // layout is the same as the bike's layout.
-                for (Rectangle path : paths) {
+                for (GridCell path : paths) {
                     if ((bike.getLayoutX() == path.getLayoutX()) &&
                             (bike.getLayoutY() == path.getLayoutY())) {
                         return true;
@@ -83,27 +114,6 @@ public class Grid {
         return false;
     }
 
-    public boolean detectpathcollision(LightCycle bike){
-
-        if (bike != null) {
-            //if bike doesn't have protector
-            if (!bike.hasShield()) {
-                // loop over rectangles in path and check whether
-                // layout is the same as the bike's layout.
-                for (Rectangle path : paths) {
-                    if (((bike.getLayoutX()) == (path.getLayoutX())) &&
-                            ((bike.getLayoutY()) == (path.getLayoutY())
-                            )) {
-                        return true;
-                    }
-                    }
-                }
-            }
-            // return false if no collision
-            return false;
-        }
-
-
     public int[] getFreeSides(LightCycle bike){
         int[] sides = {0,0,0,0};
 
@@ -112,7 +122,6 @@ public class Grid {
             //moving in X direction so change sides by turning
             if (bike.getVelocityY() == 0) {
 
-                //System.out.println("got here");
                 //check up and down for free
                 if (((bike.getLayoutX()) == (path.getLayoutX())) &&
                         ((bike.getLayoutY()) == (path.getLayoutY() + 20)
@@ -151,6 +160,7 @@ public class Grid {
 
     }
 
+    //********** FOR TESTING ONLY **************//
     public void printPaths() {
         for (Rectangle path : paths) {
             System.out.print("("+path.getLayoutX()+", "+path.getLayoutY()+") ");
