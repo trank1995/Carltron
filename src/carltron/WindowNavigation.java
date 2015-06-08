@@ -216,36 +216,7 @@ public class WindowNavigation {
         this.theStage.show();
     }
 
-    /**
-     * @method variation of play again and might be removed if deemed
-     * unnneccesary
-     * @param e
-     * @throws Exception
-     */
-//    public void onAgainButton(ActionEvent e) throws Exception {
-//
-//        //load fxml file
-//        FXMLLoader loader = new FXMLLoader(getClass().getResource
-//                ("carltron-game.fxml"));
-//        WindowNavigation new_window = loader.getController();
-//        Parent root2 = (Parent)loader.load();
-//        game_controller = loader.getController();
-//        game_controller.setStage(this.theStage);
-//
-//        //which player checking
-//        if (playerAmount == 1) {
-//            game_controller.setPlayerNumber(1);
-//            game_controller.setScore(this.f1, this.f2);
-//            game_controller.setGameManager(this.game_controller);
-//        }else{
-//            game_controller.setPlayerNumber(2);
-//            game_controller.setScore(this.f1, this.f2);
-//        }
-//        root2.setOnKeyPressed(game_controller);
-//        this.scene2 = new Scene(root2, 800, 600);
-//        this.theStage.setScene(this.scene2);
-//        this.theStage.show();
-//    }
+
 
     /**
      *@method victorPage(Stage) loads the victory page when the game ends.

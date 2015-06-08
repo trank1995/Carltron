@@ -37,7 +37,6 @@
                   <Image url="@images/bike.png" />
                </image>
             </ImageView>
-            <Button layoutX="216.0" layoutY="478.0" mnemonicParsing="false" onAction="#rulesClicked" opacity="0.5" prefHeight="26.0" prefWidth="314.0" text="SETTINGS" textFill="#3baaad" />
          </children>
       </AnchorPane>
    </children>
