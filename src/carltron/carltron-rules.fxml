@@ -65,7 +65,10 @@
             </RadialGradient>
          </fill>
       </Text>
-      <Text layoutX="222.0" layoutY="463.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DIRECTION: W/A/S/D and ^/&lt;/v/&gt;" textAlignment="CENTER" wrappingWidth="283.3456957351482">
+      <Text layoutX="222.0" layoutY="463.0" strokeType="OUTSIDE"
+            strokeWidth="0.0"
+            text="DIRECTION: W/A/S/D and arrows"
+            textAlignment="CENTER" wrappingWidth="283.3456957351482">
          <font>
             <Font size="18.0" />
          </font>
@@ -93,7 +96,9 @@
             </RadialGradient>
          </fill>
       </Text>
-      <Text layoutX="222.0" layoutY="499.0" strokeType="OUTSIDE" strokeWidth="0.0" text="JUMP: Q/shift(right)" wrappingWidth="168.34569573514818">
+      <Text layoutX="222.0" layoutY="499.0" strokeType="OUTSIDE"
+            strokeWidth="0.0" text="JUMP: E/shift(right)"
+            wrappingWidth="168.34569573514818">
          <font>
             <Font size="18.0" />
          </font>
@@ -107,7 +112,8 @@
             </RadialGradient>
          </fill>
       </Text>
-      <Text layoutX="222.0" layoutY="534.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TURBO:E/return" wrappingWidth="151.34569573514818">
+      <Text layoutX="222.0" layoutY="534.0" strokeType="OUTSIDE"
+            strokeWidth="0.0" text="TURBO:Q/return" wrappingWidth="151.34569573514818">
          <font>
             <Font size="18.0" />
          </font>

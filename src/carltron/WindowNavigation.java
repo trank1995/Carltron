@@ -389,20 +389,32 @@ public class WindowNavigation {
         theVictorStage.setScene(new Scene(root7, 800, 600));
         theVictorStage.show();
     }
+
+    /**
+     * playAudioFile(String) is a simple method that plays the audio for the
+     * game.
+     * */
     public void playAudioFile(String filepath){
         try {
-            AudioClip sound = new AudioClip(WindowNavigation.class.getResource(filepath).toString());
+            AudioClip sound = new AudioClip(WindowNavigation.class.getResource(
+                    filepath).toString());
             sound.play();
-        }catch(Exception e) {
+        } catch (Exception e) {
             System.out.println("technical issue with sound");
         }
     }
-    public void playBackgroundMusic(){
+
+    /**
+     * playBackgroundMusic() plays the background music for the game.
+     * */
+    public void playBackgroundMusic() {
         try {
-            AudioClip backgroundSound = new AudioClip(WindowNavigation.class.getResource("sound/background.mp3").toString());
+            AudioClip backgroundSound = new AudioClip(
+                            WindowNavigation.class.getResource(
+                            "sound/background.mp3").toString());
             backgroundSound.setVolume(0.8);
             backgroundSound.play();
-        }catch(Exception e) {
+        } catch (Exception e) {
             System.out.println("technical issue with sound");
         }
 
