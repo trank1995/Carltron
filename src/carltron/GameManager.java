@@ -195,10 +195,14 @@ public class GameManager implements EventHandler<KeyEvent> {
      * @return true or false.
      * */
     public boolean updateAnimation() throws Exception {
+        // set the position of the dividers of the splitpanes in case they
+        // were moved.
         this.game_stats_pane1.setDividerPositions(0.215f);
         this.game_stats_pane2.setDividerPositions(0.5f);
         this.game_stats_pane3.setDividerPositions(0.5f);
         this.game_stats_pane4.setDividerPositions(0.5f);
+
+        // update the display for the score/jumps/turbo counts.
         this.player1ScoreLabel.setText(Integer.toString(this.p1s));
         this.player2ScoreLabel.setText(Integer.toString(this.p2s));
         this.player1TurboLabel.setText(Integer.toString(this.p1T));
