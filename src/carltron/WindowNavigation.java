@@ -24,6 +24,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.media.AudioClip;
 import javafx.stage.Stage;
 
+import java.awt.*;
+
 
 /**
  * @class WindowNavigation.java
@@ -105,7 +107,6 @@ public class WindowNavigation {
         game_controller.setGameManager(this.game_controller);
         game_controller.setPlayerNumber(1);
         root2.setOnKeyPressed(game_controller);
-
         //show the scene
         this.scene2 = new Scene(root2, 800, 600);
         this.theStage.setScene(this.scene2);

@@ -28,6 +28,7 @@ public class LightCycle extends Rectangle {
     private int velocityY;
     private boolean leavesPath;
     private boolean shield;
+    public int moved;
 
     /* constants are defined here */
     public static final int DEFAULT_VELOCITY = 1;
@@ -37,6 +38,7 @@ public class LightCycle extends Rectangle {
     public LightCycle() {
         this.leavesPath = true;
         this.shield = false;
+        this.moved = 0;
     }
 
     /**
