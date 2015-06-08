@@ -38,27 +38,27 @@ public class Grid {
      * The constructor for Grid. Takes no parameters and sets up nothing.
      * */
     public Grid() {
-        cells = new GridCell[(int)DEFAULT_WIDTH+1][(int)DEFAULT_HEIGHT+1];
-        for (int i=0; i<=(int)DEFAULT_WIDTH; i+=5) {
-            for (int j=0; j<=(int)DEFAULT_HEIGHT; j+=5) {
-                cells[i][j] = new GridCell(i,j, GameManager.STEP_SIZE,
+        cells = new GridCell[(int)DEFAULT_WIDTH + 1][(int)DEFAULT_HEIGHT + 1];
+        for (int i = 0; i <= (int)DEFAULT_WIDTH; i += 5) {
+            for (int j = 0; j <= (int)DEFAULT_HEIGHT; j += 5) {
+                cells[i][j] = new GridCell(i, j, GameManager.STEP_SIZE,
                                            GameManager.STEP_SIZE);
             }
         }
         // set the neighbors of all cells
-        for (int i=0; i<=(int)DEFAULT_WIDTH; i+=5) {
-            for (int j=0; j<=(int)DEFAULT_HEIGHT; j+=5) {
-                if (i <= DEFAULT_WIDTH-5) {
-                    cells[i][j].setNeighbors(cells[i+5][j]);
+        for (int i = 0; i <= (int)DEFAULT_WIDTH; i += 5) {
+            for (int j = 0; j <= (int)DEFAULT_HEIGHT; j += 5) {
+                if (i <= DEFAULT_WIDTH - 5) {
+                    cells[i][j].setNeighbors(cells[i + 5][j]);
                 }
                 if (i >= 5) {
-                    cells[i][j].setNeighbors(cells[i-5][j]);
+                    cells[i][j].setNeighbors(cells[i - 5][j]);
                 }
-                if (j <= DEFAULT_HEIGHT-5) {
-                    cells[i][j].setNeighbors(cells[i][j+5]);
+                if (j <= DEFAULT_HEIGHT - 5) {
+                    cells[i][j].setNeighbors(cells[i][j + 5]);
                 }
                 if (j >= 5) {
-                    cells[i][j].setNeighbors(cells[i][j-5]);
+                    cells[i][j].setNeighbors(cells[i][j - 5]);
                 }
             }
         }
@@ -77,9 +77,11 @@ public class Grid {
      * @params path
      */
     public void addToPaths(GridCell cell) {
-        if (!cell.isWall()) {
-            cell.setWall(true);
-            paths.add(cell);
+        if (cell != null) {
+            if (!cell.isWall()) {
+                cell.setWall(true);
+                paths.add(cell);
+            }
         }
     }
 

@@ -100,11 +100,11 @@ public class GameManager implements EventHandler<KeyEvent> {
     public GameManager() {
         this.paused = false;
         this.primaryStage = null;
-        this.win =0;
-        this.p2T=3;
-        this.p1T =3;
+        this.win = 0;
+        this.p2T = 3;
+        this.p1T = 3;
         this.p2J = 3;
-        this.p1J  = 3;
+        this.p1J = 3;
         //Score gamescores = new Score(0,0);
     }
 
