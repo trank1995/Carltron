@@ -198,7 +198,7 @@ public class GameManager implements EventHandler<KeyEvent> {
                 this.player2_object = new Player(this.player2);
             } else if (this.numberPlayers == 1) {
                 this.player1_object = new Player(this.player1);
-                this.player2_object = new AiPlayer (this.player2,
+                this.player2_object = new AiPlayer(this.player2,
                                             this.player1_object,
                                             this.grid);
                 this.player2_object.getVehicle().setLeavesPath(false);
@@ -357,8 +357,8 @@ public class GameManager implements EventHandler<KeyEvent> {
             }
         }
 
-        /********* AI HERE *******************/
-        if (this.numberPlayers == 1){
+        //********* AI HERE *******************//
+        if (this.numberPlayers == 1) {
             this.player2_object.strategy();
         }
 
