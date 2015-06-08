@@ -93,4 +93,84 @@ public class GridTest {
 
         assertEquals(true, grid.collisionWithPath(bike));
     }
+
+    @Test
+    public void testHasWayToPathWithSamePointShouldReturnTrue() throws
+            Exception {
+        Grid grid = new Grid();
+
+        boolean result = grid.hasWayToPoint(0.0, 0.0, 0.0, 0.0);
+
+        assertEquals(true, result);
+    }
+
+    @Test
+    public void testHasWayToPathWithDifferentPointShouldReturnTrue() throws
+            Exception {
+        Grid grid = new Grid();
+
+        boolean result = grid.hasWayToPoint(0.0, 0.0, 5.0, 5.0);
+
+        assertEquals(true, result);
+    }
+
+    @Test
+    public void testHasWayToPathWithNegativeBeginningShouldReturnFalse() throws
+            Exception {
+        Grid grid = new Grid();
+
+        boolean result = grid.hasWayToPoint(-5.0, -5.0, 0.0, 0.0);
+
+        assertEquals(false, result);
+    }
+
+    @Test
+    public void testHasWayToPathWithNegativeEndShouldReturnFalse() throws
+            Exception {
+        Grid grid = new Grid();
+
+        boolean result = grid.hasWayToPoint(0.0, 0.0, -5.0, -5.0);
+
+        assertEquals(false, result);
+    }
+
+    @Test
+    public void testHasWayToPathWithNonMultipleOf5StartShouldReturnFalse()
+            throws Exception {
+        Grid grid = new Grid();
+
+        boolean result = grid.hasWayToPoint(1.0, 1.0, 5.0, 5.0);
+
+        assertEquals(false, result);
+    }
+
+    @Test
+    public void testHasWayToPathWithNonMultipleOf5EndShouldReturnFalse()
+            throws Exception {
+        Grid grid = new Grid();
+
+        boolean result = grid.hasWayToPoint(0.0, 0.0, 3.0, 3.0);
+
+        assertEquals(false, result);
+    }
+
+    @Test
+    public void testHasWayToPathWithTooLargeStartShouldReturnFalse()
+            throws Exception {
+        Grid grid = new Grid();
+
+        boolean result = grid.hasWayToPoint(1000.0, 1000.0, 5.0, 5.0);
+
+        assertEquals(false, result);
+    }
+
+    @Test
+    public void testHasWayToPathWithTooLargeEndShouldReturnFalse()
+            throws Exception {
+        Grid grid = new Grid();
+
+        boolean result = grid.hasWayToPoint(0.0, 0.0, 1000.0, 1000.0);
+
+        assertEquals(false, result);
+    }
 }

@@ -122,13 +122,24 @@ public class Grid {
 
     public boolean hasWayToPoint(double currentX, double currentY,
                                   double endX, double endY) {
+        if ((currentX < 0.0) || (currentY < 0.0) || (endX < 0.0) || (endY <
+                0.0)) {
+            return false;
+        } else if ((currentX % 5 != 0) || (currentY % 5 != 0) ||
+                (endX % 5 != 0) || (endY % 5 != 0)) {
+            return false;
+        } else if ((currentX > 590) || (currentY > 460)) {
+            return false;
+        }
+
+
         List<GridCell> seen = new ArrayList<>();
         GridCell start = this.cells[(int) currentX][(int) currentY];
-        queue.add(start);
+        this.queue.add(start);
         seen.add(start);
 
-        while (!queue.isEmpty()) {
-            GridCell current = queue.poll();
+        while (!this.queue.isEmpty()) {
+            GridCell current = this.queue.poll();
 
             for (GridCell neighbor : current.getNeighbors()) {
                 if (!neighbor.isWall()) {
@@ -138,12 +149,12 @@ public class Grid {
                     }
                     if (!seen.contains(neighbor)) {
                         seen.add(neighbor);
-                        queue.add(neighbor);
+                        this.queue.add(neighbor);
                     }
                 }
             }
         }
-        queue.clear();
+        this.queue.clear();
         return false;
     }
 

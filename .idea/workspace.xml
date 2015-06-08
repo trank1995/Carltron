@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/carltron/GameManager.java" afterPath="$PROJECT_DIR$/src/carltron/GameManager.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/carltron/Grid.java" afterPath="$PROJECT_DIR$/src/carltron/Grid.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/carltron/GridTest.java" afterPath="$PROJECT_DIR$/src/carltron/GridTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="JavaFxApplication.iws" />
@@ -65,21 +65,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="GridTest.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="GridTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/carltron/GridTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="24" column="17" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
+            <state vertical-scroll-proportion="0.4945055">
+              <caret line="32" column="42" selection-start-line="32" selection-start-column="42" selection-end-line="32" selection-end-column="42" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Grid.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Grid.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/carltron/Grid.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.0054945">
-              <caret line="60" column="58" selection-start-line="60" selection-start-column="58" selection-end-line="60" selection-end-column="58" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="125" column="20" selection-start-line="125" selection-start-column="20" selection-end-line="125" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2337#2338#0" expanded="true" />
@@ -87,6 +87,16 @@
                 <element signature="e#2971#2972#0" expanded="true" />
                 <element signature="e#3004#3005#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AbstractQueue.java" pinned="false" current-in-tab="false">
+        <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_45.jdk/Contents/Home/src.zip!/java/util/AbstractQueue.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="94" column="0" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -156,7 +166,6 @@
         <option value="$PROJECT_DIR$/.idea/workspace.xml" />
         <option value="$PROJECT_DIR$/src/carltron/Player.java" />
         <option value="$PROJECT_DIR$/src/carltron/Bonus.java" />
-        <option value="$PROJECT_DIR$/src/carltron/GridTest.java" />
         <option value="$PROJECT_DIR$/src/carltron/Protector.java" />
         <option value="$PROJECT_DIR$/src/carltron/GridCell.java" />
         <option value="$PROJECT_DIR$/src/carltron/AiPlayer.java" />
@@ -167,6 +176,7 @@
         <option value="$PROJECT_DIR$/src/carltron/WindowNavigation.java" />
         <option value="$PROJECT_DIR$/src/carltron/GameManager.java" />
         <option value="$PROJECT_DIR$/src/carltron/Grid.java" />
+        <option value="$PROJECT_DIR$/src/carltron/GridTest.java" />
       </list>
     </option>
   </component>
@@ -310,7 +320,7 @@
     </key>
   </component>
   <component name="RunManager" selected="JUnit.GridTest">
-    <configuration default="false" name="LightCycleTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="GridTest.testHasWayToPathWithNonMultipleOf5StartShouldReturnFalse" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="carltron.*" />
@@ -321,9 +331,9 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="carltron" />
-      <option name="MAIN_CLASS_NAME" value="carltron.LightCycleTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="carltron.GridTest" />
+      <option name="METHOD_NAME" value="testHasWayToPathWithNonMultipleOf5StartShouldReturnFalse" />
+      <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -336,7 +346,7 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="false" name="PlayerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="GridTest.testHasWayToPathWithNonMultipleOf5EndShouldReturnFalse" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="carltron.*" />
@@ -347,9 +357,9 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="carltron" />
-      <option name="MAIN_CLASS_NAME" value="carltron.PlayerTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="carltron.GridTest" />
+      <option name="METHOD_NAME" value="testHasWayToPathWithNonMultipleOf5EndShouldReturnFalse" />
+      <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -362,7 +372,7 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="false" name="ProtectorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="GridTest.testHasWayToPathWithTooLargeStartShouldReturnFalse" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="carltron.*" />
@@ -373,9 +383,9 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="carltron" />
-      <option name="MAIN_CLASS_NAME" value="carltron.ProtectorTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="carltron.GridTest" />
+      <option name="METHOD_NAME" value="testHasWayToPathWithTooLargeStartShouldReturnFalse" />
+      <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -388,7 +398,7 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="false" name="TurboTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="GridTest.testHasWayToPathWithTooLargeEndShouldReturnFalse" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="carltron.*" />
@@ -399,9 +409,9 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="carltron" />
-      <option name="MAIN_CLASS_NAME" value="carltron.TurboTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="carltron.GridTest" />
+      <option name="METHOD_NAME" value="testHasWayToPathWithTooLargeEndShouldReturnFalse" />
+      <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -737,19 +747,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="JUnit.LightCycleTest" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.PlayerTest" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.ProtectorTest" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.TurboTest" />
+      <item index="0" class="java.lang.String" itemvalue="JUnit.GridTest.testHasWayToPathWithNonMultipleOf5StartShouldReturnFalse" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.GridTest.testHasWayToPathWithNonMultipleOf5EndShouldReturnFalse" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.GridTest.testHasWayToPathWithTooLargeStartShouldReturnFalse" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.GridTest.testHasWayToPathWithTooLargeEndShouldReturnFalse" />
       <item index="4" class="java.lang.String" itemvalue="JUnit.GridTest" />
     </list>
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="JUnit.GridTest" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.TurboTest" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.ProtectorTest" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.PlayerTest" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.LightCycleTest" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.GridTest.testHasWayToPathWithTooLargeStartShouldReturnFalse" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.GridTest.testHasWayToPathWithTooLargeEndShouldReturnFalse" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.GridTest.testHasWayToPathWithNonMultipleOf5EndShouldReturnFalse" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.GridTest.testHasWayToPathWithNonMultipleOf5StartShouldReturnFalse" />
       </list>
     </recent_temporary>
   </component>
@@ -806,12 +816,12 @@
       <workItem from="1433782998286" duration="1669000" />
       <workItem from="1433785106485" duration="98000" />
       <workItem from="1433786548556" duration="2590000" />
-      <workItem from="1433792029935" duration="652000" />
+      <workItem from="1433792029935" duration="2860000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="99377000" />
+    <option name="totallyTimeSpent" value="101585000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="822" extended-state="6" />
@@ -895,13 +905,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/carltron/GameManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/carltron/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1278,6 +1281,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_45.jdk/Contents/Home/src.zip!/java/util/AbstractQueue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="94" column="0" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/carltron/GridCell.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1289,18 +1300,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/carltron/GridTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="24" column="17" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/carltron/Grid.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.0054945">
-          <caret line="60" column="58" selection-start-line="60" selection-start-column="58" selection-end-line="60" selection-end-column="58" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="125" column="20" selection-start-line="125" selection-start-column="20" selection-end-line="125" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2337#2338#0" expanded="true" />
@@ -1308,6 +1311,14 @@
             <element signature="e#2971#2972#0" expanded="true" />
             <element signature="e#3004#3005#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/carltron/GridTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4945055">
+          <caret line="32" column="42" selection-start-line="32" selection-start-column="42" selection-end-line="32" selection-end-column="42" />
+          <folding />
         </state>
       </provider>
     </entry>
