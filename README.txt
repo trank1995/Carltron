@@ -25,5 +25,14 @@ Current Features:
 - ability to play 1-player mode.
 - ability to see how many turbos/ jumps remaining for each player.
 
+NOTE:
+- when using a turbo the LightCycle does not leave a continuous path anymore,
+  this is intentional. We have chosen to make it this way, as it adds some
+  complexity to what strategy the users choose. You can now either go for speed
+  or be sure that whatever path you leave behind you have no holes in it. This
+  can lead to some quite interesting gameplays, as if synced completely two
+  LightCycles with activated turbos can interweave their paths (they normally
+  would have crashed) when going in opposite directions.
+
 
 Enjoy!
