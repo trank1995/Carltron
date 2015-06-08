@@ -60,6 +60,10 @@ public class GameManager implements EventHandler<KeyEvent> {
     public int p1s;
     public int p2s;
     public int numberPlayers;
+    public int p1T;
+    public int p2T;
+    public int p1J;
+    public int p2J;
     public GameManager current;
 
     //referencing the FXML file that is controlled by game controller.
@@ -97,6 +101,10 @@ public class GameManager implements EventHandler<KeyEvent> {
         this.paused = false;
         this.primaryStage = null;
         this.win =0;
+        this.p2T=3;
+        this.p1T =3;
+        this.p2J = 3;
+        this.p1J  = 3;
         //Score gamescores = new Score(0,0);
     }
 
@@ -191,6 +199,12 @@ public class GameManager implements EventHandler<KeyEvent> {
         this.game_stats_pane2.setDividerPositions(0.5f);
         this.game_stats_pane3.setDividerPositions(0.5f);
         this.game_stats_pane4.setDividerPositions(0.5f);
+        this.player1ScoreLabel.setText(Integer.toString(this.p1s));
+        this.player2ScoreLabel.setText(Integer.toString(this.p2s));
+        this.player1TurboLabel.setText(Integer.toString(this.p1T));
+        this.player2TurboLabel.setText(Integer.toString(this.p2T));
+        this.player1JumpLabel.setText(Integer.toString(this.p1J));
+        this.player2JumpLabel.setText(Integer.toString(this.p2J));
 
         if (this.player1_object == null && this.player2_object == null) {
             if (this.numberPlayers == 2) {
@@ -464,9 +478,11 @@ public class GameManager implements EventHandler<KeyEvent> {
                     //this.player2.consume("turbo");
                     // jump 2nd player?
                     this.player2_object.consume("turbo");
+                    this.p2T = 0;
 
                 } else if (code == KeyCode.SHIFT) {
                     this.player2_object.consume("jump");
+                    this.p2J = 0;
                 }
             }
         }
@@ -504,9 +520,11 @@ public class GameManager implements EventHandler<KeyEvent> {
                 // turbo 1st player?
             } else if (code == KeyCode.Q) {
                 this.player1_object.consume("turbo");
+                this.p1T =0;
                 // jump 1st player?
             } else if (code == KeyCode.E) {
                 this.player1_object.consume("jump");
+                this.p1J = 0;
             }
         }
 
