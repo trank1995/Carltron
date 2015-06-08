@@ -362,7 +362,14 @@ public class GameManager implements EventHandler<KeyEvent> {
         return true;
     }
 
-    /** */
+    /**
+     * collisionWithWall(double, double) takes a set of coordinates and
+     * checks whether they are on the grid or not. Returns true if on the grid
+     * and false if not on the grid.
+     *
+     * @params double, double
+     * @return boolean
+     * */
     public boolean collisionWithWall(double cordX, double cordY) {
         if (cordX < 0) {
             return true;
