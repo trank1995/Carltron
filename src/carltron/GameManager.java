@@ -100,11 +100,11 @@ public class GameManager implements EventHandler<KeyEvent> {
     public GameManager() {
         this.paused = false;
         this.primaryStage = null;
-        this.win = 0;
-        this.p2T = 3;
-        this.p1T = 3;
+        this.win =0;
+        this.p2T=3;
+        this.p1T =3;
         this.p2J = 3;
-        this.p1J = 3;
+        this.p1J  = 3;
         //Score gamescores = new Score(0,0);
     }
 
@@ -195,14 +195,10 @@ public class GameManager implements EventHandler<KeyEvent> {
      * @return true or false.
      * */
     public boolean updateAnimation() throws Exception {
-        // set the position of the dividers of the splitpanes in case they
-        // were moved.
         this.game_stats_pane1.setDividerPositions(0.215f);
         this.game_stats_pane2.setDividerPositions(0.5f);
         this.game_stats_pane3.setDividerPositions(0.5f);
         this.game_stats_pane4.setDividerPositions(0.5f);
-
-        // update the display for the score/jumps/turbo counts.
         this.player1ScoreLabel.setText(Integer.toString(this.p1s));
         this.player2ScoreLabel.setText(Integer.toString(this.p2s));
         this.player1TurboLabel.setText(Integer.toString(this.p1T));
@@ -374,7 +370,8 @@ public class GameManager implements EventHandler<KeyEvent> {
 
         /********* AI HERE *******************/
         if (this.numberPlayers == 1){
-            this.player2_object.strategy();
+            this.player2_object.strategy(player2X_new,player2Y_new,this
+                    .grid_fxml);
         }
 
 
@@ -478,12 +475,16 @@ public class GameManager implements EventHandler<KeyEvent> {
                 } else if (code == KeyCode.ENTER) {
                     //this.player2.consume("turbo");
                     // jump 2nd player?
-                    this.player2_object.consume("turbo");
-                    this.p2T = 0;
-
+                    if (this.p2T >= 1) {
+                        this.player2_object.consume("turbo");
+                        this.p2T = this.p2T - 1;
+                    }
                 } else if (code == KeyCode.SHIFT) {
-                    this.player2_object.consume("jump");
-                    this.p2J = 0;
+
+                    if (this.p2J >= 1) {
+                        this.player2_object.consume("jump");
+                        this.p2J = this.p2J - 1;
+                    }
                 }
             }
         }
@@ -520,12 +521,18 @@ public class GameManager implements EventHandler<KeyEvent> {
                 }
                 // turbo 1st player?
             } else if (code == KeyCode.Q) {
-                this.player1_object.consume("turbo");
-                this.p1T =0;
+
+                if (this.p1T >= 1) {
+                    this.player1_object.consume("turbo");
+                    this.p1T = this.p1T - 1;
+                }
                 // jump 1st player?
             } else if (code == KeyCode.E) {
-                this.player1_object.consume("jump");
-                this.p1J = 0;
+
+                if (this.p1J >= 1) {
+                    this.player1_object.consume("jump");
+                    this.p1J = this.p1J - 1;
+                }
             }
         }
 
