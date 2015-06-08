@@ -8,6 +8,8 @@ Team: Sabastian Mugazambi (mugazambis),
 How to build Carltron:
 - open it in IntelliJ
 - click the play button to run carltron.Main.
+- alternatively, right click on the Main file after opening the repository in
+  IntelliJ and click 'Run Main.main()'.
 
 Current Features:
 - ability to play 2-player mode.
