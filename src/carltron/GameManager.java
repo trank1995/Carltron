@@ -369,9 +369,13 @@ public class GameManager implements EventHandler<KeyEvent> {
         }
 
         /********* AI HERE *******************/
-        if (this.numberPlayers == 1){
-            this.player2_object.strategy(player2X_new,player2Y_new,this
-                    .grid_fxml);
+        if (this.numberPlayers == 1) {
+            this.player2_object.strategy();
+            this.player2_object.strategy();
+            this.player2_object.strategy();
+            player2.moved = 1;
+//            this.player2_object.strategy(player2X_new,player2Y_new,this
+//                    .grid_fxml);
         }
 
 

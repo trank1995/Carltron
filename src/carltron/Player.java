@@ -163,5 +163,5 @@ public class Player {
         }
     }
 
-    public void strategy(double p1g, double p2g, AnchorPane grid) {}
+    public void strategy() {}
 }
