@@ -191,7 +191,7 @@ public class GameManager implements EventHandler<KeyEvent> {
                 this.player2_object = new AiPlayer (this.player2,
                                             this.player1_object,
                                             this.grid);
-                player2_object.getVehicle().setLeavesPath(false);
+                this.player2_object.getVehicle().setLeavesPath(false);
             }
         }
 
