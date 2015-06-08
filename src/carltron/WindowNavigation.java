@@ -24,8 +24,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.media.AudioClip;
 import javafx.stage.Stage;
 
-//import javafx.scene.control.SplitPane;
-
 
 /**
  * @class WindowNavigation.java
@@ -50,11 +48,6 @@ public class WindowNavigation {
     @FXML private Button player1Score;
     @FXML private Button player2Score;
     @FXML public Button again;
-
-//    @FXML private SplitPane game_stats_pane1;
-//    @FXML private SplitPane game_stats_pane2;
-//    @FXML private SplitPane game_stats_pane3;
-//    @FXML private SplitPane game_stats_pane4;
 
     /**
      * @Constructor not initializing anything here.
@@ -145,15 +138,6 @@ public class WindowNavigation {
         this.scene2 = new Scene(root2, 800, 600);
         this.theStage.setScene(this.scene2);
         this.theStage.show();
-
-//        game_stats_pane1.lookupAll(".split-pane-divider").stream()
-//                .forEach(div -> div.setMouseTransparent(true));
-//        game_stats_pane2.lookupAll(".split-pane-divider").stream()
-//                .forEach(div ->  div.setMouseTransparent(true));
-//        game_stats_pane3.lookupAll(".split-pane-divider").stream()
-//                .forEach(div ->  div.setMouseTransparent(true));
-//        game_stats_pane4.lookupAll(".split-pane-divider").stream()
-//                .forEach(div ->  div.setMouseTransparent(true));
     }
 
     /**
