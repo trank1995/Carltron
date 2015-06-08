@@ -6,7 +6,7 @@ Team: Sabastian Mugazambi (mugazambis),
       Frederik Roenn Stensaeth (stensaethf)
 
 How to build Carltron:
-- open it in IntelliJ
+- open the repository in IntelliJ.
 - click the play button to run carltron.Main.
 - alternatively, right click on the Main file after opening the repository in
   IntelliJ and click 'Run Main.main()'.
