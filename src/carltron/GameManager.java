@@ -38,14 +38,6 @@ import java.util.TimerTask;
  * Methods include setUpAnimationTimer(), updateAnimation(), handle(KeyEvent),
  * onPauseButton(ActionEvent), setStage(Stage), getStage(), callVictoryPage().
  *
- * NOTE:
- * - Crashing will be moved to separate functions in version 2.
- * - Off-the-path-crashes will be fixed, so that when both players go off the
- * map at the same time it is draw (tie), instead of a victory to one of the
- * players.
- * - Jumps will be implemented in version 2.
- * - Turbos are not fully function, but will be in version 2.
- *
  * @params n/a.
  * @return n/a.
  * */
@@ -370,12 +362,10 @@ public class GameManager implements EventHandler<KeyEvent> {
 
         /********* AI HERE *******************/
         if (this.numberPlayers == 1) {
-            this.player2_object.strategy();
-            this.player2_object.strategy();
-            this.player2_object.strategy();
+            for (int i=0; i<30; i++) {
+                this.player2_object.strategy();
+            }
             player2.moved = 1;
-//            this.player2_object.strategy(player2X_new,player2Y_new,this
-//                    .grid_fxml);
         }
 
 
