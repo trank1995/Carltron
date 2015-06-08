@@ -24,7 +24,7 @@ Current Features:
 - be able to go back to the main menu when a game is over.
 - be able to start a new game once reached the victory page.
 - ability to see the CarlTron logo in the header of the game window.
-- ability to play 1-player mode.
+- ability to play 1-player mode. The AI is not very sophisticated.
 - ability to see how many turbos/ jumps remaining for each player.
 - players earn/ lose badgets depending on the difference in score between the
   two players.
