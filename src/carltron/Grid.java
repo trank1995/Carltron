@@ -14,9 +14,10 @@
 package carltron;
 
 //Importing all important libraries
-import javafx.scene.shape.Rectangle;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Queue;
+import java.util.concurrent.ArrayBlockingQueue;
 
 /**
  * Grid.java
@@ -28,6 +29,7 @@ public class Grid {
     //an arraylist of path
     private GridCell[][] cells;
     private List<GridCell> paths = new ArrayList<>();
+    private Queue<GridCell> queue;
 
     public static final double DEFAULT_WIDTH = 590;
     public static final double DEFAULT_HEIGHT = 460;
@@ -60,6 +62,8 @@ public class Grid {
                 }
             }
         }
+        this.queue = new ArrayBlockingQueue<>((int)(Math.ceil(this
+                .DEFAULT_HEIGHT)*Math.ceil(this.DEFAULT_WIDTH)));
     }
 
     public GridCell[][] getCells() {
@@ -114,55 +118,36 @@ public class Grid {
         return false;
     }
 
-    public int[] getFreeSides(LightCycle bike){
-        int[] sides = {0,0,0,0};
+    public boolean hasWayToPoint(double currentX, double currentY,
+                                  double endX, double endY) {
+        List<GridCell> seen = new ArrayList<>();
+        GridCell start = this.cells[(int) currentX][(int) currentY];
+        queue.add(start);
+        seen.add(start);
 
-        for (Rectangle path : paths) {
+        while (!queue.isEmpty()) {
+            GridCell current = queue.poll();
 
-            //moving in X direction so change sides by turning
-            if (bike.getVelocityY() == 0) {
-
-                //check up and down for free
-                if (((bike.getLayoutX()) == (path.getLayoutX())) &&
-                        ((bike.getLayoutY()) == (path.getLayoutY() + 20)
-                        )) {
-                    sides[2] = 3;
-
-                }
-
-                //detect stuff to the bottom
-                if (((bike.getLayoutX()) == (path.getLayoutX())) &&
-                        ((bike.getLayoutY() - 20) == (path.getLayoutY())
-                        )) {
-                    sides[3] = 4;
-
-                }
-            } else {
-
-                //detect stuff at the left
-                if (((bike.getLayoutX()) == (path.getLayoutX() + 20)) &&
-                        ((bike.getLayoutY()) == (path.getLayoutY())
-                        )) {
-                    sides[0] = 1;
-
-                }
-
-                //detect stuff to the right
-                if (((bike.getLayoutX() - 20) == (path.getLayoutX())) &&
-                        ((bike.getLayoutY()) == (path.getLayoutY())
-                        )) {
-                    sides[1] = 2;
-
+            for (GridCell neighbor : current.getNeighbors()) {
+                if (!neighbor.isWall()) {
+                    if (neighbor.getLayoutX() == endX &&
+                            neighbor.getLayoutY() == endY) {
+                        return true;
+                    }
+                    if (!seen.contains(neighbor)) {
+                        seen.add(neighbor);
+                        queue.add(neighbor);
                     }
                 }
             }
-        return sides;
-
+        }
+        queue.clear();
+        return false;
     }
 
     //********** FOR TESTING ONLY **************//
     public void printPaths() {
-        for (Rectangle path : paths) {
+        for (GridCell path : paths) {
             System.out.print("("+path.getLayoutX()+", "+path.getLayoutY()+") ");
         }
     }

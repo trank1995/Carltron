@@ -36,7 +36,9 @@ public class GridCell extends Rectangle {
     }
 
     public void setNeighbors(GridCell neighbor) {
-        this.neighbors.add(neighbor);
+        if (neighbor != null) {
+            this.neighbors.add(neighbor);
+        }
     }
 
     @Override

@@ -317,9 +317,6 @@ public class GameManager implements EventHandler<KeyEvent> {
         // p1--><--p2
         if ((player1X_new == player2X_new) && (player1Y_new == player2Y_new)) {
             this.win = 0;
-            for (GridCell path : this.grid.getPaths()) {
-                System.out.println(path);
-            }
             this.timer.cancel();
             return false;
 
@@ -394,7 +391,7 @@ public class GameManager implements EventHandler<KeyEvent> {
         // update the position of player1 and player2, as they passed all the
         // collision tests.
         this.player1.step();
-        this.player2.step();
+        //this.player2.step();
 
         return true;
     }
@@ -496,6 +493,8 @@ public class GameManager implements EventHandler<KeyEvent> {
         // jump 1st player?
         } else if (code == KeyCode.E) {
             this.player1_object.consume("jump");
+        } else if (code == KeyCode.F) {
+            System.out.println(grid.hasWayToPoint(400.0, 220.0, 530.0,220.0));
         }
 
         // if no critical key is pressed, we do not need to do anything to the
