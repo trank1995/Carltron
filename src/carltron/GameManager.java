@@ -215,7 +215,7 @@ public class GameManager implements EventHandler<KeyEvent> {
                 this.player2_object = new AiPlayer(this.player2,
                                             this.player1_object,
                                             this.grid);
-                this.player2_object.getVehicle().setLeavesPath(false);
+                //this.player2_object.getVehicle().setLeavesPath(false);
             }
         }
 
@@ -382,7 +382,7 @@ public class GameManager implements EventHandler<KeyEvent> {
         // update the position of player1 and player2, as they passed all the
         // collision tests.
         this.player1.step();
-        //this.player2.step();
+        this.player2.step();
 
         return true;
     }
