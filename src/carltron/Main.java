@@ -81,7 +81,9 @@ public class Main extends Application {
 
         Parent root = (Parent)loader.load();
         this.scene1 = new Scene(root, 800, 600);
-
+        //play background music
+        WindowNavigation backgroundMusic = new WindowNavigation();
+        backgroundMusic.playBackgroundMusic();
         //creating a new window navigation object and setting the primary
         WindowNavigation new_window = loader.getController();
         new_window.setStage(primaryStage);
@@ -97,6 +99,7 @@ public class Main extends Application {
         primaryStage.setResizable(false);
         setStage(primaryStage);
         primaryStage.show();
+
     }
 
     /**

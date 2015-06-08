@@ -397,4 +397,13 @@ public class WindowNavigation {
             System.out.println("technical issue with sound");
         }
     }
+    public void playBackgroundMusic(){
+        try {
+            AudioClip backgroundSound = new AudioClip(WindowNavigation.class.getResource("sound/background.mp3").toString());
+            backgroundSound.play();
+        }catch(Exception e) {
+            System.out.println("technical issue with sound");
+        }
+
+    }
 }
