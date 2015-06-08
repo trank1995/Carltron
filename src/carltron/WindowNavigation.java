@@ -400,6 +400,7 @@ public class WindowNavigation {
     public void playBackgroundMusic(){
         try {
             AudioClip backgroundSound = new AudioClip(WindowNavigation.class.getResource("sound/background.mp3").toString());
+            backgroundSound.setVolume(0.8);
             backgroundSound.play();
         }catch(Exception e) {
             System.out.println("technical issue with sound");
