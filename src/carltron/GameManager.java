@@ -25,6 +25,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
+import javafx.scene.control.SplitPane;
+
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -71,6 +73,11 @@ public class GameManager implements EventHandler<KeyEvent> {
     @FXML private Label player2JumpLabel;
     @FXML private Label player1LifeLabel;
     @FXML private Label player2LifeLabel;
+
+    @FXML private SplitPane game_stats_pane1;
+    @FXML private SplitPane game_stats_pane2;
+    @FXML private SplitPane game_stats_pane3;
+    @FXML private SplitPane game_stats_pane4;
 
     //some more variables
     private boolean paused;
@@ -180,7 +187,10 @@ public class GameManager implements EventHandler<KeyEvent> {
      * @return true or false.
      * */
     public boolean updateAnimation() throws Exception {
-
+        this.game_stats_pane1.setDividerPositions(0.215f);
+        this.game_stats_pane2.setDividerPositions(0.5f);
+        this.game_stats_pane3.setDividerPositions(0.5f);
+        this.game_stats_pane4.setDividerPositions(0.5f);
 
         if (this.player1_object == null && this.player2_object == null) {
             if (this.numberPlayers == 2) {
@@ -194,6 +204,10 @@ public class GameManager implements EventHandler<KeyEvent> {
                 this.player2_object.getVehicle().setLeavesPath(false);
             }
         }
+
+        // reset the stat for whether a player can move or not.
+        this.player1.moved = 0;
+        this.player2.moved = 0;
 
 
         // find position of player1
@@ -410,77 +424,90 @@ public class GameManager implements EventHandler<KeyEvent> {
                          Math.abs(this.player2.getVelocityY()):
                          Math.abs(this.player2.getVelocityX());
 
+
         // the controls for player 2 are the arrow keys, enter and shift.
         // the controls for player 1 are w,a,s,d,q,e.
         // need to change the velocity of the different players depending
         // on which key was pressed.
-        if (this.numberPlayers == 2) {
-            if (code == KeyCode.LEFT) {
-                if (this.player2.getVelocityX() <= 0) {
-                    // velocityX to -1 and Y to 0.
-                    this.player2.setVelocityY(0);
-                    this.player2.setVelocityX(-speed2);
-                }
-            } else if (code == KeyCode.RIGHT) {
-                if (this.player2.getVelocityX() >= 0) {
-                    // velocityX to 1 and Y to 0.
-                    this.player2.setVelocityY(0);
-                    this.player2.setVelocityX(speed2);
-                }
-            } else if (code == KeyCode.UP) {
-                if (this.player2.getVelocityY() <= 0) {
-                    // velocityX to 0 and Y to 1.
-                    this.player2.setVelocityY(-speed2);
-                    this.player2.setVelocityX(0);
-                }
-            } else if (code == KeyCode.DOWN) {
-                if (this.player2.getVelocityY() >= 0) {
-                    // velocityX to 0 and Y to -1.
-                    this.player2.setVelocityY(speed2);
-                    this.player2.setVelocityX(0);
-                }
-                // turbo 2nd player?
-            } else if (code == KeyCode.ENTER) {
-                //this.player2.consume("turbo");
-                // jump 2nd player?
-                this.player2_object.consume("turbo");
+        if (this.player2.moved == 0) {
+            if (this.numberPlayers == 2) {
+                if (code == KeyCode.LEFT) {
+                    if (this.player2.getVelocityX() <= 0) {
+                        // velocityX to -1 and Y to 0.
+                        this.player2.setVelocityY(0);
+                        this.player2.setVelocityX(-speed2);
+                        this.player2.moved = 1;
+                    }
+                } else if (code == KeyCode.RIGHT) {
+                    if (this.player2.getVelocityX() >= 0) {
+                        // velocityX to 1 and Y to 0.
+                        this.player2.setVelocityY(0);
+                        this.player2.setVelocityX(speed2);
+                        this.player2.moved = 1;
+                    }
+                } else if (code == KeyCode.UP) {
+                    if (this.player2.getVelocityY() <= 0) {
+                        // velocityX to 0 and Y to 1.
+                        this.player2.setVelocityY(-speed2);
+                        this.player2.setVelocityX(0);
+                        this.player2.moved = 1;
+                    }
+                } else if (code == KeyCode.DOWN) {
+                    if (this.player2.getVelocityY() >= 0) {
+                        // velocityX to 0 and Y to -1.
+                        this.player2.setVelocityY(speed2);
+                        this.player2.setVelocityX(0);
+                        this.player2.moved = 1;
+                    }
+                    // turbo 2nd player?
+                } else if (code == KeyCode.ENTER) {
+                    //this.player2.consume("turbo");
+                    // jump 2nd player?
+                    this.player2_object.consume("turbo");
 
-            } else if (code == KeyCode.SHIFT) {
-                this.player2_object.consume("jump");
+                } else if (code == KeyCode.SHIFT) {
+                    this.player2_object.consume("jump");
+                }
             }
         }
 
-        // player 1
-        if (code == KeyCode.A) {
-            if (this.player1.getVelocityX() <= 0) {
-                // velocityX to -1 and Y to 0.
-                this.player1.setVelocityY(0);
-                this.player1.setVelocityX(-speed1);
+        if (this.player1.moved == 0) {
+            // player 1
+            if (code == KeyCode.A) {
+                if (this.player1.getVelocityX() <= 0) {
+                    // velocityX to -1 and Y to 0.
+                    this.player1.setVelocityY(0);
+                    this.player1.setVelocityX(-speed1);
+                    this.player1.moved = 1;
+                }
+            } else if (code == KeyCode.D) {
+                if (this.player1.getVelocityX() >= 0) {
+                    // velocityX to 1 and Y to 0.
+                    this.player1.setVelocityY(0);
+                    this.player1.setVelocityX(speed1);
+                    this.player1.moved = 1;
+                }
+            } else if (code == KeyCode.W) {
+                if (this.player1.getVelocityY() <= 0) {
+                    // velocityX to 0 and Y to 1.
+                    this.player1.setVelocityY(-speed1);
+                    this.player1.setVelocityX(0);
+                    this.player1.moved = 1;
+                }
+            } else if (code == KeyCode.S) {
+                if (this.player1.getVelocityY() >= 0) {
+                    // velocityX to 0 and Y to -1.
+                    this.player1.setVelocityY(speed1);
+                    this.player1.setVelocityX(0);
+                    this.player1.moved = 1;
+                }
+                // turbo 1st player?
+            } else if (code == KeyCode.Q) {
+                this.player1_object.consume("turbo");
+                // jump 1st player?
+            } else if (code == KeyCode.E) {
+                this.player1_object.consume("jump");
             }
-        } else if (code == KeyCode.D) {
-            if (this.player1.getVelocityX() >= 0) {
-                // velocityX to 1 and Y to 0.
-                this.player1.setVelocityY(0);
-                this.player1.setVelocityX(speed1);
-            }
-        } else if (code == KeyCode.W) {
-            if (this.player1.getVelocityY() <= 0) {
-                // velocityX to 0 and Y to 1.
-                this.player1.setVelocityY(-speed1);
-                this.player1.setVelocityX(0);
-            }
-        } else if (code == KeyCode.S) {
-            if (this.player1.getVelocityY() >= 0) {
-                // velocityX to 0 and Y to -1.
-                this.player1.setVelocityY(speed1);
-                this.player1.setVelocityX(0);
-            }
-        // turbo 1st player?
-        } else if (code == KeyCode.Q) {
-            this.player1_object.consume("turbo");
-        // jump 1st player?
-        } else if (code == KeyCode.E) {
-            this.player1_object.consume("jump");
         }
 
         // if no critical key is pressed, we do not need to do anything to the
