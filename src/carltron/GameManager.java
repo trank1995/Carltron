@@ -71,8 +71,8 @@ public class GameManager implements EventHandler<KeyEvent> {
     @FXML private Label player2TurboLabel;
     @FXML private Label player1JumpLabel;
     @FXML private Label player2JumpLabel;
-    @FXML private Label player1LifeLabel;
-    @FXML private Label player2LifeLabel;
+    @FXML private Label player1ScoreLabel;
+    @FXML private Label player2ScoreLabel;
 
     @FXML private SplitPane game_stats_pane1;
     @FXML private SplitPane game_stats_pane2;

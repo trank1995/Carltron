@@ -49,9 +49,10 @@
                                                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                         </rowConstraints>
                                                         <children>
-                                                            <Label text="Life" textAlignment="CENTER"/>
+                                                            <Label text="Score"
+                                                                   textAlignment="CENTER"/>
                                                             <Label
-                                                                    fx:id="player1LifeLabel" text="3" textAlignment="CENTER" GridPane.rowIndex="1" />
+                                                                    fx:id="player1ScoreLabel" text="0" textAlignment="CENTER" GridPane.rowIndex="1" />
                                                             <Label
                                                                     text="Turbo" textAlignment="CENTER" GridPane.columnIndex="1" />
                                                             <Label
@@ -96,9 +97,9 @@
                                                         </rowConstraints>
                                                         <children>
                                                             <Label
-                                                                    text="Life" textAlignment="CENTER" />
+                                                                    text="Score" textAlignment="CENTER" />
                                                             <Label
-                                                                    fx:id="player2LifeLabel" text="3" textAlignment="CENTER" GridPane.rowIndex="1" />
+                                                                    fx:id="player2ScoreLabel" text="0" textAlignment="CENTER" GridPane.rowIndex="1" />
                                                             <Label
                                                                     text="Turbo" textAlignment="CENTER" GridPane.columnIndex="1" />
                                                             <Label
