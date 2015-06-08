@@ -252,84 +252,25 @@ public class GameManager implements EventHandler<KeyEvent> {
         boolean player2_off_grid = collisionWithWall(player2X_new,
                                                      player2Y_new);
 
+        // draw (tie), as both players went off the grid.
         if ((player1_off_grid == true) && (player2_off_grid == true)) {
             // draw
             this.win = 0;
             this.timer.cancel();
             return false;
+        // player1 wins as player2 went off the grid.
         } else if (player2_off_grid == true) {
             // player1 wins.
             this.win = 1;
             this.timer.cancel();
             return false;
+        // player2 wins as player1 went off the grid.
         } else if (player1_off_grid == true) {
             // player2 wins.
             this.win = 2;
             this.timer.cancel();
             return false;
         }
-
-        ///////////////////////
-//        // player1 went of the grid (bottom)
-//        if (player1Y_new + this.player1.getHeight() >
-//                this.grid_fxml.getHeight()) {
-//            // crash
-//            this.win = 2;
-//            this.timer.cancel();
-//            return false;
-//        }
-//        // player1 went of the grid (top)
-//        if (player1Y_new < 0) {
-//            // crash
-//            this.win = 2;
-//            this.timer.cancel();
-//            return false;
-//        }
-//        // player1 went of the grid (left)
-//        if (player1X_new < 0) {
-//            // crash
-//            this.win = 2;
-//            this.timer.cancel();
-//            return false;
-//        }
-//        // player1 went of the grid (right)
-//        if (player1X_new + this.player1.getWidth() >
-//                this.grid_fxml.getWidth()) {
-//            // crash
-//            this.win = 2;
-//            this.timer.cancel();
-//            return false;
-//        }
-//        // player2 went of the grid (bottom)
-//        if (player2Y_new + this.player2.getHeight() >
-//                this.grid_fxml.getHeight()) {
-//            // crash
-//            this.win = 1;
-//            this.timer.cancel();
-//            return false;
-//        }
-//        // player2 went of the grid (top)
-//        if (player2Y_new < 0) {
-//            // crash
-//            this.win = 1;
-//            this.timer.cancel();
-//            return false;
-//        }
-//        // player2 went of the grid (left)
-//        if (player2X_new < 0) {
-//            // crash
-//            this.win = 1;
-//            this.timer.cancel();
-//            return false;
-//        }
-//        // player2 went of the grid (right)
-//        if (player2X_new + this.player2.getWidth() > this.grid_fxml.getWidth())
-//        {
-//            // crash
-//            this.win = 1;
-//            this.timer.cancel();
-//            return false;
-//        }
 
 
         // collision is only when their position overlap.
