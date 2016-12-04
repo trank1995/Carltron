@@ -11,6 +11,10 @@ How to build Carltron:
 - alternatively, right click on the Main file after opening the repository in
   IntelliJ and click 'Run Main.main()'.
 
+How to run game without building:
+- open up the terminal/command prompt
+- "cd Carltron\out\production\carltron"
+- "java carltron.Main"
 Current Features:
 - ability to play 2-player mode.
 - ability to go to a screen that has instructions / rules.
